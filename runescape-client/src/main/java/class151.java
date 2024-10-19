@@ -1,60 +1,58 @@
+import java.io.File;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fq")
-public class class151 extends class147 {
-	@ObfuscatedName("fk")
-	@ObfuscatedSignature(
-		descriptor = "Loz;"
-	)
-	static Archive field1715;
-	@ObfuscatedName("aq")
+@ObfuscatedName("fk")
+public class class151 extends class150 {
+	@ObfuscatedName("aj")
+	static File field1708;
+	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = 278243013
+		intValue = 225519357
 	)
-	int field1712;
-	@ObfuscatedName("ad")
-	byte field1716;
+	int field1705;
+	@ObfuscatedName("aw")
+	boolean field1707;
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lfn;"
+		descriptor = "Lfz;"
 	)
-	final class150 this$0;
+	final class153 this$0;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lfn;)V"
+		descriptor = "(Lfz;)V"
 	)
-	class151(class150 var1) {
+	class151(class153 var1) {
 		this.this$0 = var1;
-		this.field1712 = -1;
+		this.field1705 = -1;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(Lvp;B)V",
-		garbageValue = "118"
+		descriptor = "(Lvl;I)V",
+		garbageValue = "-1813719027"
 	)
-	void vmethod3528(Buffer var1) {
-		this.field1712 = var1.readUnsignedShort();
-		this.field1716 = var1.readByte();
+	void vmethod3822(Buffer var1) {
+		this.field1705 = var1.readUnsignedShort();
+		this.field1707 = var1.readUnsignedByte() == 1;
 	}
 
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(Lgk;B)V",
-		garbageValue = "3"
+		descriptor = "(Lgy;I)V",
+		garbageValue = "-2079483058"
 	)
-	void vmethod3530(ClanSettings var1) {
-		var1.method3360(this.field1712, this.field1716);
+	void vmethod3821(ClanSettings var1) {
+		var1.method3666(this.field1705, this.field1707);
 	}
 
-	@ObfuscatedName("it")
+	@ObfuscatedName("ne")
 	@ObfuscatedSignature(
-		descriptor = "(IB)I",
-		garbageValue = "57"
+		descriptor = "(I)V",
+		garbageValue = "1697292236"
 	)
-	static final int method3293(int var0) {
-		return Math.min(Math.max(var0, 128), 383);
+	static final void method3583() {
+		Client.field586 = Client.cycleCntr;
 	}
 }

@@ -1,5 +1,6 @@
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
@@ -7,56 +8,76 @@ import net.runelite.mapping.ObfuscatedSignature;
 @Implements("PlayerCompositionColorTextureOverride")
 public class PlayerCompositionColorTextureOverride {
 	@ObfuscatedName("ai")
-	@ObfuscatedSignature(
-		descriptor = "Lez;"
-	)
-	@Export("World_request")
-	static UrlRequest World_request;
-	@ObfuscatedName("ag")
 	@Export("playerCompositionRecolorTo")
 	public short[] playerCompositionRecolorTo;
-	@ObfuscatedName("ak")
+	@ObfuscatedName("ay")
 	@Export("playerCompositionRetextureTo")
 	public short[] playerCompositionRetextureTo;
+	@ObfuscatedName("as")
+	@ObfuscatedGetter(
+		intValue = -696863097
+	)
+	public int field1868;
+	@ObfuscatedName("ae")
+	@ObfuscatedGetter(
+		intValue = 1537294829
+	)
+	public int field1873;
+	@ObfuscatedName("am")
+	@ObfuscatedGetter(
+		intValue = 691042437
+	)
+	public int field1874;
+	@ObfuscatedName("at")
+	@ObfuscatedGetter(
+		intValue = 1412606641
+	)
+	public int field1875;
+	@ObfuscatedName("au")
+	@ObfuscatedGetter(
+		intValue = 1581438825
+	)
+	public int field1876;
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "Ljy;"
+	)
+	public Model field1867;
 
-	PlayerCompositionColorTextureOverride(int var1) {
-		ItemComposition var2 = class164.ItemDefinition_get(var1);
-		if (var2.method3977()) {
+	public PlayerCompositionColorTextureOverride(int var1) {
+		this.field1868 = -1;
+		this.field1873 = -1;
+		this.field1874 = -1;
+		this.field1875 = -1;
+		ItemComposition var2 = Bounds.ItemDefinition_get(var1);
+		if (var2.method4273()) {
 			this.playerCompositionRecolorTo = new short[var2.recolorTo.length];
 			System.arraycopy(var2.recolorTo, 0, this.playerCompositionRecolorTo, 0, this.playerCompositionRecolorTo.length);
 		}
 
-		if (var2.method3978()) {
+		if (var2.method4288()) {
 			this.playerCompositionRetextureTo = new short[var2.retextureTo.length];
 			System.arraycopy(var2.retextureTo, 0, this.playerCompositionRetextureTo, 0, this.playerCompositionRetextureTo.length);
 		}
 
+		this.field1876 = var2.model;
 	}
 
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(II)Lfr;",
-		garbageValue = "65367968"
+		descriptor = "(I)Z",
+		garbageValue = "39274700"
 	)
-	static class143 method3537(int var0) {
-		class143[] var1 = new class143[]{class143.field1663, class143.field1666, class143.field1662, class143.field1667, class143.field1671, class143.field1670, class143.field1668, class143.field1664, class143.field1669};
-		class143 var2 = (class143)class210.findEnumerated(var1, var0);
-		if (var2 == null) {
-			var2 = class143.field1669;
-		}
-
-		return var2;
+	public boolean method3829() {
+		return this.playerCompositionRecolorTo != null;
 	}
 
-	@ObfuscatedName("ag")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "([BB)[B",
-		garbageValue = "52"
+		descriptor = "(I)Z",
+		garbageValue = "1317446268"
 	)
-	static byte[] method3539(byte[] var0) {
-		int var1 = var0.length;
-		byte[] var2 = new byte[var1];
-		System.arraycopy(var0, 0, var2, 0, var1);
-		return var2;
+	public boolean method3830() {
+		return this.playerCompositionRetextureTo != null;
 	}
 }

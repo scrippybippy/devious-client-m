@@ -30,19 +30,19 @@ buildscript {
         mavenLocal()
         mavenCentral()
         maven(url = "https://repo.runelite.net")
-        maven(url = "https://raw.githubusercontent.com/jbx5/hosting/master")
-        maven(url = "https://raw.githubusercontent.com/jbx5/devious-hosting/master")
+        maven(url = "https://raw.githubusercontent.com/melxin/devious-artifacts/master")
+        maven(url = "https://raw.githubusercontent.com/melxin/devious-hosting/master")
     }
     dependencies {
-        classpath("org.ajoberstar.grgit:grgit-core:4.1.0")
+        classpath("org.ajoberstar.grgit:grgit-core:5.2.2")
         classpath("com.openosrs:script-assembler-plugin:1.0.2")
-        classpath("com.openosrs:injector-plugin:2.0.26")
-        classpath("com.openosrs:interface-parser-plugin:1.0.2")
+        classpath("com.openosrs:injector-plugin:2.0.28")
+        classpath("com.openosrs:interface-parser-plugin:1.0.3")
     }
 }
 
 plugins {
-    id("org.ajoberstar.grgit") version "4.1.0"
+    id("org.ajoberstar.grgit") version "5.2.2"
 
     application
 }
@@ -93,7 +93,7 @@ subprojects {
         exclusiveContent {
             forRepository {
                 maven {
-                    url = uri("https://raw.githubusercontent.com/jbx5/hosting/master")
+                    url = uri("https://raw.githubusercontent.com/melxin/devious-artifacts/master")
                 }
             }
             filter {

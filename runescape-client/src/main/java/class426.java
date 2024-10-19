@@ -1,55 +1,221 @@
-import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("qu")
+@ObfuscatedName("qt")
 public class class426 {
-	@ObfuscatedName("aq")
-	float[] field4722;
-	@ObfuscatedName("ad")
-	@ObfuscatedGetter(
-		intValue = 1741438289
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "Lqt;"
 	)
-	int field4723;
+	public static final class426 field4767;
+	@ObfuscatedName("aw")
+	@ObfuscatedSignature(
+		descriptor = "Lqt;"
+	)
+	public static final class426 field4773;
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "[Lqt;"
+	)
+	public static class426[] field4768;
+	@ObfuscatedName("aj")
+	@ObfuscatedGetter(
+		intValue = -306951475
+	)
+	static int field4769;
+	@ObfuscatedName("ai")
+	@ObfuscatedGetter(
+		intValue = 937612641
+	)
+	public static int field4770;
+	@ObfuscatedName("ay")
+	public float field4771;
+	@ObfuscatedName("as")
+	float field4772;
+	@ObfuscatedName("ae")
+	public float field4766;
 
-	class426(float[] var1, int var2) {
-		this.field4722 = var1;
-		this.field4723 = var2;
+	static {
+		new class426(0.0F, 0.0F, 0.0F);
+		new class426(1.0F, 1.0F, 1.0F);
+		new class426(1.0F, 0.0F, 0.0F);
+		field4767 = new class426(0.0F, 1.0F, 0.0F);
+		new class426(0.0F, 0.0F, 1.0F);
+		new class426(1.0F, 0.0F, 0.0F);
+		new class426(-1.0F, 0.0F, 0.0F);
+		new class426(0.0F, 0.0F, 1.0F);
+		field4773 = new class426(0.0F, 0.0F, -1.0F);
+		new class426(0.0F, 1.0F, 0.0F);
+		new class426(0.0F, -1.0F, 0.0F);
+		field4768 = new class426[0];
+		field4769 = 100;
+		field4768 = new class426[100];
+		field4770 = 0;
 	}
 
-	@ObfuscatedName("kg")
+	public class426(float var1, float var2, float var3) {
+		this.field4771 = var1;
+		this.field4772 = var2;
+		this.field4766 = var3;
+	}
+
+	public class426() {
+	}
+
 	@ObfuscatedSignature(
-		descriptor = "(Lde;IIIIII)V",
-		garbageValue = "-1866067100"
+		descriptor = "(Lqt;)V"
 	)
-	@Export("worldToScreen")
-	static void worldToScreen(WorldView var0, int var1, int var2, int var3, int var4, int var5) {
-		if (var1 >= 128 && 13056 >= var1 && var2 >= 128 && 13056 >= var2) {
-			int var6 = class169.getTileHeight(var0, var3, var4, var0.plane) - var5;
-			var1 -= class47.cameraX;
-			var6 -= class328.cameraY;
-			var2 -= class60.cameraZ;
-			int var7 = Rasterizer3D.Rasterizer3D_sine[Language.cameraPitch];
-			int var8 = Rasterizer3D.Rasterizer3D_cosine[Language.cameraPitch];
-			int var9 = Rasterizer3D.Rasterizer3D_sine[class337.cameraYaw];
-			int var10 = Rasterizer3D.Rasterizer3D_cosine[class337.cameraYaw];
-			int var11 = var9 * var2 + var10 * var1 >> 16;
-			var2 = var10 * var2 - var9 * var1 >> 16;
-			var1 = var11;
-			var11 = var8 * var6 - var7 * var2 >> 16;
-			var2 = var8 * var2 + var6 * var7 >> 16;
-			if (var2 >= 50) {
-				Client.viewportTempY = Client.viewportWidth / 2 + Client.viewportZoom * var1 / var2;
-				Client.viewportTempY = Client.viewportHeight / 2 + var11 * Client.viewportZoom / var2;
-			} else {
-				Client.viewportTempY = -1;
-				Client.viewportTempY = -1;
+	public class426(class426 var1) {
+		this.field4771 = var1.field4771;
+		this.field4772 = var1.field4772;
+		this.field4766 = var1.field4766;
+	}
+
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "16711680"
+	)
+	public void method8168() {
+		synchronized(field4768) {
+			if (field4770 < field4769 - 1) {
+				field4768[++field4770 - 1] = this;
 			}
 
-		} else {
-			Client.viewportTempY = -1;
-			Client.viewportTempY = -1;
 		}
+	}
+
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "(FFFI)V",
+		garbageValue = "-1603121434"
+	)
+	public void method8200(float var1, float var2, float var3) {
+		this.field4771 = var1;
+		this.field4772 = var2;
+		this.field4766 = var3;
+	}
+
+	@ObfuscatedName("ai")
+	@ObfuscatedSignature(
+		descriptor = "(Lqt;I)V",
+		garbageValue = "-980308502"
+	)
+	public void method8169(class426 var1) {
+		this.method8200(var1.field4771, var1.field4772, var1.field4766);
+	}
+
+	@ObfuscatedName("ay")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "1421845236"
+	)
+	final void method8202() {
+		this.field4766 = 0.0F;
+		this.field4772 = 0.0F;
+		this.field4771 = 0.0F;
+	}
+
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "(Lqt;B)Z",
+		garbageValue = "-66"
+	)
+	boolean method8171(class426 var1) {
+		return this.field4771 == var1.field4771 && var1.field4772 == this.field4772 && this.field4766 == var1.field4766;
+	}
+
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "1066170556"
+	)
+	public final void method8172() {
+		float var1 = 1.0F / this.method8186();
+		this.field4771 *= var1;
+		this.field4772 *= var1;
+		this.field4766 *= var1;
+	}
+
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "(Lqt;I)V",
+		garbageValue = "-1203805015"
+	)
+	final void method8173(class426 var1) {
+		this.field4771 += var1.field4771;
+		this.field4772 += var1.field4772;
+		this.field4766 += var1.field4766;
+	}
+
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(Lqt;B)V",
+		garbageValue = "1"
+	)
+	public final void method8196(class426 var1) {
+		this.field4771 -= var1.field4771;
+		this.field4772 -= var1.field4772;
+		this.field4766 -= var1.field4766;
+	}
+
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "(Lqt;I)F",
+		garbageValue = "-1837312681"
+	)
+	public final float method8176(class426 var1) {
+		return var1.field4766 * this.field4766 + this.field4771 * var1.field4771 + var1.field4772 * this.field4772;
+	}
+
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "(Lqt;B)V",
+		garbageValue = "61"
+	)
+	public final void method8175(class426 var1) {
+		this.method8200(var1.field4766 * this.field4772 - var1.field4772 * this.field4766, var1.field4771 * this.field4766 - var1.field4766 * this.field4771, this.field4771 * var1.field4772 - var1.field4771 * this.field4772);
+	}
+
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "(S)F",
+		garbageValue = "-10964"
+	)
+	final float method8186() {
+		return (float)Math.sqrt((double)(this.field4766 * this.field4766 + this.field4772 * this.field4772 + this.field4771 * this.field4771));
+	}
+
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "(FI)V",
+		garbageValue = "-1096645015"
+	)
+	final void method8177(float var1) {
+		this.field4771 *= var1;
+		this.field4772 *= var1;
+		this.field4766 *= var1;
+	}
+
+	public String toString() {
+		return this.field4771 + ", " + this.field4772 + ", " + this.field4766;
+	}
+
+	@ObfuscatedName("jt")
+	@ObfuscatedSignature(
+		descriptor = "(IIB)I",
+		garbageValue = "22"
+	)
+	static int method8219(int var0, int var1) {
+		int var2 = var1 - 334;
+		if (var2 < 0) {
+			var2 = 0;
+		} else if (var2 > 100) {
+			var2 = 100;
+		}
+
+		int var3 = (Client.zoomWidth - Client.zoomHeight) * var2 / 100 + Client.zoomHeight;
+		return var0 * var3 / 256;
 	}
 }

@@ -4,122 +4,123 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("oa")
+@ObfuscatedName("oo")
 @Implements("PlayerType")
 public enum PlayerType implements Enum {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Loa;"
+		descriptor = "Loo;"
 	)
 	@Export("PlayerType_normal")
 	PlayerType_normal(0, -1, true, false, true),
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "Loa;"
+		descriptor = "Loo;"
 	)
 	@Export("PlayerType_playerModerator")
 	PlayerType_playerModerator(1, 0, true, true, true),
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Loa;"
+		descriptor = "Loo;"
 	)
 	@Export("PlayerType_jagexModerator")
 	PlayerType_jagexModerator(2, 1, true, true, false),
-	@ObfuscatedName("ak")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Loa;"
+		descriptor = "Loo;"
 	)
 	@Export("PlayerType_ironman")
 	PlayerType_ironman(3, 2, false, false, true),
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
-		descriptor = "Loa;"
+		descriptor = "Loo;"
 	)
 	@Export("PlayerType_ultimateIronman")
 	PlayerType_ultimateIronman(4, 3, false, false, true),
-	@ObfuscatedName("an")
+	@ObfuscatedName("ay")
 	@ObfuscatedSignature(
-		descriptor = "Loa;"
+		descriptor = "Loo;"
 	)
 	@Export("PlayerType_hardcoreIronman")
 	PlayerType_hardcoreIronman(5, 10, false, false, true),
-	@ObfuscatedName("aj")
+	@ObfuscatedName("as")
 	@ObfuscatedSignature(
-		descriptor = "Loa;"
+		descriptor = "Loo;"
 	)
-	field4450(6, 22, false, false, true),
-	@ObfuscatedName("av")
-	@ObfuscatedSignature(
-		descriptor = "Loa;"
-	)
-	field4448(7, 41, false, false, true),
-	@ObfuscatedName("ab")
-	@ObfuscatedSignature(
-		descriptor = "Loa;"
-	)
-	field4449(8, 42, false, false, true),
-	@ObfuscatedName("ai")
-	@ObfuscatedSignature(
-		descriptor = "Loa;"
-	)
-	field4441(9, 43, false, false, true),
+	field4510(6, 22, false, false, true),
 	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "Loa;"
+		descriptor = "Loo;"
 	)
-	field4451(10, 44, false, false, true),
+	field4519(7, 41, false, false, true),
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "Loo;"
+	)
+	field4514(8, 42, false, false, true),
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "Loo;"
+	)
+	field4513(9, 43, false, false, true),
 	@ObfuscatedName("au")
 	@ObfuscatedSignature(
-		descriptor = "Loa;"
+		descriptor = "Loo;"
 	)
-	field4462(11, 45, false, false, true),
-	@ObfuscatedName("ah")
+	field4512(10, 44, false, false, true),
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "Loa;"
+		descriptor = "Loo;"
 	)
-	field4453(12, 46, false, false, true),
+	field4515(11, 45, false, false, true),
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Loo;"
+	)
+	field4521(12, 46, false, false, true),
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "Loo;"
+	)
+	field4517(13, 47, false, false, true),
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "Loo;"
+	)
+	field4518(14, 48, false, false, true),
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "Loo;"
+	)
+	field4516(15, 49, false, false, true),
 	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "Loa;"
+		descriptor = "Loo;"
 	)
-	field4454(13, 47, false, false, true),
-	@ObfuscatedName("ax")
-	@ObfuscatedSignature(
-		descriptor = "Loa;"
-	)
-	field4455(14, 48, false, false, true),
-	@ObfuscatedName("ac")
-	@ObfuscatedSignature(
-		descriptor = "Loa;"
-	)
-	field4456(15, 49, false, false, true),
-	@ObfuscatedName("al")
-	@ObfuscatedSignature(
-		descriptor = "Loa;"
-	)
-	field4457(16, 52, false, false, true);
+	field4509(16, 52, false, false, true);
 
-	@ObfuscatedName("ro")
-	@ObfuscatedSignature(
-		descriptor = "Lur;"
-	)
-	static class529 field4444;
-	@ObfuscatedName("ay")
+	@ObfuscatedName("kv")
 	@ObfuscatedGetter(
-		intValue = 2130659373
+		intValue = -892337617
+	)
+	@Export("cameraZ")
+	static int cameraZ;
+	@ObfuscatedName("ag")
+	@ObfuscatedGetter(
+		intValue = 178923161
 	)
 	@Export("id")
 	final int id;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ad")
 	@ObfuscatedGetter(
-		intValue = -1013815813
+		intValue = 145246295
 	)
 	@Export("modIcon")
 	public final int modIcon;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ac")
 	@Export("isPrivileged")
 	public final boolean isPrivileged;
-	@ObfuscatedName("as")
+	@ObfuscatedName("av")
 	@Export("isUser")
 	public final boolean isUser;
 
@@ -130,10 +131,10 @@ public enum PlayerType implements Enum {
 		this.isUser = var7;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "2071992588"
+		garbageValue = "1837624059"
 	)
 	@Export("rsOrdinal")
 	public int rsOrdinal() {

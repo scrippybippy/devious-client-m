@@ -6,396 +6,255 @@ import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("so")
 @Implements("WorldEntity")
-public class WorldEntity implements class67 {
-	@ObfuscatedName("fe")
-	@ObfuscatedSignature(
-		descriptor = "Loz;"
-	)
-	@Export("archive12")
-	static Archive archive12;
-	@ObfuscatedName("aq")
-	@ObfuscatedGetter(
-		intValue = -718963057
-	)
-	int field4966;
-	@ObfuscatedName("ad")
-	@ObfuscatedGetter(
-		intValue = 1090116467
-	)
-	public int field4964;
-	@ObfuscatedName("ag")
-	@ObfuscatedGetter(
-		intValue = 663953355
-	)
-	public int field4963;
-	@ObfuscatedName("ak")
-	@ObfuscatedGetter(
-		intValue = 953925525
-	)
-	public int field4968;
+public class WorldEntity implements Entity {
 	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = -323233339
+		intValue = -250587611
 	)
-	public int field4967;
-	@ObfuscatedName("an")
+	@Export("plane")
+	int plane;
+	@ObfuscatedName("aw")
 	@ObfuscatedGetter(
-		intValue = 255992747
+		intValue = 1642096775
 	)
-	public int field4973;
-	@ObfuscatedName("aj")
-	@ObfuscatedGetter(
-		intValue = 1530400209
-	)
-	public int field4969;
-	@ObfuscatedName("av")
-	@ObfuscatedGetter(
-		intValue = -293479555
-	)
-	public int field4970;
-	@ObfuscatedName("ab")
+	public int field5031;
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lde;"
+		descriptor = "Ldn;"
 	)
 	@Export("worldView")
 	public WorldView worldView;
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "Lkt;"
+	)
+	@Export("worldEntityCoord")
+	public final WorldEntityCoord worldEntityCoord;
 	@ObfuscatedName("ai")
+	@ObfuscatedSignature(
+		descriptor = "[Lsb;"
+	)
+	class481[] field5034;
+	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
-		intValue = 579113171
+		intValue = 1439610543
 	)
-	int field4972;
+	int field5035;
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "Lsy;"
+	)
+	class482 field5036;
 	@ObfuscatedName("ae")
-	public int[] field4974;
+	boolean field5032;
+
+	@ObfuscatedSignature(
+		descriptor = "(ILdn;)V"
+	)
+	public WorldEntity(int var1, WorldView var2) {
+		this.plane = 0;
+		this.worldEntityCoord = new WorldEntityCoord();
+		this.field5034 = new class481[10];
+		this.field5035 = 0;
+		this.field5036 = new class483();
+		this.field5032 = false;
+		this.worldView = var2;
+		this.field5035 = 0;
+
+		for (int var3 = 0; var3 < 10; ++var3) {
+			this.field5034[var3] = new class481();
+		}
+
+	}
+
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(B)I",
+		garbageValue = "86"
+	)
+	@Export("getX")
+	public int getX() {
+		return this.worldEntityCoord.getX();
+	}
+
+	@ObfuscatedName("aw")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "-968853557"
+	)
+	@Export("getY")
+	public int getY() {
+		return this.worldEntityCoord.getY();
+	}
+
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(B)I",
+		garbageValue = "-40"
+	)
+	@Export("getPlane")
+	public int getPlane() {
+		return this.plane;
+	}
+
 	@ObfuscatedName("au")
-	public int[] field4965;
-	@ObfuscatedName("ah")
-	@ObfuscatedSignature(
-		descriptor = "[Ljb;"
-	)
-	class238[] field4975;
-
-	public WorldEntity(int var1, int var2, int var3, int var4) {
-		this.field4966 = 0;
-		this.field4964 = 0;
-		this.field4963 = 2;
-		this.field4968 = 0;
-		this.field4967 = -1;
-		this.field4973 = -1;
-		this.field4969 = -1;
-		this.field4970 = 0;
-		this.field4972 = 0;
-		this.field4974 = new int[10];
-		this.field4965 = new int[10];
-		this.field4975 = new class238[10];
-		this.worldView = new WorldView(var1, var2, var3, var4);
-	}
-
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "-1094315846"
-	)
-	public int vmethod8670() {
-		return this.field4967;
-	}
-
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "-1560683435"
-	)
-	public int vmethod8671() {
-		return this.field4969;
-	}
-
-	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "1219894600"
-	)
-	public int vmethod8672() {
-		return this.field4966;
-	}
-
-	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "-286093061"
+		garbageValue = "-1334638951"
 	)
-	public void method8669() {
+	@Export("initScenePlane")
+	public void initScenePlane() {
 		this.worldView.scene.Scene_plane = this.worldView.plane;
+	}
+
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "818730252"
+	)
+	@Export("getZ")
+	public int getZ() {
+		return this.worldEntityCoord.getZ();
+	}
+
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "327814629"
+	)
+	public int method9147() {
+		return this.worldEntityCoord.getCurrentRotationAngle();
+	}
+
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "-1217058965"
+	)
+	public int method9148() {
+		return Math.max(this.worldView.sizeX, this.worldView.sizeY) * 128;
+	}
+
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "(B)Lkt;",
+		garbageValue = "-88"
+	)
+	public WorldEntityCoord method9149() {
+		return this.field5034[0].field5040;
+	}
+
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "(III)V",
+		garbageValue = "636015096"
+	)
+	@Export("setPosition")
+	public void setPosition(int var1, int var2) {
+		for (int var3 = 0; var3 < this.field5035; ++var3) {
+			this.field5034[var3].field5040.setDirection(var1, var2);
+		}
+
+		this.worldEntityCoord.setDirection(var1, var2);
+		this.field5036.vmethod9204(var1, var2);
 	}
 
 	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(IILjb;I)V",
-		garbageValue = "2140785958"
+		descriptor = "(Lkt;I)V",
+		garbageValue = "-2009040930"
 	)
-	public final void method8684(int var1, int var2, class238 var3) {
-		if (var1 >= 0 && var1 < 104 && var2 >= 0 && var2 < 104) {
-			if (this.field4974[0] >= 0 && this.field4974[0] < 104 && this.field4965[0] >= 0 && this.field4965[0] < 104) {
-				this.method8674(var1, var2, var3);
-			} else {
-				this.method8679(var1, var2);
-			}
+	public final void method9151(WorldEntityCoord var1) {
+		int var2 = var1.getTileX();
+		int var3 = var1.getTileY();
+		if (var2 >= 0 && var2 < 104 && var3 >= 0 && var3 < 104) {
+			int var4 = var1.getX() - this.field5034[0].field5040.getX();
+			int var5 = var1.getY() - this.field5034[0].field5040.getY();
+			this.method9168(var1, Math.abs(var4), Math.abs(var5));
 		} else {
-			this.method8679(var1, var2);
+			this.method9152(var1);
 		}
 
 	}
 
-	@ObfuscatedName("ax")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(III)V",
-		garbageValue = "1231397915"
+		descriptor = "(Lkt;I)V",
+		garbageValue = "-262959930"
 	)
-	public void method8679(int var1, int var2) {
-		this.field4972 = 0;
-		this.field4974[0] = var1;
-		this.field4965[0] = var2;
-		byte var3 = 1;
-		this.field4967 = var3 * 64 + this.field4974[0] * 128;
-		this.field4969 = var3 * 64 + this.field4965[0] * 128;
+	public void method9152(WorldEntityCoord var1) {
+		this.worldEntityCoord.method5771(var1);
+		this.field5034[0].field5040.method5771(var1);
+		this.field5035 = 0;
+	}
+
+	@ObfuscatedName("ad")
+	@ObfuscatedSignature(
+		descriptor = "(Lkt;III)V",
+		garbageValue = "-52492117"
+	)
+	void method9168(WorldEntityCoord var1, int var2, int var3) {
+		if (this.field5035 < 9) {
+			++this.field5035;
+		}
+
+		for (int var4 = this.field5035; var4 > 0; --var4) {
+			class481 var5 = this.field5034[var4];
+			this.field5034[var4] = this.field5034[var4 - 1];
+			this.field5034[var4 - 1] = var5;
+		}
+
+		this.field5034[0].field5040.method5771(var1);
+		this.field5034[0].field5041 = Client.cycle;
 	}
 
 	@ObfuscatedName("ac")
 	@ObfuscatedSignature(
-		descriptor = "(IILjb;I)V",
-		garbageValue = "1637705653"
+		descriptor = "(II)V",
+		garbageValue = "531003044"
 	)
-	final void method8674(int var1, int var2, class238 var3) {
-		if (this.field4972 < 9) {
-			++this.field4972;
-		}
-
-		for (int var4 = this.field4972; var4 > 0; --var4) {
-			this.field4974[var4] = this.field4974[var4 - 1];
-			this.field4965[var4] = this.field4965[var4 - 1];
-			this.field4975[var4] = this.field4975[var4 - 1];
-		}
-
-		this.field4974[0] = var1;
-		this.field4965[0] = var2;
-		this.field4975[0] = var3;
-	}
-
-	@ObfuscatedName("al")
-	@ObfuscatedSignature(
-		descriptor = "(S)V",
-		garbageValue = "18238"
-	)
-	public final void method8673() {
-		int var1 = this.field4964 - this.field4970 & 2047;
-		if (var1 != 0) {
-			boolean var2 = true;
-			boolean var3 = true;
-			int var4 = var1 > 1024 ? -1 : 1;
-			this.field4970 += var4 * (this.field4968 > 0 ? 1 + this.field4963 : this.field4963);
-			--this.field4968;
-			if (var1 < this.field4963 || var1 > 2048 - this.field4963) {
-				this.field4970 = this.field4964;
-			}
-
-			this.field4970 &= 2047;
-		}
-
-		if (this.field4972 == 0) {
-			this.method8679(this.field4974[0], this.field4965[0]);
+	public final void method9154(int var1) {
+		if (this.field5035 == 0) {
+			this.method9152(this.field5034[0].field5040);
 		} else {
-			int var10 = this.field4967;
-			int var11 = this.field4969;
-			byte var12 = 1;
-			int var5 = this.field4974[this.field4972 - 1] * 128 + var12 * 128 / 2;
-			int var6 = this.field4965[this.field4972 - 1] * 128 + var12 * 128 / 2;
-			class238 var7 = this.field4975[this.field4972 - 1];
-			int var8 = (int)(Math.ceil((double)var7.field2517) * 128.0D);
-			if (var5 - var10 <= var8 && var5 - var10 >= -var8 && var6 - var11 <= var8 && var6 - var11 >= -var8) {
-				byte var9 = 4;
-				if (this.field4972 > 2) {
-					var9 = 6;
-				}
-
-				if (this.field4972 > 3) {
-					var9 = 8;
-				}
-
-				int var13 = (int)(var7.field2517 * (float)var9);
-				if (var5 != var10 || var6 != var11) {
-					if (var10 < var5) {
-						this.field4967 += var13;
-						if (this.field4967 > var5) {
-							this.field4967 = var5;
-						}
-					} else if (var10 > var5) {
-						this.field4967 -= var13;
-						if (this.field4967 < var5) {
-							this.field4967 = var5;
-						}
-					}
-
-					if (var11 < var6) {
-						this.field4969 += var13;
-						if (this.field4969 > var6) {
-							this.field4969 = var6;
-						}
-					} else if (var11 > var6) {
-						this.field4969 -= var13;
-						if (this.field4969 < var6) {
-							this.field4969 = var6;
-						}
-					}
-				}
-
-				if (var5 == this.field4967 && var6 == this.field4969) {
-					--this.field4972;
-				}
-
-			} else {
-				this.field4967 = var5;
-				this.field4969 = var6;
-				--this.field4972;
+			if (!this.field5032) {
+				this.field5036.vmethod9203(this.worldEntityCoord, this.field5034[0], var1);
+				this.field5032 = true;
 			}
+
+			if (this.field5036.vmethod9202(this.worldEntityCoord, var1, this.field5035)) {
+				--this.field5035;
+				this.field5032 = false;
+			}
+
 		}
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(ILjava/lang/String;Lpe;IS)Lmb;",
-		garbageValue = "-11325"
+		descriptor = "(III)Lqt;",
+		garbageValue = "-1618837110"
 	)
-	public static PacketBufferNode method8675(int var0, String var1, Language var2, int var3) {
-		PacketBufferNode var4 = class170.getPacketBufferNode(ClientPacket.field3302, Client.packetWriter.isaacCipher);
-		var4.packetBuffer.writeByte(0);
-		int var5 = var4.packetBuffer.offset;
-		var4.packetBuffer.writeByte(var0);
-		String var6 = var1.toLowerCase();
-		int var7 = 0;
-		byte[] var8 = null;
-		if (var6.startsWith("yellow:")) {
-			var7 = 0;
-			var1 = var1.substring("yellow:".length());
-		} else if (var6.startsWith("red:")) {
-			var7 = 1;
-			var1 = var1.substring("red:".length());
-		} else if (var6.startsWith("green:")) {
-			var7 = 2;
-			var1 = var1.substring("green:".length());
-		} else if (var6.startsWith("cyan:")) {
-			var7 = 3;
-			var1 = var1.substring("cyan:".length());
-		} else if (var6.startsWith("purple:")) {
-			var7 = 4;
-			var1 = var1.substring("purple:".length());
-		} else if (var6.startsWith("white:")) {
-			var7 = 5;
-			var1 = var1.substring("white:".length());
-		} else if (var6.startsWith("flash1:")) {
-			var7 = 6;
-			var1 = var1.substring("flash1:".length());
-		} else if (var6.startsWith("flash2:")) {
-			var7 = 7;
-			var1 = var1.substring("flash2:".length());
-		} else if (var6.startsWith("flash3:")) {
-			var7 = 8;
-			var1 = var1.substring("flash3:".length());
-		} else if (var6.startsWith("glow1:")) {
-			var7 = 9;
-			var1 = var1.substring("glow1:".length());
-		} else if (var6.startsWith("glow2:")) {
-			var7 = 10;
-			var1 = var1.substring("glow2:".length());
-		} else if (var6.startsWith("glow3:")) {
-			var7 = 11;
-			var1 = var1.substring("glow3:".length());
-		} else if (var6.startsWith("rainbow:")) {
-			var7 = 12;
-			var1 = var1.substring("rainbow:".length());
-		} else if (var6.startsWith("pattern")) {
-			boolean var10 = true;
-			boolean var11 = true;
-			int var12 = "pattern".length();
-			int var13 = 0;
-			byte[] var14 = new byte[8];
+	public class426 method9155(int var1, int var2) {
+		class422 var3 = new class422();
+		TransformationMatrix var4 = class177.method3843();
+		var3.field4752.method8234(class337.method6771(this.worldEntityCoord.getCurrentRotationAngle()), 0.0F, 0.0F);
+		var3.field4753.method8200((float)this.worldEntityCoord.getX(), 0.0F, (float)this.worldEntityCoord.getY());
+		var1 -= this.worldView.sizeX * 64 + 64;
+		var2 -= this.worldView.sizeY * 64 + 64;
+		var4.method8259(var3);
+		var3.method8127();
+		class426 var5 = var4.method8266((float)var1, 0.0F, (float)var2);
+		var4.method8284();
+		return var5;
+	}
 
-			byte[] var9;
-			while (true) {
-				int var15 = var13 + var12;
-				if (var15 >= var6.length()) {
-					var9 = null;
-					break;
-				}
-
-				char var16 = var6.charAt(var15);
-				if (var16 == ':') {
-					if (var13 == 0) {
-						var9 = null;
-					} else {
-						byte[] var17 = new byte[var13];
-						System.arraycopy(var14, 0, var17, 0, var13);
-						var9 = var17;
-					}
-					break;
-				}
-
-				if (var14.length == var13) {
-					var9 = null;
-					break;
-				}
-
-				if (var16 >= '0' && var16 <= '9') {
-					var16 = (char)(var16 - '0');
-				} else {
-					if (var16 < 'a' || var16 > 'z') {
-						var9 = null;
-						break;
-					}
-
-					var16 = (char)(var16 - 'W');
-				}
-
-				var14[var13++] = (byte)var16;
-			}
-
-			var8 = var9;
-			if (var9 != null) {
-				var7 = var9.length + 12;
-				var1 = var1.substring("pattern".length() + var9.length + 1);
-			}
-		}
-
-		var6 = var1.toLowerCase();
-		byte var18 = 0;
-		if (var6.startsWith("wave:")) {
-			var18 = 1;
-			var1 = var1.substring("wave:".length());
-		} else if (var6.startsWith("wave2:")) {
-			var18 = 2;
-			var1 = var1.substring("wave2:".length());
-		} else if (var6.startsWith("shake:")) {
-			var18 = 3;
-			var1 = var1.substring("shake:".length());
-		} else if (var6.startsWith("scroll:")) {
-			var18 = 4;
-			var1 = var1.substring("scroll:".length());
-		} else if (var6.startsWith("slide:")) {
-			var18 = 5;
-			var1 = var1.substring("slide:".length());
-		}
-
-		var4.packetBuffer.writeByte(var7);
-		var4.packetBuffer.writeByte(var18);
-		if (var8 != null) {
-			for (int var19 = 0; var19 < var8.length; ++var19) {
-				var4.packetBuffer.writeByte(var8[var19]);
-			}
-		}
-
-		class225.method4305(var4.packetBuffer, var1);
-		if (var0 == class366.field4000.rsOrdinal()) {
-			var4.packetBuffer.writeByte(var3);
-		}
-
-		var4.packetBuffer.writeLengthByte(var4.packetBuffer.offset - var5);
-		return var4;
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "(IIII)F",
+		garbageValue = "1541571974"
+	)
+	static float method9165(int var0, int var1, int var2) {
+		return (float)(var0 - var1) / (float)(var2 - var1);
 	}
 }

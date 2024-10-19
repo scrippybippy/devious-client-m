@@ -1,45 +1,27 @@
-import java.awt.Image;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gt")
+@ObfuscatedName("gk")
 @Implements("VarpDefinition")
 public class VarpDefinition extends DualNode {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lok;"
+		descriptor = "Lpe;"
 	)
 	@Export("VarpDefinition_archive")
-	public static AbstractArchive VarpDefinition_archive;
-	@ObfuscatedName("ad")
-	@ObfuscatedGetter(
-		intValue = 1552410659
-	)
-	public static int field1874;
-	@ObfuscatedName("ag")
+	static AbstractArchive VarpDefinition_archive;
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lmo;"
+		descriptor = "Lmi;"
 	)
 	@Export("VarpDefinition_cached")
 	static EvictingDualNodeHashTable VarpDefinition_cached;
-	@ObfuscatedName("bg")
-	static Image field1875;
-	@ObfuscatedName("fu")
-	@ObfuscatedSignature(
-		descriptor = "Loz;"
-	)
-	static Archive field1881;
-	@ObfuscatedName("un")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -436943581
-	)
-	static int field1879;
-	@ObfuscatedName("ak")
-	@ObfuscatedGetter(
-		intValue = -1052630067
+		intValue = 840214293
 	)
 	@Export("type")
 	public int type;
@@ -52,10 +34,10 @@ public class VarpDefinition extends DualNode {
 		this.type = 0;
 	}
 
-	@ObfuscatedName("ad")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Lvp;I)V",
-		garbageValue = "-465096144"
+		descriptor = "(Lvl;I)V",
+		garbageValue = "-1405929075"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
@@ -69,10 +51,10 @@ public class VarpDefinition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("ag")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(Lvp;IB)V",
-		garbageValue = "69"
+		descriptor = "(Lvl;IB)V",
+		garbageValue = "126"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
@@ -82,13 +64,12 @@ public class VarpDefinition extends DualNode {
 
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(CI)Z",
-		garbageValue = "-930414471"
+		descriptor = "([F[II)V",
+		garbageValue = "961902737"
 	)
-	@Export("isAlphaNumeric")
-	public static boolean isAlphaNumeric(char var0) {
-		return var0 >= '0' && var0 <= '9' || var0 >= 'A' && var0 <= 'Z' || var0 >= 'a' && var0 <= 'z';
+	public static void method3866(float[] var0, int[] var1) {
+		class544.method9950(var0, var1, 0, var0.length - 1);
 	}
 }

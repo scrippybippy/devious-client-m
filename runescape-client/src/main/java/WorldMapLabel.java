@@ -1,36 +1,37 @@
+import java.util.ArrayList;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("km")
+@ObfuscatedName("lp")
 @Implements("WorldMapLabel")
 public class WorldMapLabel {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@Export("text")
 	String text;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedGetter(
-		intValue = 265924559
+		intValue = -1550855137
 	)
 	@Export("width")
 	int width;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = -2136908715
+		intValue = 874402339
 	)
 	@Export("height")
 	int height;
-	@ObfuscatedName("ak")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Ljx;"
+		descriptor = "Lkv;"
 	)
 	@Export("size")
 	WorldMapLabelSize size;
 
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;IILjx;)V"
+		descriptor = "(Ljava/lang/String;IILkv;)V"
 	)
 	WorldMapLabel(String var1, int var2, int var3, WorldMapLabelSize var4) {
 		this.text = var1;
@@ -39,42 +40,28 @@ public class WorldMapLabel {
 		this.size = var4;
 	}
 
-	@ObfuscatedName("ad")
+	@ObfuscatedName("ay")
 	@ObfuscatedSignature(
-		descriptor = "([FIFI)F",
-		garbageValue = "784704657"
+		descriptor = "(IIIIB)V",
+		garbageValue = "-122"
 	)
-	static float method5003(float[] var0, int var1, float var2) {
-		float var3 = var0[var1];
-
-		for (int var4 = var1 - 1; var4 >= 0; --var4) {
-			var3 = var3 * var2 + var0[var4];
+	public static void method6291(int var0, int var1, int var2, int var3) {
+		if (class333.musicSongs.size() > 1 && class333.musicSongs.get(0) != null && ((MusicSong)class333.musicSongs.get(0)).midiPcmStream.isReady() && class333.musicSongs.get(1) != null && ((MusicSong)class333.musicSongs.get(1)).midiPcmStream.isReady()) {
+			class333.musicPlayerStatus = var0;
+			class333.field3631 = var1;
+			class333.field3632 = var2;
+			class333.field3633 = var3;
+			class333.field3623.add(new SwapSongTask((SongTask)null));
+			ArrayList var4 = new ArrayList();
+			var4.add(new DelayFadeTask(new FadeInTask((SongTask)null, 1, false, class333.field3633), class333.field3632));
+			var4.add(new DelayFadeTask(new FadeOutTask((SongTask)null, 0, false, class333.field3631), class333.musicPlayerStatus));
+			class333.field3623.add(new ConcurrentMidiTask((SongTask)null, var4));
+			if (class333.field3628.get(0) != null && class333.field3628.get(1) != null) {
+				MusicSong var5 = (MusicSong)class333.field3628.get(0);
+				class333.field3628.set(0, class333.musicSongs.get(1));
+				class333.field3628.set(1, var5);
+			}
 		}
 
-		return var3;
-	}
-
-	@ObfuscatedName("be")
-	@ObfuscatedSignature(
-		descriptor = "(ILdg;ZI)I",
-		garbageValue = "-14417832"
-	)
-	static int method5004(int var0, Script var1, boolean var2) {
-		int var3;
-		if (var0 == 3500) {
-			var3 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize];
-			Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = Client.indexCheck.isValidIndexInRange(var3) ? 1 : 0;
-			return 1;
-		} else if (var0 == 3501) {
-			var3 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize];
-			Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = Client.indexCheck.method4383(var3) ? 1 : 0;
-			return 1;
-		} else if (var0 == 3502) {
-			var3 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize];
-			Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = Client.indexCheck.method4385(var3) ? 1 : 0;
-			return 1;
-		} else {
-			return 2;
-		}
 	}
 }

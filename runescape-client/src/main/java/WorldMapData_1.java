@@ -1,33 +1,34 @@
+import java.util.ArrayList;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jw")
+@ObfuscatedName("lf")
 @Implements("WorldMapData_1")
 public class WorldMapData_1 extends AbstractWorldMapData {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = 1161199065
+		intValue = 1586755981
 	)
 	@Export("chunkXLow")
 	int chunkXLow;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedGetter(
-		intValue = -517178829
+		intValue = 1505614895
 	)
 	@Export("chunkYLow")
 	int chunkYLow;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = 271183347
+		intValue = -439355789
 	)
 	@Export("chunkX")
 	int chunkX;
-	@ObfuscatedName("ak")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = 1038170723
+		intValue = -1362273339
 	)
 	@Export("chunkY")
 	int chunkY;
@@ -35,15 +36,15 @@ public class WorldMapData_1 extends AbstractWorldMapData {
 	WorldMapData_1() {
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(Lvp;I)V",
-		garbageValue = "1951787656"
+		descriptor = "(Lvl;I)V",
+		garbageValue = "1031275840"
 	)
 	@Export("init")
 	void init(Buffer var1) {
 		int var2 = var1.readUnsignedByte();
-		if (var2 != WorldMapID.field2714.value) {
+		if (var2 != WorldMapID.field3243.value) {
 			throw new IllegalStateException("");
 		} else {
 			super.minPlane = var1.readUnsignedByte();
@@ -61,21 +62,21 @@ public class WorldMapData_1 extends AbstractWorldMapData {
 		}
 	}
 
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(Lvp;B)V",
-		garbageValue = "-32"
+		descriptor = "(Lvl;I)V",
+		garbageValue = "506593636"
 	)
 	@Export("readGeography")
 	void readGeography(Buffer var1) {
 		super.planes = Math.min(super.planes, 4);
 		super.floorUnderlayIds = new short[1][64][64];
 		super.floorOverlayIds = new short[super.planes][64][64];
-		super.field2677 = new byte[super.planes][64][64];
-		super.field2678 = new byte[super.planes][64][64];
+		super.field3210 = new byte[super.planes][64][64];
+		super.field3211 = new byte[super.planes][64][64];
 		super.decorations = new WorldMapDecoration[super.planes][64][64][];
 		int var2 = var1.readUnsignedByte();
-		if (var2 != class261.field2705.value) {
+		if (var2 != class298.field3239.value) {
 			throw new IllegalStateException("");
 		} else {
 			int var3 = var1.readUnsignedByte();
@@ -95,44 +96,48 @@ public class WorldMapData_1 extends AbstractWorldMapData {
 		}
 	}
 
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "1728465445"
+		garbageValue = "1394871431"
 	)
 	@Export("getChunkXLow")
 	int getChunkXLow() {
 		return this.chunkXLow;
 	}
 
-	@ObfuscatedName("ak")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "576301002"
+		garbageValue = "21966194"
 	)
 	@Export("getChunkYLow")
 	int getChunkYLow() {
 		return this.chunkYLow;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "-2123061810"
+		garbageValue = "1288184508"
 	)
 	@Export("getChunkX")
 	int getChunkX() {
 		return this.chunkX;
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "-1851018903"
+		descriptor = "(B)I",
+		garbageValue = "-123"
 	)
 	@Export("getChunkY")
 	int getChunkY() {
 		return this.chunkY;
+	}
+
+	public int hashCode() {
+		return super.regionX | super.regionY << 8 | this.chunkX << 16 | this.chunkY << 24;
 	}
 
 	public boolean equals(Object var1) {
@@ -148,50 +153,62 @@ public class WorldMapData_1 extends AbstractWorldMapData {
 		}
 	}
 
-	public int hashCode() {
-		return super.regionX | super.regionY << 8 | this.chunkX << 16 | this.chunkY << 24;
-	}
-
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(I)J",
-		garbageValue = "-1119672011"
+		descriptor = "(Ljava/lang/CharSequence;I)J",
+		garbageValue = "301537351"
 	)
-	public static final synchronized long method4861() {
-		long var0 = System.currentTimeMillis();
-		if (var0 < class326.field3556) {
-			class326.field3555 += class326.field3556 - var0;
-		}
+	public static long method6172(CharSequence var0) {
+		long var1 = 0L;
+		int var3 = var0.length();
 
-		class326.field3556 = var0;
-		return var0 + class326.field3555;
-	}
-
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "(ILsq;Loz;B)V",
-		garbageValue = "88"
-	)
-	static void method4885(int var0, ArchiveDisk var1, Archive var2) {
-		ArchiveDiskAction var3 = new ArchiveDiskAction();
-		var3.type = 1;
-		var3.key = (long)var0;
-		var3.archiveDisk = var1;
-		var3.archive = var2;
-		synchronized(ArchiveDiskActionHandler.ArchiveDiskActionHandler_requestQueue) {
-			ArchiveDiskActionHandler.ArchiveDiskActionHandler_requestQueue.addFirst(var3);
-		}
-
-		synchronized(ArchiveDiskActionHandler.field4472) {
-			if (ArchiveDiskActionHandler.field4468 == 0) {
-				class261.ArchiveDiskActionHandler_thread = new Thread(new ArchiveDiskActionHandler());
-				class261.ArchiveDiskActionHandler_thread.setDaemon(true);
-				class261.ArchiveDiskActionHandler_thread.start();
-				class261.ArchiveDiskActionHandler_thread.setPriority(5);
+		for (int var4 = 0; var4 < var3; ++var4) {
+			var1 *= 37L;
+			char var5 = var0.charAt(var4);
+			if (var5 >= 'A' && var5 <= 'Z') {
+				var1 += (long)(var5 + 1 - 65);
+			} else if (var5 >= 'a' && var5 <= 'z') {
+				var1 += (long)(var5 + 1 - 97);
+			} else if (var5 >= '0' && var5 <= '9') {
+				var1 += (long)(var5 + 27 - 48);
 			}
 
-			ArchiveDiskActionHandler.field4468 = 600;
-			ArchiveDiskActionHandler.field4470 = false;
+			if (var1 >= 177917621779460413L) {
+				break;
+			}
+		}
+
+		while (var1 % 37L == 0L && var1 != 0L) {
+			var1 /= 37L;
+		}
+
+		return var1;
+	}
+
+	@ObfuscatedName("hk")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/util/ArrayList;IIIIB)V",
+		garbageValue = "-20"
+	)
+	static void method6173(ArrayList var0, int var1, int var2, int var3, int var4) {
+		if (!var0.isEmpty()) {
+			int var5 = (Integer)var0.get(0);
+			if (var5 == -1 && !Client.playingJingle) {
+				class167.method3766(0, 0);
+			} else if (var5 != -1 && !Frames.method5267(var5) && TaskHandler.clientPreferences.getMusicVolume() != 0) {
+				ArrayList var6 = new ArrayList();
+
+				for (int var7 = 0; var7 < var0.size(); ++var7) {
+					var6.add(new MusicSong(MouseHandler.archive6, (Integer)var0.get(var7), 0, TaskHandler.clientPreferences.getMusicVolume(), false));
+				}
+
+				if (Client.playingJingle) {
+					class254.method5316(var6, var1, var2, var3, var4);
+				} else {
+					ParamComposition.method4154(var6, var1, var2, var3, var4, false);
+				}
+			}
+
 		}
 	}
 }

@@ -3,90 +3,76 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hg")
+@ObfuscatedName("gl")
 @Implements("Sound")
-public class Sound {
-	@ObfuscatedName("aq")
+public class Sound extends class150 {
+	@ObfuscatedName("af")
 	@ObfuscatedGetter(
-		intValue = 443044167
+		intValue = -965595385
 	)
-	public int field2150;
-	@ObfuscatedName("ad")
-	@ObfuscatedGetter(
-		intValue = -363435057
+	static int field1747;
+	@ObfuscatedName("az")
+	static String[] field1740;
+	@ObfuscatedName("fc")
+	@ObfuscatedSignature(
+		descriptor = "Lor;"
 	)
-	public int field2147;
-	@ObfuscatedName("ag")
-	@ObfuscatedGetter(
-		intValue = -1233321151
-	)
-	public int field2148;
+	static Archive field1746;
+	@ObfuscatedName("ap")
+	boolean field1745;
+	@ObfuscatedName("aw")
+	byte field1741;
 	@ObfuscatedName("ak")
-	@ObfuscatedGetter(
-		intValue = -1599145757
+	byte field1744;
+	@ObfuscatedName("aj")
+	byte field1742;
+	@ObfuscatedName("ai")
+	byte field1743;
+	// $FF: synthetic field
+	@ObfuscatedSignature(
+		descriptor = "Lfz;"
 	)
-	public int field2149;
+	final class153 this$0;
 
-	Sound(int var1, int var2, int var3, int var4) {
-		this.field2150 = 0;
-		this.field2147 = 0;
-		this.field2148 = 0;
-		this.field2149 = 0;
-		this.field2150 = var1;
-		this.field2147 = var2;
-		this.field2148 = var3;
-		this.field2149 = var4;
+	@ObfuscatedSignature(
+		descriptor = "(Lfz;)V"
+	)
+	Sound(class153 var1) {
+		this.this$0 = var1;
 	}
 
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(IIIB)I",
-		garbageValue = "-118"
+		descriptor = "(Lvl;I)V",
+		garbageValue = "-1813719027"
 	)
-	static int method3909(int var0, int var1, int var2) {
-		if (var2 > 179) {
-			var1 /= 2;
-		}
-
-		if (var2 > 192) {
-			var1 /= 2;
-		}
-
-		if (var2 > 217) {
-			var1 /= 2;
-		}
-
-		if (var2 > 243) {
-			var1 /= 2;
-		}
-
-		int var3 = (var1 / 32 << 7) + (var0 / 4 << 10) + var2 / 2;
-		return var3;
+	void vmethod3822(Buffer var1) {
+		this.field1745 = var1.readUnsignedByte() == 1;
+		this.field1741 = var1.readByte();
+		this.field1744 = var1.readByte();
+		this.field1742 = var1.readByte();
+		this.field1743 = var1.readByte();
 	}
 
-	@ObfuscatedName("mp")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(III)Ljava/lang/String;",
-		garbageValue = "1047946300"
+		descriptor = "(Lgy;I)V",
+		garbageValue = "-2079483058"
 	)
-	static final String method3908(int var0, int var1) {
-		int var2 = var1 - var0;
-		if (var2 < -9) {
-			return NpcOverrides.colorStartTag(16711680);
-		} else if (var2 < -6) {
-			return NpcOverrides.colorStartTag(16723968);
-		} else if (var2 < -3) {
-			return NpcOverrides.colorStartTag(16740352);
-		} else if (var2 < 0) {
-			return NpcOverrides.colorStartTag(16756736);
-		} else if (var2 > 9) {
-			return NpcOverrides.colorStartTag(65280);
-		} else if (var2 > 6) {
-			return NpcOverrides.colorStartTag(4259584);
-		} else if (var2 > 3) {
-			return NpcOverrides.colorStartTag(8453888);
-		} else {
-			return var2 > 0 ? NpcOverrides.colorStartTag(12648192) : NpcOverrides.colorStartTag(16776960);
-		}
+	void vmethod3821(ClanSettings var1) {
+		var1.allowGuests = this.field1745;
+		var1.field1772 = this.field1741;
+		var1.field1776 = this.field1744;
+		var1.field1790 = this.field1742;
+		var1.field1775 = this.field1743;
+	}
+
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "(B)V",
+		garbageValue = "-35"
+	)
+	public static void method3629() {
+		FloorUnderlayDefinition.FloorUnderlayDefinition_cached.clear();
 	}
 }

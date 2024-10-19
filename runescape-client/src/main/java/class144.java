@@ -1,70 +1,59 @@
-import net.runelite.mapping.ObfuscatedGetter;
+import java.util.concurrent.Callable;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fk")
-public class class144 extends class147 {
-	@ObfuscatedName("aq")
-	@ObfuscatedGetter(
-		intValue = 220879453
-	)
-	int field1679;
-	@ObfuscatedName("ad")
-	@ObfuscatedGetter(
-		intValue = 1092215929
-	)
-	int field1677;
-	@ObfuscatedName("ag")
-	@ObfuscatedGetter(
-		intValue = -1641898427
-	)
-	int field1676;
-	@ObfuscatedName("ak")
-	@ObfuscatedGetter(
-		intValue = -234504907
-	)
-	int field1680;
+@ObfuscatedName("fb")
+class class144 implements Callable {
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lfn;"
+		descriptor = "Lfr;"
 	)
-	final class150 this$0;
+	final class145 this$0;
+	// $FF: synthetic field
+	@ObfuscatedSignature(
+		descriptor = "Lvl;"
+	)
+	final Buffer val$p;
+	// $FF: synthetic field
+	final int val$version;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lfn;)V"
+		descriptor = "(Lfr;Lvl;I)V"
 	)
-	class144(class150 var1) {
+	class144(class145 var1, Buffer var2, int var3) {
 		this.this$0 = var1;
-		this.field1679 = -1;
+		this.val$p = var2;
+		this.val$version = var3;
 	}
 
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "(Lvp;B)V",
-		garbageValue = "118"
-	)
-	void vmethod3528(Buffer var1) {
-		this.field1679 = var1.readUnsignedShort();
-		this.field1677 = var1.readInt();
-		this.field1676 = var1.readUnsignedByte();
-		this.field1680 = var1.readUnsignedByte();
+	public Object call() {
+		this.this$0.method3509(this.val$p, this.val$version);
+		return null;
 	}
 
-	@ObfuscatedName("ad")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(Lgk;B)V",
-		garbageValue = "3"
+		descriptor = "(Lpe;Lpe;ZLqi;I)V",
+		garbageValue = "1720170461"
 	)
-	void vmethod3530(ClanSettings var1) {
-		var1.method3363(this.field1679, this.field1677, this.field1676, this.field1680);
+	public static void method3506(AbstractArchive var0, AbstractArchive var1, boolean var2, Font var3) {
+		ItemComposition.ItemDefinition_archive = var0;
+		TransformationMatrix.ItemDefinition_modelArchive = var1;
+		HttpAuthenticationHeader.ItemDefinition_inMembersWorld = var2;
+		ItemComposition.ItemDefinition_fileCount = ItemComposition.ItemDefinition_archive.getGroupFileCount(10);
+		class190.ItemDefinition_fontPlain11 = var3;
 	}
 
-	@ObfuscatedName("ak")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "-33"
+		descriptor = "(Ljava/lang/String;II)V",
+		garbageValue = "1809402905"
 	)
-	public static void method3244() {
-		VarbitComposition.VarbitDefinition_cached.clear();
+	static final void method3502(String var0, int var1) {
+		PacketBufferNode var2 = class113.getPacketBufferNode(ClientPacket.field3388, Client.packetWriter.isaacCipher);
+		var2.packetBuffer.writeByte(World.stringCp1252NullTerminatedByteSize(var0) + 1);
+		var2.packetBuffer.writeByteSub(var1);
+		var2.packetBuffer.writeStringCp1252NullTerminated(var0);
+		Client.packetWriter.addNode(var2);
 	}
 }

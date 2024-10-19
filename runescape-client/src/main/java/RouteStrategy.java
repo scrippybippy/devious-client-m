@@ -3,37 +3,31 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("jv")
+@ObfuscatedName("ke")
 @Implements("RouteStrategy")
 public abstract class RouteStrategy {
-	@ObfuscatedName("fn")
-	@ObfuscatedSignature(
-		descriptor = "Lsy;"
-	)
-	static GraphicsDefaults field2497;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = -1910215425
+		intValue = -362162455
 	)
 	@Export("approxDestinationX")
 	public int approxDestinationX;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedGetter(
-		intValue = -2088073837
+		intValue = -1731708745
 	)
 	@Export("approxDestinationY")
 	public int approxDestinationY;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = -1036403129
+		intValue = 220941055
 	)
 	@Export("approxDestinationSizeX")
 	public int approxDestinationSizeX;
-	@ObfuscatedName("ak")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -2053854627
+		intValue = -558872821
 	)
 	@Export("approxDestinationSizeY")
 	public int approxDestinationSizeY;
@@ -41,46 +35,46 @@ public abstract class RouteStrategy {
 	protected RouteStrategy() {
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(IIILip;I)Z",
-		garbageValue = "950007468"
+		descriptor = "(IIILko;I)Z",
+		garbageValue = "1947951630"
 	)
 	@Export("hasArrived")
 	protected abstract boolean hasArrived(int var1, int var2, int var3, CollisionMap var4);
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(ILdg;ZI)I",
-		garbageValue = "-1393024656"
+		descriptor = "(Lur;B)I",
+		garbageValue = "0"
 	)
-	static int method4456(int var0, Script var1, boolean var2) {
-		Widget var3 = var2 ? Interpreter.scriptDotWidget : class30.scriptActiveWidget;
-		if (var0 == ScriptOpcodes.CC_GETTARGETMASK) {
-			Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = BoundaryObject.Widget_unpackTargetMask(ClanChannel.getWidgetFlags(var3));
-			return 1;
-		} else if (var0 != ScriptOpcodes.CC_GETOP) {
-			if (var0 == ScriptOpcodes.CC_GETOPBASE) {
-				if (var3.dataText == null) {
-					Interpreter.Interpreter_stringStack[++class337.Interpreter_stringStackSize - 1] = "";
-				} else {
-					Interpreter.Interpreter_stringStack[++class337.Interpreter_stringStackSize - 1] = var3.dataText;
-				}
-
-				return 1;
-			} else {
-				return 2;
-			}
+	static final int method5726(LoginType var0) {
+		if (var0 == null) {
+			return 12;
 		} else {
-			int var4 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize];
-			--var4;
-			if (var3.actions != null && var4 < var3.actions.length && var3.actions[var4] != null) {
-				Interpreter.Interpreter_stringStack[++class337.Interpreter_stringStackSize - 1] = var3.actions[var4];
-			} else {
-				Interpreter.Interpreter_stringStack[++class337.Interpreter_stringStackSize - 1] = "";
+			switch(var0.field5337) {
+			case 7:
+				return 20;
+			default:
+				return 12;
 			}
+		}
+	}
 
-			return 1;
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "([BZI)Ljava/lang/Object;",
+		garbageValue = "-732909265"
+	)
+	public static Object method5729(byte[] var0, boolean var1) {
+		if (var0 == null) {
+			return null;
+		} else if (var0.length > 136) {
+			DirectByteArrayCopier var2 = new DirectByteArrayCopier();
+			var2.set(var0);
+			return var2;
+		} else {
+			return var0;
 		}
 	}
 }

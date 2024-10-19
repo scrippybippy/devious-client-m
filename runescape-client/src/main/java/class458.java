@@ -1,37 +1,24 @@
-import java.util.Comparator;
-import java.util.Map.Entry;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ra")
-class class458 implements Comparator {
-	// $FF: synthetic field
+@ObfuscatedName("rn")
+public class class458 {
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Lrw;"
+		descriptor = "(II)D",
+		garbageValue = "-1467308353"
 	)
-	final HttpHeaders this$0;
-
-	@ObfuscatedSignature(
-		descriptor = "(Lrw;)V"
-	)
-	class458(HttpHeaders var1) {
-		this.this$0 = var1;
+	public static double method8816(int var0) {
+		int var1 = class507.field5146[var0 & 2047];
+		return (double)var1 / 65536.0D;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/util/Map$Entry;Ljava/util/Map$Entry;B)I",
-		garbageValue = "81"
+		descriptor = "(Ljava/lang/String;I)Ljava/lang/String;",
+		garbageValue = "-1408401302"
 	)
-	int method8403(Entry var1, Entry var2) {
-		return ((Float)var2.getValue()).compareTo((Float)var1.getValue());
-	}
-
-	public int compare(Object var1, Object var2) {
-		return this.method8403((Entry)var1, (Entry)var2);
-	}
-
-	public boolean equals(Object var1) {
-		return super.equals(var1);
+	public static String method8815(String var0) {
+		return var0 != null && !var0.isEmpty() && var0.charAt(0) != '#' ? var0 : "";
 	}
 }

@@ -333,6 +333,9 @@ public final class ScriptID
 	@ScriptArguments(integer = 17)
 	public static final int BANKMAIN_SEARCH_REFRESH = 283;
 
+	@ScriptArguments(integer = 6)
+	public static final int BANKMAIN_DRAGSCROLL = 284;
+
 	/**
 	 * Called to update the PVP widget (wilderness level/protection)
 	 */
@@ -502,4 +505,16 @@ public final class ScriptID
 
 	@ScriptArguments(integer = 2)
 	public static final int MOTHERLODE_HUD_UPDATE = 1634;
+
+	@ScriptArguments(integer = 1)
+	public static final int POTIONSTORE_DOSES = 3750;
+
+	@ScriptArguments(integer = 1)
+	public static final int POTIONSTORE_WITHDRAW_DOSES = 4818;
+
+	@ScriptArguments()
+	public static final int POTIONSTORE_BUILD = 6080;
+
+	@ScriptArguments(integer = 3)
+	public static final int POTIONSTORE_DOSE_CHANGE = 6555;
 }

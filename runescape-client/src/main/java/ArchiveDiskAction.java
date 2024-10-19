@@ -4,61 +4,61 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ow")
+@ObfuscatedName("op")
 @Implements("ArchiveDiskAction")
 public class ArchiveDiskAction extends Node {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = -311695871
+		intValue = -29242609
 	)
 	@Export("type")
 	int type;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@Export("data")
-	byte[] data;
-	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "Lsq;"
-	)
-	@Export("archiveDisk")
-	ArchiveDisk archiveDisk;
+	public byte[] data;
 	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Loz;"
+		descriptor = "Lsl;"
+	)
+	@Export("archiveDisk")
+	public ArchiveDisk archiveDisk;
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "Lor;"
 	)
 	@Export("archive")
-	Archive archive;
+	public Archive archive;
 
 	ArchiveDiskAction() {
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Lok;Lok;Lok;B)V",
-		garbageValue = "-114"
+		descriptor = "([BI)V",
+		garbageValue = "1084716332"
 	)
-	public static void method7104(AbstractArchive var0, AbstractArchive var1, AbstractArchive var2) {
-		HitSplatDefinition.HitSplatDefinition_archive = var0;
-		HitSplatDefinition.field2123 = var1;
-		HitSplatDefinition.HitSplatDefinition_fontsArchive = var2;
-	}
+	@Export("ByteArrayPool_release")
+	public static void ByteArrayPool_release(byte[] var0) {
+		synchronized(ByteArrayPool.field4901) {
+			if (var0.length == 100 && ByteArrayPool.ByteArrayPool_smallCount < ByteArrayPool.field4906) {
+				ByteArrayPool.ByteArrayPool_small[++ByteArrayPool.ByteArrayPool_smallCount - 1] = var0;
+			} else if (var0.length == 5000 && ByteArrayPool.ByteArrayPool_mediumCount < ByteArrayPool.field4911) {
+				ByteArrayPool.ByteArrayPool_medium[++ByteArrayPool.ByteArrayPool_mediumCount - 1] = var0;
+			} else if (var0.length == 10000 && ByteArrayPool.ByteArrayPool_largeCount < ByteArrayPool.field4913) {
+				ByteArrayPool.ByteArrayPool_large[++ByteArrayPool.ByteArrayPool_largeCount - 1] = var0;
+			} else if (var0.length == 30000 && ByteArrayPool.field4905 < ByteArrayPool.field4907) {
+				ByteArrayPool.field4909[++ByteArrayPool.field4905 - 1] = var0;
+			} else {
+				if (ByteArrayPool.ByteArrayPool_arrays != null) {
+					for (int var2 = 0; var2 < DbTableType.ByteArrayPool_alternativeSizes.length; ++var2) {
+						if (var0.length == DbTableType.ByteArrayPool_alternativeSizes[var2] && HttpResponse.ByteArrayPool_altSizeArrayCounts[var2] < ByteArrayPool.ByteArrayPool_arrays[var2].length) {
+							ByteArrayPool.ByteArrayPool_arrays[var2][HttpResponse.ByteArrayPool_altSizeArrayCounts[var2]++] = var0;
+							return;
+						}
+					}
+				}
 
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V",
-		garbageValue = "1849511879"
-	)
-	@Export("addChatMessage")
-	static void addChatMessage(int var0, String var1, String var2, String var3) {
-		ChatChannel var4 = (ChatChannel)Messages.Messages_channels.get(var0);
-		if (var4 == null) {
-			var4 = new ChatChannel();
-			Messages.Messages_channels.put(var0, var4);
+			}
 		}
-
-		Message var5 = var4.addMessage(var0, var1, var2, var3);
-		Messages.Messages_hashTable.put(var5, (long)var5.count);
-		Messages.Messages_queue.add(var5);
-		Client.chatCycle = Client.cycleCntr;
 	}
 }

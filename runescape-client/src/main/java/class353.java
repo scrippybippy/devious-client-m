@@ -1,97 +1,48 @@
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.ArrayList;
 import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("nf")
+@ObfuscatedName("ny")
 public class class353 {
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "Lez;"
+	@ObfuscatedName("ap")
+	@ObfuscatedGetter(
+		intValue = 1282670187
 	)
-	UrlRequest field3761;
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "Lvg;"
+	public int field3794;
+	@ObfuscatedName("aw")
+	@ObfuscatedGetter(
+		intValue = -1451237455
 	)
-	SpritePixels field3759;
+	public int field3793;
+	@ObfuscatedName("ak")
+	@ObfuscatedGetter(
+		intValue = -1714296733
+	)
+	public int field3795;
 
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;Lea;)V"
-	)
-	class353(String var1, UrlRequester var2) {
-		try {
-			this.field3761 = var2.request(new URL(var1));
-		} catch (MalformedURLException var4) {
-			this.field3761 = null;
-		}
-
+	class353() {
 	}
 
+	@ObfuscatedName("hy")
 	@ObfuscatedSignature(
-		descriptor = "(Lez;)V"
+		descriptor = "(IB)V",
+		garbageValue = "0"
 	)
-	class353(UrlRequest var1) {
-		this.field3761 = var1;
-	}
-
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "(I)Lvg;",
-		garbageValue = "1502176099"
-	)
-	SpritePixels method6530() {
-		if (this.field3759 == null && this.field3761 != null && this.field3761.isDone()) {
-			if (this.field3761.getResponse() != null) {
-				this.field3759 = class199.readSpritePixelsFromBytes(this.field3761.getResponse());
+	@Export("playSong")
+	static void playSong(int var0) {
+		if (var0 == -1 && !Client.playingJingle) {
+			class167.method3766(0, 0);
+		} else if (var0 != -1 && !Frames.method5267(var0) && TaskHandler.clientPreferences.getMusicVolume() != 0) {
+			ArrayList var1 = new ArrayList();
+			var1.add(new MusicSong(MouseHandler.archive6, var0, 0, TaskHandler.clientPreferences.getMusicVolume(), false));
+			if (Client.playingJingle) {
+				class254.method5316(var1, 0, 100, 100, 0);
+			} else {
+				ParamComposition.method4154(var1, 0, 100, 100, 0, false);
 			}
-
-			this.field3761 = null;
 		}
 
-		return this.field3759;
-	}
-
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "(II)Lii;",
-		garbageValue = "1660068805"
-	)
-	@Export("SequenceDefinition_get")
-	public static SequenceDefinition SequenceDefinition_get(int var0) {
-		SequenceDefinition var1 = (SequenceDefinition)SequenceDefinition.SequenceDefinition_cached.get((long)var0);
-		if (var1 != null) {
-			return var1;
-		} else {
-			byte[] var2 = AbstractSocket.SequenceDefinition_archive.takeFile(12, var0);
-			var1 = new SequenceDefinition();
-			if (var2 != null) {
-				var1.decode(new Buffer(var2));
-			}
-
-			var1.postDecode();
-			SequenceDefinition.SequenceDefinition_cached.put(var1, (long)var0);
-			return var1;
-		}
-	}
-
-	@ObfuscatedName("az")
-	@ObfuscatedSignature(
-		descriptor = "(IIIB)I",
-		garbageValue = "-13"
-	)
-	static final int method6535(int var0, int var1, int var2) {
-		int var3 = var0 / var2;
-		int var4 = var0 & var2 - 1;
-		int var5 = var1 / var2;
-		int var6 = var1 & var2 - 1;
-		int var7 = Login.method2201(var3, var5);
-		int var8 = Login.method2201(var3 + 1, var5);
-		int var9 = Login.method2201(var3, var5 + 1);
-		int var10 = Login.method2201(var3 + 1, var5 + 1);
-		int var11 = class325.method6120(var7, var8, var4, var2);
-		int var12 = class325.method6120(var9, var10, var4, var2);
-		return class325.method6120(var11, var12, var6, var2);
 	}
 }

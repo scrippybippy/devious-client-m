@@ -4,39 +4,39 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ps")
+@ObfuscatedName("pj")
 @Implements("GrandExchangeOffer")
 public class GrandExchangeOffer {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@Export("state")
 	byte state;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedGetter(
-		intValue = -1879979743
+		intValue = 916956147
 	)
 	@Export("id")
 	public int id;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = -74676455
+		intValue = 467394427
 	)
 	@Export("unitPrice")
 	public int unitPrice;
-	@ObfuscatedName("ak")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = 1840881785
+		intValue = -334196055
 	)
 	@Export("totalQuantity")
 	public int totalQuantity;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ai")
 	@ObfuscatedGetter(
-		intValue = -1937218483
+		intValue = 44282425
 	)
 	@Export("currentQuantity")
 	public int currentQuantity;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
-		intValue = -406242341
+		intValue = -1875930043
 	)
 	@Export("currentPrice")
 	public int currentPrice;
@@ -45,7 +45,7 @@ public class GrandExchangeOffer {
 	}
 
 	@ObfuscatedSignature(
-		descriptor = "(Lvp;Z)V",
+		descriptor = "(Lvl;Z)V",
 		garbageValue = "0"
 	)
 	public GrandExchangeOffer(Buffer var1, boolean var2) {
@@ -57,10 +57,10 @@ public class GrandExchangeOffer {
 		this.currentPrice = var1.readInt();
 	}
 
-	@ObfuscatedName("ag")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(B)I",
-		garbageValue = "88"
+		descriptor = "(I)I",
+		garbageValue = "1409396870"
 	)
 	@Export("status")
 	public int status() {
@@ -69,34 +69,50 @@ public class GrandExchangeOffer {
 
 	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "-1843111462"
+		descriptor = "(B)I",
+		garbageValue = "17"
 	)
 	@Export("type")
 	public int type() {
 		return (this.state & 8) == 8 ? 1 : 0;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
 		descriptor = "(IB)V",
-		garbageValue = "56"
+		garbageValue = "-5"
 	)
-	void method7356(int var1) {
+	void method7789(int var1) {
 		this.state &= -8;
 		this.state = (byte)(this.state | var1 & 7);
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
 		descriptor = "(II)V",
-		garbageValue = "73375725"
+		garbageValue = "1116290198"
 	)
-	void method7359(int var1) {
+	void method7790(int var1) {
 		this.state &= -9;
 		if (var1 == 1) {
 			this.state = (byte)(this.state | 8);
 		}
 
+	}
+
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(IB)V",
+		garbageValue = "35"
+	)
+	static void method7798(int var0) {
+		class484.field5048 = var0;
+		class427.field4776 = new class427[var0];
+		class427.field4775 = 0;
+	}
+
+	@ObfuscatedName("ay")
+	static int method7804(long var0) {
+		return (int)(var0 >>> 14 & 3L);
 	}
 }

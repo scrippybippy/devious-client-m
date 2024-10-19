@@ -1,53 +1,42 @@
-import java.util.ArrayList;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ou")
+@ObfuscatedName("ol")
 @Implements("ArchiveDiskActionHandler")
 public class ArchiveDiskActionHandler implements Runnable {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lpr;"
+		descriptor = "Lpu;"
 	)
 	@Export("ArchiveDiskActionHandler_requestQueue")
-	static final NodeDeque ArchiveDiskActionHandler_requestQueue;
-	@ObfuscatedName("ad")
+	public static final NodeDeque ArchiveDiskActionHandler_requestQueue;
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "Lpr;"
+		descriptor = "Lpu;"
 	)
 	@Export("ArchiveDiskActionHandler_responseQueue")
-	static NodeDeque ArchiveDiskActionHandler_responseQueue;
-	@ObfuscatedName("ag")
-	@ObfuscatedGetter(
-		intValue = 968623873
-	)
-	static int field4468;
+	public static NodeDeque ArchiveDiskActionHandler_responseQueue;
 	@ObfuscatedName("ak")
-	static boolean field4470;
-	@ObfuscatedName("ap")
-	static Object field4472;
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "Lvv;"
+	@ObfuscatedGetter(
+		intValue = -411214707
 	)
-	@Export("logoSprite")
-	static IndexedSprite logoSprite;
-	@ObfuscatedName("ke")
-	@ObfuscatedSignature(
-		descriptor = "[Lvg;"
-	)
-	@Export("headIconPrayerSprites")
-	static SpritePixels[] headIconPrayerSprites;
+	static int field4534;
+	@ObfuscatedName("aj")
+	static final Object field4535;
+	@ObfuscatedName("ai")
+	@Export("ArchiveDiskActionHandler_thread")
+	static Thread ArchiveDiskActionHandler_thread;
+	@ObfuscatedName("au")
+	public static short[] field4539;
 
 	static {
 		ArchiveDiskActionHandler_requestQueue = new NodeDeque();
 		ArchiveDiskActionHandler_responseQueue = new NodeDeque();
-		field4468 = 0;
-		field4470 = false;
-		field4472 = new Object();
+		field4534 = 0;
+		field4535 = new Object();
 	}
 
 	ArchiveDiskActionHandler() {
@@ -74,99 +63,73 @@ public class ArchiveDiskActionHandler implements Runnable {
 						}
 					}
 
-					synchronized(field4472) {
-						if ((field4470 || field4468 <= 1) && ArchiveDiskActionHandler_requestQueue.method7456()) {
-							field4468 = 0;
-							field4472.notifyAll();
+					synchronized(field4535) {
+						if (field4534 <= 1) {
+							field4534 = 0;
+							field4535.notifyAll();
 							return;
 						}
 
-						field4468 = 600;
+						field4534 = 600;
 					}
 				} else {
-					class188.method3688(100L);
-					synchronized(field4472) {
-						if ((field4470 || field4468 <= 1) && ArchiveDiskActionHandler_requestQueue.method7456()) {
-							field4468 = 0;
-							field4472.notifyAll();
+					World.method2001(100L);
+					synchronized(field4535) {
+						if (field4534 <= 1) {
+							field4534 = 0;
+							field4535.notifyAll();
 							return;
 						}
 
-						--field4468;
+						--field4534;
 					}
 				}
 			}
 		} catch (Exception var13) {
-			FriendsChat.RunException_sendStackTrace((String)null, var13);
+			HttpHeaders.RunException_sendStackTrace((String)null, var13);
 		}
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(Lok;Lok;Lok;Ljava/util/ArrayList;B)Z",
-		garbageValue = "-2"
+		descriptor = "(Lpe;Ljava/lang/String;Ljava/lang/String;I)[Lvc;",
+		garbageValue = "-927101622"
 	)
-	public static boolean method7122(AbstractArchive var0, AbstractArchive var1, AbstractArchive var2, ArrayList var3) {
-		class330.field3583 = var0;
-		class330.field3579 = var1;
-		class330.field3591 = var2;
-		class330.field3582 = var3;
-		return true;
-	}
-
-	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "(Lok;III)Lvg;",
-		garbageValue = "-136072013"
-	)
-	@Export("SpriteBuffer_getSprite")
-	public static SpritePixels SpriteBuffer_getSprite(AbstractArchive var0, int var1, int var2) {
-		if (!class146.method3260(var0, var1, var2)) {
+	@Export("getFont")
+	public static IndexedSprite[] getFont(AbstractArchive var0, String var1, String var2) {
+		if (!var0.isValidFileName(var1, var2)) {
 			return null;
 		} else {
-			SpritePixels var4 = new SpritePixels();
-			var4.width = SpriteBufferProperties.SpriteBuffer_spriteWidth;
-			var4.height = SpriteBufferProperties.SpriteBuffer_spriteHeight;
-			var4.xOffset = UserComparator4.SpriteBuffer_xOffsets[0];
-			var4.yOffset = LoginPacket.SpriteBuffer_yOffsets[0];
-			var4.subWidth = SpriteBufferProperties.SpriteBuffer_spriteWidths[0];
-			var4.subHeight = class315.SpriteBuffer_spriteHeights[0];
-			int var5 = var4.subHeight * var4.subWidth;
-			byte[] var6 = SpriteBufferProperties.SpriteBuffer_pixels[0];
-			var4.pixels = new int[var5];
+			int var3 = var0.getGroupId(var1);
+			int var4 = var0.getFileId(var3, var2);
+			IndexedSprite[] var5;
+			if (!class53.method1110(var0, var3, var4)) {
+				var5 = null;
+			} else {
+				IndexedSprite[] var7 = new IndexedSprite[SpriteBufferProperties.SpriteBuffer_spriteCount];
 
-			for (int var7 = 0; var7 < var5; ++var7) {
-				var4.pixels[var7] = SpriteBufferProperties.SpriteBuffer_spritePalette[var6[var7] & 255];
+				for (int var8 = 0; var8 < SpriteBufferProperties.SpriteBuffer_spriteCount; ++var8) {
+					IndexedSprite var9 = var7[var8] = new IndexedSprite();
+					var9.width = SpriteBufferProperties.SpriteBuffer_spriteWidth;
+					var9.height = SpriteBufferProperties.SpriteBuffer_spriteHeight;
+					var9.xOffset = SpriteBufferProperties.SpriteBuffer_xOffsets[var8];
+					var9.yOffset = class497.SpriteBuffer_yOffsets[var8];
+					var9.subWidth = class7.SpriteBuffer_spriteWidths[var8];
+					var9.subHeight = SpriteBufferProperties.SpriteBuffer_spriteHeights[var8];
+					var9.palette = SpriteBufferProperties.SpriteBuffer_spritePalette;
+					var9.pixels = class280.SpriteBuffer_pixels[var8];
+				}
+
+				SpriteBufferProperties.SpriteBuffer_xOffsets = null;
+				class497.SpriteBuffer_yOffsets = null;
+				class7.SpriteBuffer_spriteWidths = null;
+				SpriteBufferProperties.SpriteBuffer_spriteHeights = null;
+				SpriteBufferProperties.SpriteBuffer_spritePalette = null;
+				class280.SpriteBuffer_pixels = null;
+				var5 = var7;
 			}
 
-			Calendar.method7029();
-			return var4;
+			return var5;
 		}
-	}
-
-	@ObfuscatedName("oq")
-	@ObfuscatedSignature(
-		descriptor = "(Ldv;ZI)V",
-		garbageValue = "-1980057961"
-	)
-	@Export("closeInterface")
-	static final void closeInterface(InterfaceParent var0, boolean var1) {
-		int var2 = var0.group;
-		int var3 = (int)var0.key;
-		var0.remove();
-		if (var1) {
-			ModeWhere.widgetDefinition.method6512(var2);
-		}
-
-		class512.method8981(var2);
-		Widget var4 = ModeWhere.widgetDefinition.method6519(var3);
-		if (var4 != null) {
-			TriBool.invalidateWidget(var4);
-		}
-
-		if (Client.rootInterface != -1) {
-			BuddyRankComparator.runIntfCloseListeners(Client.rootInterface, 1);
-		}
-
 	}
 }

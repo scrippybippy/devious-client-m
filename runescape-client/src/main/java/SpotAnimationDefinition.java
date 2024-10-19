@@ -4,100 +4,90 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hf")
+@ObfuscatedName("hj")
 @Implements("SpotAnimationDefinition")
 public class SpotAnimationDefinition extends DualNode {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lok;"
+		descriptor = "Lpe;"
 	)
 	@Export("SpotAnimationDefinition_archive")
-	static AbstractArchive SpotAnimationDefinition_archive;
-	@ObfuscatedName("ad")
+	public static AbstractArchive SpotAnimationDefinition_archive;
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "Lok;"
+		descriptor = "Lpe;"
 	)
 	@Export("SpotAnimationDefinition_modelArchive")
-	static AbstractArchive SpotAnimationDefinition_modelArchive;
-	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "Lmo;"
-	)
-	@Export("SpotAnimationDefinition_cached")
-	static EvictingDualNodeHashTable SpotAnimationDefinition_cached;
+	public static AbstractArchive SpotAnimationDefinition_modelArchive;
 	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lmo;"
+		descriptor = "Lmi;"
+	)
+	@Export("SpotAnimationDefinition_cached")
+	public static EvictingDualNodeHashTable SpotAnimationDefinition_cached;
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "Lmi;"
 	)
 	@Export("SpotAnimationDefinition_cachedModels")
-	static EvictingDualNodeHashTable SpotAnimationDefinition_cachedModels;
-	@ObfuscatedName("cd")
+	public static EvictingDualNodeHashTable SpotAnimationDefinition_cachedModels;
+	@ObfuscatedName("ai")
 	@ObfuscatedGetter(
-		intValue = -354932627
-	)
-	static int field2083;
-	@ObfuscatedName("gn")
-	@ObfuscatedGetter(
-		intValue = -2012746525
-	)
-	static int field2084;
-	@ObfuscatedName("ap")
-	@ObfuscatedGetter(
-		intValue = 614834317
+		intValue = 1082979423
 	)
 	@Export("id")
 	int id;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
-		intValue = 1284875027
+		intValue = -901643947
 	)
 	@Export("archive")
 	int archive;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("as")
 	@ObfuscatedGetter(
-		intValue = 1664339371
+		intValue = -347425453
 	)
 	@Export("sequence")
 	public int sequence;
-	@ObfuscatedName("av")
+	@ObfuscatedName("ae")
 	@Export("recolorFrom")
 	short[] recolorFrom;
-	@ObfuscatedName("ab")
+	@ObfuscatedName("am")
 	@Export("recolorTo")
 	short[] recolorTo;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("at")
 	@Export("retextureFrom")
 	short[] retextureFrom;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("au")
 	@Export("retextureTo")
 	short[] retextureTo;
-	@ObfuscatedName("au")
+	@ObfuscatedName("an")
 	@ObfuscatedGetter(
-		intValue = 1294875951
+		intValue = -441272305
 	)
 	@Export("widthScale")
 	int widthScale;
-	@ObfuscatedName("ah")
+	@ObfuscatedName("ao")
 	@ObfuscatedGetter(
-		intValue = 1858899611
+		intValue = 2045253991
 	)
 	@Export("heightScale")
 	int heightScale;
-	@ObfuscatedName("az")
+	@ObfuscatedName("af")
 	@ObfuscatedGetter(
-		intValue = 352886693
+		intValue = -372292789
 	)
 	@Export("orientation")
 	int orientation;
-	@ObfuscatedName("ax")
+	@ObfuscatedName("ar")
 	@ObfuscatedGetter(
-		intValue = 136469009
+		intValue = 1057267257
 	)
 	@Export("ambient")
 	int ambient;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = -1006190975
+		intValue = -1537660745
 	)
 	@Export("contrast")
 	int contrast;
@@ -116,10 +106,10 @@ public class SpotAnimationDefinition extends DualNode {
 		this.contrast = 0;
 	}
 
-	@ObfuscatedName("ag")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(Lvp;B)V",
-		garbageValue = "-11"
+		descriptor = "(Lvl;I)V",
+		garbageValue = "1836147214"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
@@ -135,8 +125,8 @@ public class SpotAnimationDefinition extends DualNode {
 
 	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Lvp;II)V",
-		garbageValue = "-1989651831"
+		descriptor = "(Lvl;II)V",
+		garbageValue = "-620810195"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
@@ -180,20 +170,20 @@ public class SpotAnimationDefinition extends DualNode {
 
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(II)Llv;",
-		garbageValue = "-1769947000"
+		descriptor = "(II)Ljy;",
+		garbageValue = "-107768152"
 	)
 	@Export("getModel")
 	public final Model getModel(int var1) {
-		Model var2 = this.method3770();
+		Model var2 = this.method4068();
 		if (var2 == null) {
 			return null;
 		} else {
 			Model var3;
 			if (this.sequence != -1 && var1 != -1) {
-				var3 = class353.SequenceDefinition_get(this.sequence).transformSpotAnimationModel(var2, var1);
+				var3 = Widget.SequenceDefinition_get(this.sequence).transformSpotAnimationModel(var2, var1);
 			} else {
 				var3 = var2.toSharedSpotAnimationModel(true);
 			}
@@ -223,12 +213,12 @@ public class SpotAnimationDefinition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
-		descriptor = "(B)Llv;",
-		garbageValue = "-40"
+		descriptor = "(B)Ljy;",
+		garbageValue = "1"
 	)
-	public final Model method3770() {
+	public final Model method4068() {
 		Model var1 = (Model)SpotAnimationDefinition_cachedModels.get((long)this.id);
 		if (var1 == null) {
 			ModelData var2 = ModelData.ModelData_get(SpotAnimationDefinition_modelArchive, this.archive, 0);
@@ -256,27 +246,13 @@ public class SpotAnimationDefinition extends DualNode {
 		return var1;
 	}
 
-	@ObfuscatedName("ad")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "(Lvp;I)Ljava/lang/String;",
-		garbageValue = "-560192572"
+		descriptor = "(CI)Z",
+		garbageValue = "-637608028"
 	)
-	public static String method3789(Buffer var0) {
-		String var1;
-		try {
-			int var2 = var0.readUShortSmart();
-			if (var2 > 32767) {
-				var2 = 32767;
-			}
-
-			byte[] var3 = new byte[var2];
-			var0.offset += class365.huffman.decompress(var0.array, var0.offset, var3, 0, var2);
-			String var4 = Renderable.decodeStringCp1252(var3, 0, var2);
-			var1 = var4;
-		} catch (Exception var6) {
-			var1 = "Cabbage";
-		}
-
-		return var1;
+	@Export("isDigit")
+	public static boolean isDigit(char var0) {
+		return var0 >= '0' && var0 <= '9';
 	}
 }

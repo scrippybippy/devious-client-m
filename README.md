@@ -13,7 +13,7 @@ https://www.patreon.com/DeviousClient
 
 The client launcher can be downloaded here:
 
-https://github.com/jbx5/devious-launcher/releases
+https://github.com/melxin/devious-launcher/releases
 
 # Devious Client
 A non-compliant and open source fork of OpenOSRS and Unethicalite.

@@ -4,30 +4,32 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dm")
+@ObfuscatedName("du")
 @Implements("ArchiveLoader")
 public class ArchiveLoader {
-	@ObfuscatedName("ad")
+	@ObfuscatedName("ai")
+	public static int field1059;
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "Loz;"
+		descriptor = "Lor;"
 	)
 	@Export("archive")
 	final Archive archive;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = 942374317
+		intValue = -1661845531
 	)
 	@Export("groupCount")
 	final int groupCount;
-	@ObfuscatedName("ak")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -338655735
+		intValue = -2015281063
 	)
 	@Export("loadedCount")
 	int loadedCount;
 
 	@ObfuscatedSignature(
-		descriptor = "(Loz;Ljava/lang/String;)V"
+		descriptor = "(Lor;Ljava/lang/String;)V"
 	)
 	ArchiveLoader(Archive var1, String var2) {
 		this.loadedCount = 0;
@@ -35,17 +37,17 @@ public class ArchiveLoader {
 		this.groupCount = var1.getGroupCount();
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
 		descriptor = "(I)Z",
-		garbageValue = "-1670769241"
+		garbageValue = "-1007637567"
 	)
 	@Export("isLoaded")
 	boolean isLoaded() {
 		this.loadedCount = 0;
 
 		for (int var1 = 0; var1 < this.groupCount; ++var1) {
-			if (!this.archive.method7148(var1) || this.archive.method7138(var1)) {
+			if (!this.archive.method7591(var1) || this.archive.method7575(var1)) {
 				++this.loadedCount;
 			}
 		}
@@ -53,90 +55,50 @@ public class ArchiveLoader {
 		return this.loadedCount >= this.groupCount;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
-		descriptor = "(Lok;Lok;Lok;I)V",
-		garbageValue = "346869431"
+		descriptor = "(Ljy;IIIIIIIII)Z",
+		garbageValue = "151326930"
 	)
-	public static void method2357(AbstractArchive var0, AbstractArchive var1, AbstractArchive var2) {
-		AbstractSocket.SequenceDefinition_archive = var0;
-		class177.SequenceDefinition_animationsArchive = var1;
-		WorldMapLabelSize.SequenceDefinition_skeletonsArchive = var2;
+	static final boolean method2533(Model var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
+		boolean var9 = ViewportMouse.ViewportMouse_isInViewport;
+		if (!var9) {
+			return false;
+		} else {
+			UrlRequester.method3224(var5, var6, var7, var8);
+			AABB var10 = (AABB)var0.aabb.get(var1);
+			int var11 = var2 + var10.xMid;
+			int var12 = var3 + var10.yMid;
+			int var13 = var4 + var10.zMid;
+			int var14 = var10.xMidOffset;
+			int var15 = var10.yMidOffset;
+			int var16 = var10.zMidOffset;
+			int var17 = ViewportMouse.field2892 - var11;
+			int var18 = ViewportMouse.field2898 - var12;
+			int var19 = ViewportMouse.field2890 - var13;
+			if (Math.abs(var17) > var14 + ViewportMouse.field2896) {
+				return false;
+			} else if (Math.abs(var18) > var15 + class177.field1883) {
+				return false;
+			} else if (Math.abs(var19) > var16 + FontName.field5315) {
+				return false;
+			} else if (Math.abs(var19 * FaceNormal.field2750 - var18 * class425.field4765) > var16 * class177.field1883 + var15 * FontName.field5315) {
+				return false;
+			} else if (Math.abs(var17 * class425.field4765 - var19 * ViewportMouse.field2894) > var14 * FontName.field5315 + var16 * ViewportMouse.field2896) {
+				return false;
+			} else {
+				return Math.abs(var18 * ViewportMouse.field2894 - var17 * FaceNormal.field2750) <= var14 * class177.field1883 + var15 * ViewportMouse.field2896;
+			}
+		}
 	}
 
-	@ObfuscatedName("av")
+	@ObfuscatedName("oj")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "788851463"
+		garbageValue = "-1294396496"
 	)
-	static void method2359() {
-		if ((Client.worldProperties & class542.field5342.rsOrdinal()) != 0) {
-			Login.Login_response0 = "";
-			Login.Login_response1 = "This is a <col=00ffff>Beta<col=ffffff> world.";
-			Login.Login_response2 = "Your normal account will not be affected.";
-			Login.Login_response3 = "";
-			class163.updateLoginIndex(1);
-			UserComparator4.focusPasswordWhenUsernameFilled();
-		} else if ((Client.worldProperties & class542.field5319.rsOrdinal()) != 0) {
-			if ((Client.worldProperties & class542.field5337.rsOrdinal()) != 0) {
-				Login.Login_response1 = "This is a <col=ffff00>High Risk <col=ff0000>PvP<col=ffffff> world.";
-				Login.Login_response2 = "Players can attack each other almost everywhere";
-				Login.Login_response3 = "and the Protect Item prayer won't work.";
-			} else {
-				Login.Login_response1 = "This is a <col=ff0000>PvP<col=ffffff> world.";
-				Login.Login_response2 = "Players can attack each other";
-				Login.Login_response3 = "almost everywhere.";
-			}
-
-			Login.Login_response0 = "Warning!";
-			class163.updateLoginIndex(1);
-			UserComparator4.focusPasswordWhenUsernameFilled();
-		} else if ((Client.worldProperties & class542.field5337.rsOrdinal()) != 0) {
-			Login.Login_response1 = "This is a <col=ffff00>High Risk<col=ffffff> world.";
-			Login.Login_response2 = "The Protect Item prayer will";
-			Login.Login_response3 = "not work on this world.";
-			Login.Login_response0 = "Warning!";
-			class163.updateLoginIndex(1);
-			UserComparator4.focusPasswordWhenUsernameFilled();
-		} else {
-			class155.Login_promptCredentials(false);
-		}
-
-	}
-
-	@ObfuscatedName("mg")
-	@ObfuscatedSignature(
-		descriptor = "([Lnx;IIIZI)V",
-		garbageValue = "-1695472477"
-	)
-	@Export("resizeInterface")
-	static void resizeInterface(Widget[] var0, int var1, int var2, int var3, boolean var4) {
-		for (int var5 = 0; var5 < var0.length; ++var5) {
-			Widget var6 = var0[var5];
-			if (var6 != null && var6.parentId == var1) {
-				AbstractWorldMapData.alignWidgetSize(var6, var2, var3, var4);
-				SecureRandomCallable.alignWidgetPosition(var6, var2, var3);
-				if (var6.scrollX > var6.scrollWidth - var6.width) {
-					var6.scrollX = var6.scrollWidth - var6.width;
-				}
-
-				if (var6.scrollX < 0) {
-					var6.scrollX = 0;
-				}
-
-				if (var6.scrollY > var6.scrollHeight - var6.height) {
-					var6.scrollY = var6.scrollHeight - var6.height;
-				}
-
-				if (var6.scrollY < 0) {
-					var6.scrollY = 0;
-				}
-
-				if (var6.type == 0) {
-					class238.revalidateWidgetScroll(var0, var6, var4);
-				}
-			}
-		}
-
+	static void method2534() {
+		Client.packetWriter.addNode(class113.getPacketBufferNode(ClientPacket.FREECAM_EXIT, Client.packetWriter.isaacCipher));
+		Client.oculusOrbState = 0;
 	}
 }

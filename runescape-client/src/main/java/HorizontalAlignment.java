@@ -4,40 +4,46 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hp")
+@ObfuscatedName("hi")
 @Implements("HorizontalAlignment")
 public enum HorizontalAlignment implements Enum {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lhp;"
+		descriptor = "Lhi;"
 	)
-	field1976(2, 0),
-	@ObfuscatedName("ad")
+	field1990(1, 0),
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "Lhp;"
+		descriptor = "Lhi;"
 	)
 	@Export("HorizontalAlignment_centered")
-	HorizontalAlignment_centered(0, 1),
-	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "Lhp;"
-	)
-	field1970(1, 2);
-
-	@ObfuscatedName("al")
-	@ObfuscatedSignature(
-		descriptor = "Lgj;"
-	)
-	static ClanChannel field1973;
+	HorizontalAlignment_centered(2, 1),
 	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "Lhi;"
+	)
+	field1989(0, 2);
+
+	@ObfuscatedName("gd")
 	@ObfuscatedGetter(
-		intValue = 1640852387
+		intValue = -760675889
+	)
+	@Export("currentPort")
+	static int currentPort;
+	@ObfuscatedName("us")
+	@ObfuscatedGetter(
+		intValue = -540479249
+	)
+	static int field1997;
+	@ObfuscatedName("aj")
+	@ObfuscatedGetter(
+		intValue = -1050399395
 	)
 	@Export("value")
 	public final int value;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ai")
 	@ObfuscatedGetter(
-		intValue = -1968910549
+		intValue = -1346706139
 	)
 	@Export("id")
 	final int id;
@@ -47,28 +53,31 @@ public enum HorizontalAlignment implements Enum {
 		this.id = var4;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "2071992588"
+		garbageValue = "1837624059"
 	)
 	@Export("rsOrdinal")
 	public int rsOrdinal() {
 		return this.id;
 	}
 
-	@ObfuscatedName("bt")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(IZII)V",
-		garbageValue = "-1336022419"
+		descriptor = "(Lpe;I)V",
+		garbageValue = "2121332038"
 	)
-	public static final void method3698(int var0, boolean var1, int var2) {
-		if (var0 >= 8000 && var0 <= 48000) {
-			PcmPlayer.field263 = var0;
-			SecureRandomFuture.PcmPlayer_stereo = var1;
-			class379.field4434 = var2;
-		} else {
-			throw new IllegalArgumentException();
-		}
+	public static void method3987(AbstractArchive var0) {
+		FloorOverlayDefinition.FloorOverlayDefinition_archive = var0;
+	}
+
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "(IB)Z",
+		garbageValue = "1"
+	)
+	public static boolean method3988(int var0) {
+		return (var0 >> 20 & 1) != 0;
 	}
 }

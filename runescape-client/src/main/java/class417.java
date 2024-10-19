@@ -1,21 +1,25 @@
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
+import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("qj")
-public final class class417 {
-	@ObfuscatedName("aq")
-	@Export("base37Table")
-	public static final char[] base37Table;
-	@ObfuscatedName("ad")
-	static long[] field4679;
+@ObfuscatedName("qf")
+public class class417 {
+	@ObfuscatedName("ap")
+	@Export("cp1252AsciiExtension")
+	public static final char[] cp1252AsciiExtension;
+	@ObfuscatedName("dl")
+	static boolean field4741;
 
 	static {
-		base37Table = new char[]{'_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-		field4679 = new long[12];
+		cp1252AsciiExtension = new char[]{'€', '\u0000', '‚', 'ƒ', '„', '…', '†', '‡', 'ˆ', '‰', 'Š', '‹', 'Œ', '\u0000', 'Ž', '\u0000', '\u0000', '‘', '’', '“', '”', '•', '–', '—', '˜', '™', 'š', '›', 'œ', '\u0000', 'ž', 'Ÿ'};
+	}
 
-		for (int var0 = 0; var0 < field4679.length; ++var0) {
-			field4679[var0] = (long)Math.pow(37.0D, (double)var0);
-		}
-
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(I)Lit;",
+		garbageValue = "1853385141"
+	)
+	public static class225 method8077() {
+		return class225.field2425;
 	}
 }

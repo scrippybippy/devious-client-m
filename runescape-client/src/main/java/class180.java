@@ -1,48 +1,52 @@
 import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gy")
+@ObfuscatedName("ge")
 public class class180 extends DualNode {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lmo;"
+		descriptor = "Lmi;"
 	)
-	@Export("field1864")
-	public static EvictingDualNodeHashTable field1864;
-	@ObfuscatedName("oc")
+	@Export("field1851")
+	public static EvictingDualNodeHashTable field1851;
+	@ObfuscatedName("dk")
 	@ObfuscatedSignature(
-		descriptor = "Lnx;"
+		descriptor = "Lvc;"
 	)
-	@Export("mousedOverWidgetIf1")
-	static Widget mousedOverWidgetIf1;
+	static IndexedSprite field1897;
+	@ObfuscatedName("nh")
+	@ObfuscatedGetter(
+		intValue = -1487645105
+	)
+	static int field1896;
 
 	static {
-		field1864 = new EvictingDualNodeHashTable(64);
+		field1851 = new EvictingDualNodeHashTable(64);
 	}
 
-	@ObfuscatedName("av")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "45"
+		descriptor = "(Lum;III)I",
+		garbageValue = "1388728920"
 	)
-	public static final void method3580() {
-		ViewportMouse.ViewportMouse_isInViewport = false;
-		ViewportMouse.ViewportMouse_entityCount = 0;
-	}
-
-	@ObfuscatedName("po")
-	@ObfuscatedSignature(
-		descriptor = "(II)V",
-		garbageValue = "-1863984052"
-	)
-	static void method3579(int var0) {
-		SequenceDefinition var1 = class353.SequenceDefinition_get(var0);
-		if (var1.isCachedModelIdSet()) {
-			if (ClientPacket.method6093(var1.SequenceDefinition_cachedModelId) == 2) {
-				Client.field800.add(var1.SequenceDefinition_cachedModelId);
-			}
-
+	static int method3850(IterableNodeHashTable var0, int var1, int var2) {
+		if (var0 == null) {
+			return var2;
+		} else {
+			IntegerNode var3 = (IntegerNode)var0.get((long)var1);
+			return var3 == null ? var2 : var3.integer;
 		}
+	}
+
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "(B)Lct;",
+		garbageValue = "-79"
+	)
+	@Export("getNextWorldListWorld")
+	static World getNextWorldListWorld() {
+		return World.World_listCount < World.World_count ? World.World_worlds[++World.World_listCount - 1] : null;
 	}
 }

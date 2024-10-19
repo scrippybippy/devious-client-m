@@ -1,50 +1,54 @@
-import java.util.ArrayList;
-import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ty")
+@ObfuscatedName("us")
 @Implements("FontName")
 public class FontName {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lty;"
+		descriptor = "Lus;"
 	)
 	@Export("FontName_plain11")
 	public static final FontName FontName_plain11;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "Lty;"
+		descriptor = "Lus;"
 	)
 	@Export("FontName_plain12")
 	public static final FontName FontName_plain12;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lty;"
+		descriptor = "Lus;"
 	)
 	@Export("FontName_bold12")
 	public static final FontName FontName_bold12;
-	@ObfuscatedName("ak")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Lty;"
+		descriptor = "Lus;"
 	)
 	@Export("FontName_verdana11")
 	public static final FontName FontName_verdana11;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
-		descriptor = "Lty;"
+		descriptor = "Lus;"
 	)
 	@Export("FontName_verdana13")
 	public static final FontName FontName_verdana13;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ay")
 	@ObfuscatedSignature(
-		descriptor = "Lty;"
+		descriptor = "Lus;"
 	)
 	@Export("FontName_verdana15")
 	public static final FontName FontName_verdana15;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("ao")
+	@ObfuscatedGetter(
+		intValue = 1679610619
+	)
+	static int field5315;
+	@ObfuscatedName("as")
 	@Export("name")
 	String name;
 
@@ -61,112 +65,102 @@ public class FontName {
 		this.name = var1;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(B)[Lty;",
-		garbageValue = "93"
+		descriptor = "(IIII)Lda;",
+		garbageValue = "1570207647"
 	)
-	public static FontName[] method9217() {
-		return new FontName[]{FontName_bold12, FontName_plain11, FontName_verdana13, FontName_verdana11, FontName_plain12, FontName_verdana15};
-	}
-
-	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/util/ArrayList;IIIIZI)V",
-		garbageValue = "1418695647"
-	)
-	public static void method9220(ArrayList var0, int var1, int var2, int var3, int var4, boolean var5) {
-		if (!var0.isEmpty()) {
-			class330.field3587.clear();
-			class330.field3581.clear();
-			MusicSong var7;
-			if (var5) {
-				Iterator var12 = class330.musicSongs.iterator();
-
-				label65:
-				while (true) {
-					do {
-						if (!var12.hasNext()) {
-							class330.musicSongs.clear();
-							break label65;
-						}
-
-						var7 = (MusicSong)var12.next();
-					} while(var7 == null);
-
-					var7.midiPcmStream.clear();
-					var7.midiPcmStream.method6190();
-					var7.midiPcmStream.setPcmStreamVolume(0);
-					var7.midiPcmStream.field3627 = 0;
-					int var13 = var7.musicTrackGroupId;
-					int var9 = var7.musicTrackFileId;
-					Iterator var10 = class330.field3588.iterator();
-
-					while (var10.hasNext()) {
-						class336 var11 = (class336)var10.next();
-						var11.vmethod6382(var13, var9);
-					}
-				}
+	@Export("getWorldMapScript")
+	static Script getWorldMapScript(int var0, int var1, int var2) {
+		int var3 = class318.method6509(var1, var0);
+		Script var4 = class228.getScript(var3, var0);
+		if (var4 != null) {
+			return var4;
+		} else {
+			var3 = class544.method9936(var2, var0);
+			var4 = class228.getScript(var3, var0);
+			if (var4 != null) {
+				return var4;
 			} else {
-				for (int var6 = 0; var6 < class330.musicSongs.size(); ++var6) {
-					var7 = (MusicSong)class330.musicSongs.get(var6);
-					if (var7 == null) {
-						class330.musicSongs.remove(var6);
-						--var6;
-					} else if (var7.field3712) {
-						if (var7.midiPcmStream.field3627 > 0) {
-							--var7.midiPcmStream.field3627;
-						}
-
-						var7.midiPcmStream.clear();
-						var7.midiPcmStream.method6190();
-						var7.midiPcmStream.setPcmStreamVolume(0);
-						class330.musicSongs.remove(var6);
-						--var6;
-					} else {
-						var7.field3712 = true;
-					}
-				}
-			}
-
-			class131.method3071(var0, var5);
-			if (!class330.field3587.isEmpty()) {
-				class33.method476(var1, var2, var3, var4);
-				class330.field3581.add(new AddRequestTask((SongTask)null));
-				class330.field3581.add(new class446((SongTask)null, class330.field3583, class330.field3579, class330.field3591));
-				ArrayList var15 = new ArrayList();
-				var15.add(new class441(new FadeInTask((SongTask)null, 0, true, class330.field3586)));
-				if (!class330.musicSongs.isEmpty()) {
-					ArrayList var14 = new ArrayList();
-					var14.add(new DelayFadeTask(new ConcurrentMidiTask((SongTask)null, var15), class330.field3590));
-					ArrayList var8 = LoginScreenAnimation.method2564();
-					var14.add(new DelayFadeTask(new FadeOutTask(new class439((SongTask)null, var8), 0, false, class330.field3589), class330.musicPlayerStatus));
-					class330.field3581.add(new ConcurrentMidiTask((SongTask)null, var14));
-				} else {
-					class330.field3581.add(new DelayFadeTask((SongTask)null, class330.field3590));
-					class330.field3581.add(new ConcurrentMidiTask((SongTask)null, var15));
-				}
-
+				var3 = Tiles.method2520(var0);
+				var4 = class228.getScript(var3, var0);
+				return var4 != null ? var4 : null;
 			}
 		}
 	}
 
-	@ObfuscatedName("pb")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;I)Ljava/lang/String;",
-		garbageValue = "-1361976443"
+		descriptor = "(IIZI)Ljava/lang/String;",
+		garbageValue = "26331887"
 	)
-	static String method9219(String var0) {
-		PlayerType[] var1 = class136.PlayerType_values();
+	static String method9733(int var0, int var1, boolean var2) {
+		if (var1 >= 2 && var1 <= 36) {
+			if (var2 && var0 >= 0) {
+				int var3 = 2;
 
-		for (int var2 = 0; var2 < var1.length; ++var2) {
-			PlayerType var3 = var1[var2];
-			if (var3.modIcon != -1 && var0.startsWith(class385.method7175(var3.modIcon))) {
-				var0 = var0.substring(6 + Integer.toString(var3.modIcon).length());
-				break;
+				for (int var4 = var0 / var1; var4 != 0; ++var3) {
+					var4 /= var1;
+				}
+
+				char[] var5 = new char[var3];
+				var5[0] = '+';
+
+				for (int var6 = var3 - 1; var6 > 0; --var6) {
+					int var7 = var0;
+					var0 /= var1;
+					int var8 = var7 - var0 * var1;
+					if (var8 >= 10) {
+						var5[var6] = (char)(var8 + 87);
+					} else {
+						var5[var6] = (char)(var8 + 48);
+					}
+				}
+
+				return new String(var5);
+			} else {
+				return Integer.toString(var0, var1);
 			}
+		} else {
+			throw new IllegalArgumentException("" + var1);
 		}
+	}
 
-		return var0;
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "(ZI)V",
+		garbageValue = "-7998461"
+	)
+	@Export("Login_promptCredentials")
+	static void Login_promptCredentials(boolean var0) {
+		if (!Projectile.client.containsAccessAndRefreshToken() && !Projectile.client.otlTokenRequesterInitialized() && !Projectile.client.containsSessionAndCharacterId()) {
+			Login.Login_response1 = "";
+			Login.Login_response2 = "Enter your username/email & password.";
+			Login.Login_response3 = "";
+			class6.updateLoginIndex(2);
+			if (var0) {
+				Login.Login_password = "";
+			}
+
+			class362.method7457();
+			class96.focusPasswordWhenUsernameFilled();
+		} else {
+			class6.updateLoginIndex(10);
+		}
+	}
+
+	@ObfuscatedName("ng")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;S)V",
+		garbageValue = "19607"
+	)
+	@Export("clanKickUser")
+	static final void clanKickUser(String var0) {
+		if (PendingSpawn.friendsChat != null) {
+			PacketBufferNode var1 = class113.getPacketBufferNode(ClientPacket.CLAN_KICKUSER, Client.packetWriter.isaacCipher);
+			var1.packetBuffer.writeByte(World.stringCp1252NullTerminatedByteSize(var0));
+			var1.packetBuffer.writeStringCp1252NullTerminated(var0);
+			Client.packetWriter.addNode(var1);
+		}
 	}
 }

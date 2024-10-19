@@ -1,32 +1,14 @@
 import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ux")
-final class class535 implements class530 {
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/Object;Lvp;I)V",
-		garbageValue = "50536898"
-	)
-	public void vmethod9425(Object var1, Buffer var2) {
-		this.method9424((String)var1, var2);
-	}
+@ObfuscatedName("uh")
+public class class535 {
+	@ObfuscatedName("ak")
+	static final char[] field5348;
+	@ObfuscatedName("aj")
+	static final char[] field5346;
 
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "(Lvp;B)Ljava/lang/Object;",
-		garbageValue = "25"
-	)
-	public Object vmethod9426(Buffer var1) {
-		return var1.readStringCp1252NullTerminated();
-	}
-
-	@ObfuscatedName("an")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;Lvp;B)V",
-		garbageValue = "5"
-	)
-	void method9424(String var1, Buffer var2) {
-		var2.writeStringCp1252NullTerminated(var1);
+	static {
+		field5348 = new char[]{' ', ' ', '_', '-', 'à', 'á', 'â', 'ä', 'ã', 'À', 'Á', 'Â', 'Ä', 'Ã', 'è', 'é', 'ê', 'ë', 'È', 'É', 'Ê', 'Ë', 'í', 'î', 'ï', 'Í', 'Î', 'Ï', 'ò', 'ó', 'ô', 'ö', 'õ', 'Ò', 'Ó', 'Ô', 'Ö', 'Õ', 'ù', 'ú', 'û', 'ü', 'Ù', 'Ú', 'Û', 'Ü', 'ç', 'Ç', 'ÿ', 'Ÿ', 'ñ', 'Ñ', 'ß'};
+		field5346 = new char[]{'[', ']', '#'};
 	}
 }

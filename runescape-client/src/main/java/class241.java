@@ -1,71 +1,124 @@
-import java.util.Comparator;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ji")
-public class class241 implements Comparator {
-	class241() {
-	}
-
-	@ObfuscatedName("aq")
+@ObfuscatedName("jx")
+public class class241 {
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(Liz;Liz;I)I",
-		garbageValue = "-1784501046"
+		descriptor = "[Lfw;"
 	)
-	int method4540(class233 var1, class233 var2) {
-		return var1.method4441() - var2.method4441();
-	}
+	class134[] field2608;
+	@ObfuscatedName("ak")
+	@ObfuscatedGetter(
+		intValue = 861196603
+	)
+	int field2610;
 
-	public boolean equals(Object var1) {
-		return super.equals(var1);
-	}
-
-	public int compare(Object var1, Object var2) {
-		return this.method4540((class233)var1, (class233)var2);
-	}
-
-	@ObfuscatedName("mh")
 	@ObfuscatedSignature(
-		descriptor = "(IIIIIII)V",
-		garbageValue = "1536617207"
+		descriptor = "(Lvl;I)V"
 	)
-	static final void method4542(int var0, int var1, int var2, int var3, int var4, int var5) {
-		int var6 = var2 - var0;
-		int var7 = var3 - var1;
-		int var8 = var6 >= 0 ? var6 : -var6;
-		int var9 = var7 >= 0 ? var7 : -var7;
-		int var10 = var8;
-		if (var8 < var9) {
-			var10 = var9;
+	class241(Buffer var1, int var2) {
+		this.field2608 = new class134[var2];
+		this.field2610 = var1.readUnsignedByte();
+
+		for (int var3 = 0; var3 < this.field2608.length; ++var3) {
+			class134 var4 = new class134(this.field2610, var1, false);
+			this.field2608[var3] = var4;
 		}
 
-		if (var10 != 0) {
-			int var11 = (var6 << 16) / var10;
-			int var12 = (var7 << 16) / var10;
-			if (var12 <= var11) {
-				var11 = -var11;
-			} else {
-				var12 = -var12;
+		this.method4902();
+	}
+
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "374756753"
+	)
+	void method4902() {
+		class134[] var1 = this.field2608;
+
+		for (int var2 = 0; var2 < var1.length; ++var2) {
+			class134 var3 = var1[var2];
+			if (var3.field1569 >= 0) {
+				var3.field1574 = this.field2608[var3.field1569];
+			}
+		}
+
+	}
+
+	@ObfuscatedName("aw")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "1298895339"
+	)
+	public int method4903() {
+		return this.field2608.length;
+	}
+
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(II)Lfw;",
+		garbageValue = "-335772549"
+	)
+	class134 method4904(int var1) {
+		return var1 >= this.method4903() ? null : this.field2608[var1];
+	}
+
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "(I)[Lfw;",
+		garbageValue = "1631585712"
+	)
+	class134[] method4905() {
+		return this.field2608;
+	}
+
+	@ObfuscatedName("ai")
+	@ObfuscatedSignature(
+		descriptor = "(Lfr;IB)V",
+		garbageValue = "91"
+	)
+	void method4909(class145 var1, int var2) {
+		this.method4907(var1, var2, (boolean[])null, false);
+	}
+
+	@ObfuscatedName("ay")
+	@ObfuscatedSignature(
+		descriptor = "(Lfr;I[ZZI)V",
+		garbageValue = "-1490826237"
+	)
+	void method4907(class145 var1, int var2, boolean[] var3, boolean var4) {
+		int var5 = var1.method3511();
+		int var6 = 0;
+		class134[] var7 = this.method4905();
+
+		for (int var8 = 0; var8 < var7.length; ++var8) {
+			class134 var9 = var7[var8];
+			if (var3 == null || var4 == var3[var6]) {
+				var1.method3513(var2, var9, var6, var5);
 			}
 
-			int var13 = var5 * var12 >> 17;
-			int var14 = var5 * var12 + 1 >> 17;
-			int var15 = var5 * var11 >> 17;
-			int var16 = var5 * var11 + 1 >> 17;
-			var0 -= Rasterizer2D.Rasterizer2D_xClipStart;
-			var1 -= Rasterizer2D.Rasterizer2D_yClipStart;
-			int var17 = var0 + var13;
-			int var18 = var0 - var14;
-			int var19 = var0 + var6 - var14;
-			int var20 = var0 + var6 + var13;
-			int var21 = var15 + var1;
-			int var22 = var1 - var16;
-			int var23 = var7 + var1 - var16;
-			int var24 = var15 + var7 + var1;
-			Rasterizer3D.method5326(var17, var18, var19);
-			Rasterizer3D.rasterFlat(var21, var22, var23, var17, var18, var19, 0.0F, 0.0F, 0.0F, var4);
-			Rasterizer3D.method5326(var17, var19, var20);
-			Rasterizer3D.rasterFlat(var21, var23, var24, var17, var19, var20, 0.0F, 0.0F, 0.0F, var4);
+			++var6;
 		}
+
+	}
+
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(I[BLsl;I)V",
+		garbageValue = "-1880017708"
+	)
+	static void method4920(int var0, byte[] var1, ArchiveDisk var2) {
+		ArchiveDiskAction var3 = new ArchiveDiskAction();
+		var3.type = 0;
+		var3.key = (long)var0;
+		var3.data = var1;
+		var3.archiveDisk = var2;
+		synchronized(ArchiveDiskActionHandler.ArchiveDiskActionHandler_requestQueue) {
+			ArchiveDiskActionHandler.ArchiveDiskActionHandler_requestQueue.addFirst(var3);
+		}
+
+		WorldMapScaleHandler.method6437();
 	}
 }

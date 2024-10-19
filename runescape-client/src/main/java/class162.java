@@ -1,83 +1,59 @@
-import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("gc")
-public class class162 extends class147 {
-	@ObfuscatedName("aq")
+public class class162 extends class166 {
+	@ObfuscatedName("ap")
+	String field1792;
+	@ObfuscatedName("aw")
 	@ObfuscatedGetter(
-		longValue = 90337108135687261L
+		intValue = -186548891
 	)
-	long field1800;
-	@ObfuscatedName("ad")
-	String field1799;
-	@ObfuscatedName("ag")
-	@ObfuscatedGetter(
-		intValue = 1253382525
-	)
-	int field1801;
+	int field1791;
+	@ObfuscatedName("ak")
+	byte field1793;
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lfn;"
+		descriptor = "Lgg;"
 	)
-	final class150 this$0;
+	final class167 this$0;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lfn;)V"
+		descriptor = "(Lgg;)V"
 	)
-	class162(class150 var1) {
+	class162(class167 var1) {
 		this.this$0 = var1;
-		this.field1800 = -1L;
-		this.field1799 = null;
-		this.field1801 = 0;
+		this.field1792 = null;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(Lvp;B)V",
-		garbageValue = "118"
+		descriptor = "(Lvl;I)V",
+		garbageValue = "-303680000"
 	)
-	void vmethod3528(Buffer var1) {
+	void vmethod3816(Buffer var1) {
 		if (var1.readUnsignedByte() != 255) {
 			--var1.offset;
-			this.field1800 = var1.readLong();
+			var1.readLong();
 		}
 
-		this.field1799 = var1.readStringCp1252NullTerminatedOrNull();
-		this.field1801 = var1.readUnsignedShort();
+		this.field1792 = var1.readStringCp1252NullTerminatedOrNull();
+		this.field1791 = var1.readUnsignedShort();
+		this.field1793 = var1.readByte();
+		var1.readLong();
 	}
 
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(Lgk;B)V",
-		garbageValue = "3"
+		descriptor = "(Lgw;I)V",
+		garbageValue = "-152326479"
 	)
-	void vmethod3530(ClanSettings var1) {
-		var1.method3378(this.field1800, this.field1799, this.field1801);
-	}
-
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "(IB)I",
-		garbageValue = "96"
-	)
-	@Export("getVarbit")
-	public static int getVarbit(int var0) {
-		VarbitComposition var1 = ItemContainer.method2361(var0);
-		int var2 = var1.baseVar;
-		int var3 = var1.startBit;
-		int var4 = var1.endBit;
-		int var5 = Varps.Varps_masks[var4 - var3];
-		return Varps.Varps_main[var2] >> var3 & var5;
-	}
-
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "(II)I",
-		garbageValue = "-586745974"
-	)
-	public static int method3436(int var0) {
-		return var0 >>> 12;
+	void vmethod3817(ClanChannel var1) {
+		ClanChannelMember var2 = new ClanChannelMember();
+		var2.username = new Username(this.field1792);
+		var2.world = this.field1791;
+		var2.rank = this.field1793;
+		var1.addMember(var2);
 	}
 }

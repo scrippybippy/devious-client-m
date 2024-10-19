@@ -1,313 +1,451 @@
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dy")
+@ObfuscatedName("do")
 @Implements("PendingSpawn")
 public final class PendingSpawn extends Node {
-	@ObfuscatedName("be")
-	@Export("fontHelvetica13")
-	static java.awt.Font fontHelvetica13;
-	@ObfuscatedName("rq")
+	@ObfuscatedName("sb")
 	@ObfuscatedSignature(
-		descriptor = "Lse;"
+		descriptor = "Lst;"
 	)
-	static class486 field1171;
-	@ObfuscatedName("ue")
+	@Export("friendsChat")
+	static FriendsChat friendsChat;
+	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = -197255023
-	)
-	static int field1188;
-	@ObfuscatedName("aq")
-	@ObfuscatedGetter(
-		intValue = 1826390675
+		intValue = 1321466283
 	)
 	@Export("plane")
 	int plane;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedGetter(
-		intValue = 1583811915
+		intValue = 1704766835
 	)
 	@Export("type")
 	int type;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = -1220919723
+		intValue = -440355905
 	)
 	@Export("x")
 	int x;
-	@ObfuscatedName("ak")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = 868871769
+		intValue = 1462658139
 	)
 	@Export("y")
 	int y;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ai")
 	@ObfuscatedGetter(
-		intValue = -617367559
+		intValue = -753560163
 	)
 	@Export("objectId")
 	int objectId;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
-		intValue = -1138524769
+		intValue = 883033335
 	)
-	int field1176;
-	@ObfuscatedName("aj")
+	int field1202;
+	@ObfuscatedName("as")
 	@ObfuscatedGetter(
-		intValue = -541310443
+		intValue = 160531641
 	)
-	int field1185;
-	@ObfuscatedName("av")
-	@ObfuscatedGetter(
-		intValue = 2086259071
-	)
-	int field1175;
-	@ObfuscatedName("ab")
-	@ObfuscatedGetter(
-		intValue = 336431343
-	)
-	int field1179;
-	@ObfuscatedName("ai")
-	@ObfuscatedGetter(
-		intValue = -544154603
-	)
-	int field1186;
+	int field1204;
 	@ObfuscatedName("ae")
 	@ObfuscatedGetter(
-		intValue = 555173951
+		intValue = 451987923
 	)
-	int field1181;
-	@ObfuscatedName("ah")
+	int field1200;
+	@ObfuscatedName("am")
 	@ObfuscatedGetter(
-		intValue = -2057818687
+		intValue = 1734556861
 	)
-	int field1183;
-	@ObfuscatedName("az")
+	int field1206;
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 434863111
+		intValue = 1107956009
+	)
+	int field1207;
+	@ObfuscatedName("au")
+	@ObfuscatedGetter(
+		intValue = -1922579283
+	)
+	int field1214;
+	@ObfuscatedName("ao")
+	@ObfuscatedGetter(
+		intValue = 655247679
+	)
+	int field1209;
+	@ObfuscatedName("af")
+	@ObfuscatedGetter(
+		intValue = 444888627
 	)
 	@Export("delay")
 	int delay;
-	@ObfuscatedName("ax")
+	@ObfuscatedName("ar")
 	@ObfuscatedGetter(
-		intValue = 1480623259
+		intValue = -278358679
 	)
 	@Export("hitpoints")
 	int hitpoints;
 
 	PendingSpawn() {
-		this.field1183 = 31;
+		this.field1209 = 31;
 		this.delay = 0;
 		this.hitpoints = -1;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
 		descriptor = "(II)V",
-		garbageValue = "1778936841"
+		garbageValue = "1098669309"
 	)
-	void method2474(int var1) {
-		this.field1183 = var1;
+	void method2702(int var1) {
+		this.field1209 = var1;
 	}
 
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(IB)Z",
-		garbageValue = "-60"
+		descriptor = "(II)Z",
+		garbageValue = "-2894369"
 	)
-	boolean method2469(int var1) {
+	boolean method2704(int var1) {
 		if (var1 >= 0 && var1 <= 4) {
-			return (this.field1183 & 1 << var1) != 0;
+			return (this.field1209 & 1 << var1) != 0;
 		} else {
 			return true;
 		}
 	}
 
-	@ObfuscatedName("ii")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "1013652934"
+		descriptor = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;III)V",
+		garbageValue = "1703692079"
 	)
-	@Export("clear")
-	static final void clear() {
-		class186.field2007.clear();
-		EnumComposition.method3678();
-		Messages.method2916();
-		GameObject.method6032();
-		DbTableType.DBTableType_cache.clear();
-		EnumComposition.EnumDefinition_cached.clear();
-		FloorOverlayDefinition.FloorOverlayDefinition_cached.clear();
-		FloorUnderlayDefinition.FloorUnderlayDefinition_cached.clear();
-		HealthBarDefinition.HealthBarDefinition_cached.clear();
-		HealthBarDefinition.HealthBarDefinition_cachedSprites.clear();
-		HitSplatDefinition.HitSplatDefinition_cached.clear();
-		HitSplatDefinition.HitSplatDefinition_cachedSprites.clear();
-		HitSplatDefinition.HitSplatDefinition_cachedFonts.clear();
-		class176.field1913.clear();
-		KitDefinition.KitDefinition_cached.clear();
-		class354.method6536();
-		class488.method8816();
-		HttpRequestTask.method285();
-		class111.method2848();
-		NPCComposition.NpcDefinition_cached.clear();
-		NPCComposition.NpcDefinition_cachedModels.clear();
-		ItemComposition.ItemDefinition_cached.clear();
-		ItemComposition.ItemDefinition_cachedModels.clear();
-		ItemComposition.ItemDefinition_cachedSprites.clear();
-		ParamComposition.ParamDefinition_cached.clear();
-		SequenceDefinition.SequenceDefinition_cached.clear();
-		SequenceDefinition.SequenceDefinition_cachedFrames.clear();
-		SequenceDefinition.SequenceDefinition_cachedModel.clear();
-		WorldMapRenderer.method4829();
-		StructComposition.StructDefinition_cached.clear();
-		class144.method3244();
-		if (class176.field1863 != null) {
-			class176.field1863.method9369();
+	public static void method2712(String var0, String var1, String var2, int var3, int var4) throws IOException {
+		if (var1 != null && !var1.isEmpty()) {
+			var0 = var0 + "-" + var1;
 		}
 
-		if (PlayerType.field4444 != null) {
-			PlayerType.field4444.method9369();
+		JagexCache.field2391 = var4;
+		class197.cacheGamebuild = var3;
+
+		try {
+			class333.osName = System.getProperty("os.name");
+		} catch (Exception var34) {
+			class333.osName = "Unknown";
 		}
 
-		class193.field2100.clear();
-		class195.field2022.clear();
-		AsyncHttpResponse.method279();
-		class180.field1864.clear();
-		AbstractSocket.method8716();
-		class178.field1851.clear();
-		class201.field1909.clear();
-		class91.method2394();
-		class199.field2136.clear();
-		Client.DBTableIndex_cache.clear();
-		Client.archive11.clear();
-		GraphicsObject.method2154();
-		if (ModeWhere.widgetDefinition != null) {
-			ModeWhere.widgetDefinition.method6516();
+		VarbitComposition.osNameLowercase = class333.osName.toLowerCase();
+		class188.userHomeDirectory = null;
+
+		try {
+			class188.userHomeDirectory = System.getProperty("jagex.userhome");
+		} catch (Exception var33) {
 		}
 
-		if (Rasterizer3D.clips.Rasterizer3D_textureLoader != null) {
-			((TextureProvider)Rasterizer3D.clips.Rasterizer3D_textureLoader).clear();
+		if (class188.userHomeDirectory == null) {
+			try {
+				class188.userHomeDirectory = System.getProperty("user.home");
+			} catch (Exception var32) {
+			}
 		}
 
-		Script.Script_cached.clear();
-		Client.field795.clearFiles();
-		if (LoginState.field497 != null) {
-			LoginState.field497.clearFiles();
+		if (class188.userHomeDirectory != null) {
+			class188.userHomeDirectory = class188.userHomeDirectory + "/";
 		}
 
-		if (class498.field5069 != null) {
-			class498.field5069.clearFiles();
+		try {
+			if (VarbitComposition.osNameLowercase.startsWith("win")) {
+				if (class188.userHomeDirectory == null) {
+					class188.userHomeDirectory = System.getenv("USERPROFILE");
+				}
+			} else if (class188.userHomeDirectory == null) {
+				class188.userHomeDirectory = System.getenv("HOME");
+			}
+
+			if (class188.userHomeDirectory != null) {
+				class188.userHomeDirectory = class188.userHomeDirectory + "/";
+			}
+		} catch (Exception var31) {
 		}
 
-		if (WorldMapSection1.archive10 != null) {
-			WorldMapSection1.archive10.clearFiles();
+		if (class188.userHomeDirectory == null) {
+			class188.userHomeDirectory = "~/";
 		}
 
-		if (WorldEntity.archive12 != null) {
-			WorldEntity.archive12.clearFiles();
+		Sound.field1740 = new String[]{"c:/rscache/", "/rscache/", "c:/windows/", "c:/winnt/", "c:/", class188.userHomeDirectory, "/tmp/", ""};
+		class202.field2113 = new String[]{".jagex_cache_" + class197.cacheGamebuild, ".file_store_" + class197.cacheGamebuild};
+		int var19 = 0;
+
+		label276:
+		while (var19 < 4) {
+			String var7 = var19 == 0 ? "" : "" + var19;
+			class151.field1708 = new File(class188.userHomeDirectory, "jagex_cl_" + var0 + "_" + var2 + var7 + ".dat");
+			String var8 = null;
+			String var9 = null;
+			boolean var10 = false;
+			int var13;
+			int var15;
+			File var39;
+			if (class151.field1708.exists()) {
+				try {
+					AccessFile var11 = new AccessFile(class151.field1708, "rw", 10000L);
+
+					Buffer var12;
+					for (var12 = new Buffer((int)var11.length()); var12.offset < var12.array.length; var12.offset += var13) {
+						var13 = var11.read(var12.array, var12.offset, var12.array.length - var12.offset);
+						if (var13 == -1) {
+							throw new IOException();
+						}
+					}
+
+					var12.offset = 0;
+					var13 = var12.readUnsignedByte();
+					if (var13 < 1 || var13 > 3) {
+						throw new IOException("" + var13);
+					}
+
+					int var14 = 0;
+					if (var13 > 1) {
+						var14 = var12.readUnsignedByte();
+					}
+
+					if (var13 <= 2) {
+						var8 = var12.readStringCp1252NullCircumfixed();
+						if (var14 == 1) {
+							var9 = var12.readStringCp1252NullCircumfixed();
+						}
+					} else {
+						var8 = var12.readCESU8();
+						if (var14 == 1) {
+							var9 = var12.readCESU8();
+						}
+					}
+
+					var11.close();
+				} catch (IOException var36) {
+					var36.printStackTrace();
+				}
+
+				if (var8 != null) {
+					var39 = new File(var8);
+					if (!var39.exists()) {
+						var8 = null;
+					}
+				}
+
+				if (var8 != null) {
+					var39 = new File(var8, "test.dat");
+
+					boolean var42;
+					try {
+						RandomAccessFile var20 = new RandomAccessFile(var39, "rw");
+						var15 = var20.read();
+						var20.seek(0L);
+						var20.write(var15);
+						var20.seek(0L);
+						var20.close();
+						var39.delete();
+						var42 = true;
+					} catch (Exception var30) {
+						var42 = false;
+					}
+
+					if (!var42) {
+						var8 = null;
+					}
+				}
+			}
+
+			if (var8 == null && var19 == 0) {
+				label251:
+				for (int var21 = 0; var21 < class202.field2113.length; ++var21) {
+					for (int var22 = 0; var22 < Sound.field1740.length; ++var22) {
+						File var23 = new File(Sound.field1740[var22] + class202.field2113[var21] + File.separatorChar + var0 + File.separatorChar);
+						if (var23.exists()) {
+							File var24 = new File(var23, "test.dat");
+
+							boolean var43;
+							try {
+								RandomAccessFile var16 = new RandomAccessFile(var24, "rw");
+								int var17 = var16.read();
+								var16.seek(0L);
+								var16.write(var17);
+								var16.seek(0L);
+								var16.close();
+								var24.delete();
+								var43 = true;
+							} catch (Exception var29) {
+								var43 = false;
+							}
+
+							if (var43) {
+								var8 = var23.toString();
+								var10 = true;
+								break label251;
+							}
+						}
+					}
+				}
+			}
+
+			if (var8 == null) {
+				var8 = class188.userHomeDirectory + File.separatorChar + "jagexcache" + var7 + File.separatorChar + var0 + File.separatorChar + var2 + File.separatorChar;
+				var10 = true;
+			}
+
+			if (var9 != null) {
+				File var38 = new File(var9);
+				var39 = new File(var8);
+
+				try {
+					File[] var47 = var38.listFiles();
+					File[] var45 = var47;
+
+					for (var15 = 0; var15 < var45.length; ++var15) {
+						File var44 = var45[var15];
+						File var25 = new File(var39, var44.getName());
+						boolean var18 = var44.renameTo(var25);
+						if (!var18) {
+							throw new IOException();
+						}
+					}
+				} catch (Exception var35) {
+					var35.printStackTrace();
+				}
+
+				var10 = true;
+			}
+
+			if (var10) {
+				HealthBarUpdate.method2776(new File(var8), (File)null);
+			}
+
+			File var6 = new File(var8);
+			JagexCache.cacheDir = var6;
+			if (!JagexCache.cacheDir.exists()) {
+				JagexCache.cacheDir.mkdirs();
+			}
+
+			File[] var37 = JagexCache.cacheDir.listFiles();
+			if (var37 != null) {
+				File[] var40 = var37;
+
+				for (int var26 = 0; var26 < var40.length; ++var26) {
+					File var27 = var40[var26];
+
+					boolean var46;
+					try {
+						RandomAccessFile var41 = new RandomAccessFile(var27, "rw");
+						var13 = var41.read();
+						var41.seek(0L);
+						var41.write(var13);
+						var41.seek(0L);
+						var41.close();
+						var46 = true;
+					} catch (Exception var28) {
+						var46 = false;
+					}
+
+					if (!var46) {
+						++var19;
+						continue label276;
+					}
+				}
+			}
+			break;
 		}
 
-		if (ApproximateRouteStrategy.archive2 != null) {
-			ApproximateRouteStrategy.archive2.clearFiles();
-		}
+		class327.method6530(JagexCache.cacheDir);
+		class7.method49();
+		JagexCache.JagexCache_dat2File = new BufferedFile(new AccessFile(Player.getFile("main_file_cache.dat2"), "rw", 1048576000L), 5200, 0);
+		JagexCache.JagexCache_idx255File = new BufferedFile(new AccessFile(Player.getFile("main_file_cache.idx255"), "rw", 1048576L), 6000, 0);
+		UserComparator6.JagexCache_idxFiles = new BufferedFile[JagexCache.field2391];
 
-		if (AbstractWorldMapData.field2675 != null) {
-			AbstractWorldMapData.field2675.clearFiles();
-		}
-
-		if (VarpDefinition.field1881 != null) {
-			VarpDefinition.field1881.clearFiles();
-		}
-
-		if (ChatChannel.archive13 != null) {
-			ChatChannel.archive13.clearFiles();
-		}
-
-		if (LoginScreenAnimation.archive4 != null) {
-			LoginScreenAnimation.archive4.clearFiles();
-		}
-
-		if (ObjectSound.field856 != null) {
-			ObjectSound.field856.clearFiles();
-		}
-
-		if (class424.field4703 != null) {
-			class424.field4703.clearFiles();
-		}
-
-		if (JagNetThread.field4545 != null) {
-			JagNetThread.field4545.clearFiles();
-		}
-
-		if (class157.archive9 != null) {
-			class157.archive9.clearFiles();
-		}
-
-		if (class199.archive6 != null) {
-			class199.archive6.clearFiles();
-		}
-
-		if (WorldMapSectionType.field2665 != null) {
-			WorldMapSectionType.field2665.clearFiles();
-		}
-
-		if (Tile.field2872 != null) {
-			Tile.field2872.clearFiles();
-		}
-
-		if (class7.archive8 != null) {
-			class7.archive8.clearFiles();
-		}
-
-		if (class195.field2052 != null) {
-			class195.field2052.clearFiles();
-		}
-
-		if (class239.field2524 != null) {
-			class239.field2524.clearFiles();
-		}
-
-		if (PlayerComposition.field3785 != null) {
-			PlayerComposition.field3785.clearFiles();
-		}
-
-		if (class151.field1715 != null) {
-			class151.field1715.clearFiles();
-		}
-
-		if (LoginPacket.field1684 != null) {
-			LoginPacket.field1684.clearFiles();
+		for (var19 = 0; var19 < JagexCache.field2391; ++var19) {
+			UserComparator6.JagexCache_idxFiles[var19] = new BufferedFile(new AccessFile(Player.getFile("main_file_cache.idx" + var19), "rw", 1048576L), 6000, 0);
 		}
 
 	}
 
-	@ObfuscatedName("ma")
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
-		descriptor = "(IIIIIIIII)V",
-		garbageValue = "2068160193"
+		descriptor = "(Ljava/lang/CharSequence;I)[B",
+		garbageValue = "1454210871"
 	)
-	@Export("drawWidgets")
-	static final void drawWidgets(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
-		if (ModeWhere.widgetDefinition.loadInterface(var0)) {
-			class433.field4761 = null;
-			WorldMapDecoration.drawInterface(ModeWhere.widgetDefinition.Widget_interfaceComponents[var0], -1, var1, var2, var3, var4, var5, var6, var7);
-			if (class433.field4761 != null) {
-				WorldMapDecoration.drawInterface(class433.field4761, -1412584499, var1, var2, var3, var4, FloorDecoration.field2819, class143.field1673, var7);
-				class433.field4761 = null;
-			}
+	public static byte[] method2713(CharSequence var0) {
+		int var1 = var0.length();
+		byte[] var2 = new byte[var1];
 
-		} else {
-			if (var7 != -1) {
-				Client.validRootWidgets[var7] = true;
+		for (int var3 = 0; var3 < var1; ++var3) {
+			char var4 = var0.charAt(var3);
+			if (var4 > 0 && var4 < 128 || var4 >= 160 && var4 <= 255) {
+				var2[var3] = (byte)var4;
+			} else if (var4 == 8364) {
+				var2[var3] = -128;
+			} else if (var4 == 8218) {
+				var2[var3] = -126;
+			} else if (var4 == 402) {
+				var2[var3] = -125;
+			} else if (var4 == 8222) {
+				var2[var3] = -124;
+			} else if (var4 == 8230) {
+				var2[var3] = -123;
+			} else if (var4 == 8224) {
+				var2[var3] = -122;
+			} else if (var4 == 8225) {
+				var2[var3] = -121;
+			} else if (var4 == 710) {
+				var2[var3] = -120;
+			} else if (var4 == 8240) {
+				var2[var3] = -119;
+			} else if (var4 == 352) {
+				var2[var3] = -118;
+			} else if (var4 == 8249) {
+				var2[var3] = -117;
+			} else if (var4 == 338) {
+				var2[var3] = -116;
+			} else if (var4 == 381) {
+				var2[var3] = -114;
+			} else if (var4 == 8216) {
+				var2[var3] = -111;
+			} else if (var4 == 8217) {
+				var2[var3] = -110;
+			} else if (var4 == 8220) {
+				var2[var3] = -109;
+			} else if (var4 == 8221) {
+				var2[var3] = -108;
+			} else if (var4 == 8226) {
+				var2[var3] = -107;
+			} else if (var4 == 8211) {
+				var2[var3] = -106;
+			} else if (var4 == 8212) {
+				var2[var3] = -105;
+			} else if (var4 == 732) {
+				var2[var3] = -104;
+			} else if (var4 == 8482) {
+				var2[var3] = -103;
+			} else if (var4 == 353) {
+				var2[var3] = -102;
+			} else if (var4 == 8250) {
+				var2[var3] = -101;
+			} else if (var4 == 339) {
+				var2[var3] = -100;
+			} else if (var4 == 382) {
+				var2[var3] = -98;
+			} else if (var4 == 376) {
+				var2[var3] = -97;
 			} else {
-				for (int var8 = 0; var8 < 100; ++var8) {
-					Client.validRootWidgets[var8] = true;
-				}
+				var2[var3] = 63;
 			}
-
 		}
+
+		return var2;
 	}
 }

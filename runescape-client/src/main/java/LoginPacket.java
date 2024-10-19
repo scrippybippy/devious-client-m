@@ -4,64 +4,64 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fc")
+@ObfuscatedName("ff")
 @Implements("LoginPacket")
-public class LoginPacket extends class147 {
+public class LoginPacket extends class150 {
+	@ObfuscatedName("aj")
+	@Export("Interpreter_intLocals")
+	static int[] Interpreter_intLocals;
 	@ObfuscatedName("ap")
-	@Export("SpriteBuffer_yOffsets")
-	public static int[] SpriteBuffer_yOffsets;
-	@ObfuscatedName("fr")
-	@ObfuscatedSignature(
-		descriptor = "Loz;"
-	)
-	static Archive field1684;
-	@ObfuscatedName("je")
 	@ObfuscatedGetter(
-		intValue = 1778310617
+		longValue = 7772991231255048331L
 	)
-	static int field1682;
-	@ObfuscatedName("aq")
-	@ObfuscatedGetter(
-		longValue = 3441742155483086295L
-	)
-	long field1685;
-	@ObfuscatedName("ad")
-	String field1683;
+	long field1695;
+	@ObfuscatedName("aw")
+	String field1692;
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lfn;"
+		descriptor = "Lfz;"
 	)
-	final class150 this$0;
+	final class153 this$0;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lfn;)V"
+		descriptor = "(Lfz;)V"
 	)
-	LoginPacket(class150 var1) {
+	LoginPacket(class153 var1) {
 		this.this$0 = var1;
-		this.field1685 = -1L;
-		this.field1683 = null;
+		this.field1695 = -1L;
+		this.field1692 = null;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(Lvp;B)V",
-		garbageValue = "118"
+		descriptor = "(Lvl;I)V",
+		garbageValue = "-1813719027"
 	)
-	void vmethod3528(Buffer var1) {
+	void vmethod3822(Buffer var1) {
 		if (var1.readUnsignedByte() != 255) {
 			--var1.offset;
-			this.field1685 = var1.readLong();
+			this.field1695 = var1.readLong();
 		}
 
-		this.field1683 = var1.readStringCp1252NullTerminatedOrNull();
+		this.field1692 = var1.readStringCp1252NullTerminatedOrNull();
 	}
 
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(Lgk;B)V",
-		garbageValue = "3"
+		descriptor = "(Lgy;I)V",
+		garbageValue = "-2079483058"
 	)
-	void vmethod3530(ClanSettings var1) {
-		var1.method3378(this.field1685, this.field1683, 0);
+	void vmethod3821(ClanSettings var1) {
+		var1.method3659(this.field1695, this.field1692, 0);
+	}
+
+	@ObfuscatedName("ic")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "1625323105"
+	)
+	@Export("getWindowedMode")
+	static int getWindowedMode() {
+		return Client.isResizable ? 2 : 1;
 	}
 }

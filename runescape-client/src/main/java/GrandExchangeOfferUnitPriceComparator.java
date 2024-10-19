@@ -4,20 +4,13 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("px")
+@ObfuscatedName("pp")
 @Implements("GrandExchangeOfferUnitPriceComparator")
 final class GrandExchangeOfferUnitPriceComparator implements Comparator {
-	@ObfuscatedName("dk")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "[Lvv;"
-	)
-	@Export("worldSelectStars")
-	static IndexedSprite[] worldSelectStars;
-
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "(Lpm;Lpm;I)I",
-		garbageValue = "-441372308"
+		descriptor = "(Lpv;Lpv;B)I",
+		garbageValue = "47"
 	)
 	@Export("compare_bridged")
 	int compare_bridged(GrandExchangeEvent var1, GrandExchangeEvent var2) {
@@ -30,5 +23,14 @@ final class GrandExchangeOfferUnitPriceComparator implements Comparator {
 
 	public boolean equals(Object var1) {
 		return super.equals(var1);
+	}
+
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(I)[Lsf;",
+		garbageValue = "328042579"
+	)
+	public static class491[] method7811() {
+		return new class491[]{class491.field5086, class491.field5083, class491.field5085};
 	}
 }

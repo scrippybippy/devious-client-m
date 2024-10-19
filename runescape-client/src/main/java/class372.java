@@ -1,52 +1,37 @@
-import net.runelite.mapping.ObfuscatedGetter;
+import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("oy")
+@ObfuscatedName("ov")
 public class class372 {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ax")
 	@ObfuscatedSignature(
-		descriptor = "Loy;"
+		descriptor = "(Lct;I)V",
+		garbageValue = "2101841349"
 	)
-	static final class372 field4069;
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "Loy;"
-	)
-	static final class372 field4065;
-	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "[Loy;"
-	)
-	static final class372[] field4067;
-	@ObfuscatedName("ak")
-	@ObfuscatedGetter(
-		intValue = -1370579203
-	)
-	final int field4066;
-	@ObfuscatedName("ap")
-	@ObfuscatedGetter(
-		intValue = -382716461
-	)
-	final int field4068;
+	@Export("changeWorld")
+	static void changeWorld(World var0) {
+		if (var0.isMembersOnly() != Client.isMembersWorld) {
+			Client.isMembersWorld = var0.isMembersOnly();
+			boolean var1 = var0.isMembersOnly();
+			if (var1 != HttpAuthenticationHeader.ItemDefinition_inMembersWorld) {
+				ItemComposition.ItemDefinition_cached.clear();
+				ItemComposition.ItemDefinition_cachedModels.clear();
+				ItemComposition.ItemDefinition_cachedSprites.clear();
+				HttpAuthenticationHeader.ItemDefinition_inMembersWorld = var1;
+			}
+		}
 
-	static {
-		field4069 = new class372(51, 27, class376.field4110, Coord.method6489(0), Coord.method6489(2), Coord.method6489(2));
-		field4065 = new class372(25, 28, class376.field4110, Coord.method6489(82), Coord.method6489(5), Coord.method6489(5));
-		field4067 = method7070();
-	}
+		if (var0.properties != Client.worldProperties) {
+			UrlRequest.method3258(class450.archive8, var0.properties);
+		}
 
-	class372(int var1, int var2, int var3, int var4, int var5, int var6) {
-		this.field4066 = var5;
-		this.field4068 = var6;
-	}
-
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "(B)[Loy;",
-		garbageValue = "-69"
-	)
-	static class372[] method7070() {
-		return new class372[]{field4069, field4065};
+		class156.worldHost = var0.host;
+		Client.worldId = var0.id;
+		Client.worldProperties = var0.properties;
+		class147.field1688 = var0.field821;
+		GameEngine.worldPort = Client.gameBuild == 0 ? 43594 : var0.id + 40000;
+		SwapSongTask.js5Port = Client.gameBuild == 0 ? 443 : var0.id + 50000;
+		HorizontalAlignment.currentPort = GameEngine.worldPort;
 	}
 }

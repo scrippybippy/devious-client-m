@@ -1,171 +1,135 @@
-import java.awt.Desktop;
-import java.awt.Desktop.Action;
-import java.net.URI;
+import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ma")
-public class class323 implements class318 {
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "Lma;"
-	)
-	public static final class323 field3544;
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "Lma;"
-	)
-	public static final class323 field3539;
-	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "Lma;"
-	)
-	public static final class323 field3538;
-	@ObfuscatedName("ak")
-	@ObfuscatedSignature(
-		descriptor = "Lma;"
-	)
-	public static final class323 field3537;
+@ObfuscatedName("mj")
+public class class323 {
 	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lma;"
+		descriptor = "Lmj;"
 	)
-	public static final class323 field3540;
-	@ObfuscatedName("an")
+	public static final class323 field3422;
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "Lma;"
+		descriptor = "Lmj;"
 	)
-	public static final class323 field3541;
+	public static final class323 field3415;
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "Lmj;"
+	)
+	public static final class323 field3417;
 	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Lma;"
+		descriptor = "Lmj;"
 	)
-	public static final class323 field3542;
-	@ObfuscatedName("av")
+	public static final class323 field3424;
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
-		descriptor = "Lma;"
+		descriptor = "Lmj;"
 	)
-	static final class323 field3543;
+	public static final class323 field3418;
+	@ObfuscatedName("ay")
+	@ObfuscatedSignature(
+		descriptor = "Lmj;"
+	)
+	public static final class323 field3419;
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "Lmj;"
+	)
+	public static final class323 field3427;
 	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "[Lma;"
+		descriptor = "Lmj;"
 	)
-	static final class323[] field3546;
-	@ObfuscatedName("ab")
+	public static final class323 field3421;
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "Lmj;"
+	)
+	public static final class323 field3416;
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "Lmj;"
+	)
+	public static final class323 field3423;
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "Lmj;"
+	)
+	public static final class323 field3420;
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "Lmj;"
+	)
+	public static final class323 field3425;
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Lmj;"
+	)
+	public static final class323 field3426;
+	@ObfuscatedName("kz")
 	@ObfuscatedGetter(
-		intValue = 1880455773
+		intValue = -887244477
 	)
-	public final int field3536;
-	@ObfuscatedName("ai")
-	@ObfuscatedGetter(
-		intValue = -179587169
-	)
-	public final int field3545;
+	@Export("cameraPitch")
+	static int cameraPitch;
 
 	static {
-		field3544 = new class323(14, 0);
-		field3539 = new class323(15, 20);
-		field3538 = new class323(16, -2);
-		field3537 = new class323(18, -2);
-		field3540 = new class323(19, -2);
-		field3541 = new class323(20, 58);
-		field3542 = new class323(21, 37);
-		field3543 = new class323(27, 0);
-		field3546 = new class323[32];
-		class323[] var0 = class263.method5015();
+		field3422 = new class323(7);
+		field3415 = new class323(11);
+		field3417 = new class323(14);
+		field3424 = new class323(14);
+		field3418 = new class323(5);
+		field3419 = new class323(6);
+		field3427 = new class323(20);
+		field3421 = new class323(4);
+		field3416 = new class323(7);
+		field3423 = new class323(4);
+		field3420 = new class323(7);
+		field3425 = new class323(2);
+		field3426 = new class323(17);
+	}
 
-		for (int var1 = 0; var1 < var0.length; ++var1) {
-			field3546[var0[var1].field3536] = var0[var1];
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "7"
+	)
+	class323(int var1) {
+	}
+
+	@ObfuscatedName("aw")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-1423092027"
+	)
+	public static void method6517() {
+		if (MouseHandler.MouseHandler_instance != null) {
+			synchronized(MouseHandler.MouseHandler_instance) {
+				MouseHandler.MouseHandler_instance = null;
+			}
 		}
 
 	}
 
-	class323(int var1, int var2) {
-		this.field3536 = var1;
-		this.field3545 = var2;
-	}
-
-	@ObfuscatedName("aq")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(B)Lmb;",
-		garbageValue = "1"
+		descriptor = "(I)Lme;",
+		garbageValue = "868015187"
 	)
-	static PacketBufferNode method6113() {
-		return PacketBufferNode.PacketBufferNode_packetBufferNodeCount == 0 ? new PacketBufferNode() : PacketBufferNode.PacketBufferNode_packetBufferNodes[--PacketBufferNode.PacketBufferNode_packetBufferNodeCount];
-	}
-
-	@ObfuscatedName("aq")
-	@ObfuscatedSignature(
-		descriptor = "(III)I",
-		garbageValue = "1181492300"
-	)
-	static int method6112(int var0, int var1) {
-		FloorOverlayDefinition var2 = class60.method1179(var0);
-		if (var2 == null) {
-			return var1;
+	public static PacketBufferNode method6516() {
+		PacketBufferNode var0;
+		if (PacketBufferNode.PacketBufferNode_packetBufferNodeCount == 0) {
+			var0 = new PacketBufferNode();
 		} else {
-			int var3;
-			int var4;
-			if (var2.secondaryRgb >= 0) {
-				var3 = Sound.method3909(var2.secondaryHue, var2.secondarySaturation, var2.secondaryLightness);
-				var4 = Player.method2462(var3, 96);
-				return Rasterizer3D.Rasterizer3D_colorPalette[var4] | -16777216;
-			} else if (var2.texture >= 0) {
-				var3 = Player.method2462(Rasterizer3D.clips.Rasterizer3D_textureLoader.getAverageTextureRGB(var2.texture), 96);
-				return Rasterizer3D.Rasterizer3D_colorPalette[var3] | -16777216;
-			} else if (var2.primaryRgb == 16711935) {
-				return var1;
-			} else {
-				var3 = Sound.method3909(var2.hue, var2.saturation, var2.lightness);
-				var4 = Player.method2462(var3, 96);
-				return Rasterizer3D.Rasterizer3D_colorPalette[var4] | -16777216;
-			}
-		}
-	}
-
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "-1"
-	)
-	static void method6110() {
-		ByteArrayPool.field4842.clear();
-		ByteArrayPool.field4842.add(100);
-		ByteArrayPool.field4842.add(5000);
-		ByteArrayPool.field4842.add(10000);
-		ByteArrayPool.field4842.add(30000);
-	}
-
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;ZLjava/lang/String;ZB)V",
-		garbageValue = "-96"
-	)
-	static void method6111(String var0, boolean var1, String var2, boolean var3) {
-		if (var1) {
-			if (!var3 && Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Action.BROWSE)) {
-				try {
-					Desktop.getDesktop().browse(new URI(var0));
-					return;
-				} catch (Exception var5) {
-				}
-			}
-
-			if (class31.field150.startsWith("win") && !var3) {
-				GameEngine.method655(var0, 0, "openjs");
-				return;
-			}
-
-			if (class31.field150.startsWith("mac")) {
-				GameEngine.method655(var0, 1, var2);
-				return;
-			}
-
-			GameEngine.method655(var0, 2, "openjs");
-		} else {
-			GameEngine.method655(var0, 3, "openjs");
+			var0 = PacketBufferNode.PacketBufferNode_packetBufferNodes[--PacketBufferNode.PacketBufferNode_packetBufferNodeCount];
 		}
 
+		var0.clientPacket = null;
+		var0.clientPacketLength = 0;
+		var0.packetBuffer = new PacketBuffer(5000);
+		return var0;
 	}
 }

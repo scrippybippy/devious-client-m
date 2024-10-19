@@ -34,8 +34,10 @@ import net.runelite.api.SceneTileModel;
 import net.runelite.api.SceneTilePaint;
 import net.runelite.api.Tile;
 import net.runelite.api.WallObject;
+import net.runelite.api.WorldView;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
+import net.runelite.api.events.PreMapLoad;
 import net.runelite.api.hooks.DrawCallbacks;
 import net.runelite.api.mixins.Copy;
 import net.runelite.api.mixins.FieldHook;
@@ -120,7 +122,7 @@ public abstract class RSSceneMixin implements RSScene
 	private static byte[][][] rl$tileShapes;
 
 	@Replace("draw")
-	void drawScene(int cameraX, int cameraY, int cameraZ, int cameraPitch, int cameraYaw, int plane)
+	void drawScene(int cameraX, int cameraY, int cameraZ, int cameraPitch, int cameraYaw, int plane, int entityX, int entityY, boolean isCameraLocked)
 	{
 		int maxX = getMaxX();
 		int maxZ = getMaxZ();
@@ -171,14 +173,16 @@ public abstract class RSSceneMixin implements RSScene
 		this.setCameraZ2(cameraZ);
 		this.setScreenCenterX(cameraX / Perspective.LOCAL_TILE_SIZE);
 		this.setScreenCenterZ(cameraZ / Perspective.LOCAL_TILE_SIZE);
+		this.setEntityX(entityX / Perspective.LOCAL_TILE_SIZE);
+		this.setEntityY(entityY / Perspective.LOCAL_TILE_SIZE);
 		this.setScenePlane(plane);
-		RSIntProjection projection = newIntProjection(cameraX, cameraY, cameraZ, cameraPitch, cameraYaw);
-		this.updateVisibleTilesAndOccluders((RSProjection) projection);
+		RSIntProjection projection = newIntProjection(cameraX, cameraY, cameraZ, cameraPitch, cameraYaw, entityX, entityY);
+		this.updateVisibleTilesAndOccluders((RSProjection) projection, isCameraLocked);
 	}
 
 	@Replace("updateVisibleTilesAndOccluders")
 	@Inject
-	void updateVisibleTilesAndOccluders(RSProjection intProjection)
+	void updateVisibleTilesAndOccluders(RSProjection intProjection, boolean isCameraLocked)
 	{
 		final boolean isGpu = client.isGpu();
 		final boolean checkClick = this.isCheckClick();
@@ -186,7 +190,7 @@ public abstract class RSSceneMixin implements RSScene
 
 		if (!menuOpen && !checkClick)
 		{
-			this.menuOpen(getScenePlane(), client.getMouseX() - client.getViewportXOffset(), client.getMouseY() - client.getViewportYOffset(), false);
+			this.menuOpen(false);
 		}
 
 		int cameraX = this.getCameraX2();
@@ -433,7 +437,8 @@ public abstract class RSSceneMixin implements RSScene
 							{
 								client.setEntitiesAtMouseCount(0);
 							}
-							this.setCheckClick(false);
+							//this.setCheckClick(false);
+							this.processWalkClick();
 							client.getCallbacks().drawScene();
 
 							if (client.getDrawCallbacks() != null)
@@ -518,7 +523,8 @@ public abstract class RSSceneMixin implements RSScene
 		{
 			client.setEntitiesAtMouseCount(0);
 		}
-		this.setCheckClick(false);
+		//this.setCheckClick(false);
+		this.processWalkClick();
 		client.getCallbacks().drawScene();
 		if (client.getDrawCallbacks() != null)
 		{
@@ -1127,6 +1133,13 @@ public abstract class RSSceneMixin implements RSScene
 
 	@Inject
 	@Override
+	public int[][][] getRoofs()
+	{
+		return rl$tiles;
+	}
+
+	@Inject
+	@Override
 	public void setRoofRemovalMode(int roofRemovalMode)
 	{
 		rl$roofRemovalMode = roofRemovalMode;
@@ -1141,7 +1154,7 @@ public abstract class RSSceneMixin implements RSScene
 
 	@Inject
 	@Override
-	public void generateHouses()
+	public void buildRoofs()
 	{
 		rl$tiles = new int[4][104][104];
 		final Tile[][][] tiles = getTiles();
@@ -1329,11 +1342,11 @@ public abstract class RSSceneMixin implements RSScene
 	@Inject
 	public static void renderDraw(RSProjection projection, RSRenderable renderable, int orientation, int x, int y, int z, long hash)
 	{
-		projection.draw(renderable, orientation, x, y, z, hash);
 		DrawCallbacks drawCallbacks = client.getDrawCallbacks();
 		if (drawCallbacks != null)
 		{
 			drawCallbacks.draw(projection, client.getTopLevelWorldView().getScene(), renderable, orientation, x, y, z, hash);
+			projection.draw(renderable, orientation, x, y, z, hash);
 		}
 		else
 		{
@@ -1471,5 +1484,28 @@ public abstract class RSSceneMixin implements RSScene
 	public void scenePlaneChanged(int idx)
 	{
 		client.getCallbacks().post(new PlaneChanged(getScenePlane()));
+	}
+
+	@MethodHook(value = "loadRegion", end = true)
+	@Inject
+	public static final void loadRegion()
+	{
+		final WorldView worldView = client.getWorldView();
+		final RSScene scene = (RSScene) worldView.getScene();
+		client.getCallbacks().post(new PreMapLoad(worldView, scene));
+
+		final DrawCallbacks drawCallbacks = client.getDrawCallbacks();
+		if (drawCallbacks != null)
+		{
+			drawCallbacks.loadScene(scene);
+			drawCallbacks.loadScene(worldView, scene);
+		}
+	}
+
+	@Inject
+	@Override
+	public int[] getMapRegions()
+	{
+		return client.getMapRegions();
 	}
 }

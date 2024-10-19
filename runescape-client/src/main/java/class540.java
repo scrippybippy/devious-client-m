@@ -1,21 +1,19 @@
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
+import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("uo")
-public class class540 {
-	@ObfuscatedName("ag")
-	@ObfuscatedGetter(
-		intValue = -951641387
+public interface class540 {
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/Object;Lvl;B)V",
+		garbageValue = "-55"
 	)
-	static final int field5312;
-	@ObfuscatedName("ak")
-	@ObfuscatedGetter(
-		intValue = -2006265865
-	)
-	static final int field5313;
+	void vmethod9951(Object var1, Buffer var2);
 
-	static {
-		field5312 = (int)(Math.pow(2.0D, 4.0D) - 1.0D);
-		field5313 = (int)(Math.pow(2.0D, 8.0D) - 1.0D);
-	}
+	@ObfuscatedName("aw")
+	@ObfuscatedSignature(
+		descriptor = "(Lvl;S)Ljava/lang/Object;",
+		garbageValue = "-9735"
+	)
+	Object vmethod9953(Buffer var1);
 }

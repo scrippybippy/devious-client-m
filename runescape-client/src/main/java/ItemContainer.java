@@ -6,16 +6,22 @@ import net.runelite.mapping.ObfuscatedSignature;
 @ObfuscatedName("dk")
 @Implements("ItemContainer")
 public class ItemContainer extends Node {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lup;"
+		descriptor = "Lud;"
 	)
 	@Export("itemContainers")
 	static NodeHashTable itemContainers;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("vt")
+	@ObfuscatedSignature(
+		descriptor = "Lcc;"
+	)
+	@Export("friendSystem")
+	public static FriendSystem friendSystem;
+	@ObfuscatedName("aw")
 	@Export("ids")
 	int[] ids;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ak")
 	@Export("quantities")
 	int[] quantities;
 
@@ -28,24 +34,38 @@ public class ItemContainer extends Node {
 		this.quantities = new int[]{0};
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(II)Lhc;",
-		garbageValue = "-2087182582"
+		descriptor = "(Lpe;II)Z",
+		garbageValue = "-1123070579"
 	)
-	public static VarbitComposition method2361(int var0) {
-		VarbitComposition var1 = (VarbitComposition)VarbitComposition.VarbitDefinition_cached.get((long)var0);
-		if (var1 != null) {
-			return var1;
+	public static boolean method2556(AbstractArchive var0, int var1) {
+		byte[] var2 = var0.takeFileFlat(var1);
+		if (var2 == null) {
+			return false;
 		} else {
-			byte[] var2 = VarbitComposition.VarbitDefinition_archive.takeFile(14, var0);
-			var1 = new VarbitComposition();
-			if (var2 != null) {
-				var1.decode(new Buffer(var2));
+			ClanChannel.SpriteBuffer_decode(var2);
+			return true;
+		}
+	}
+
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "(III)I",
+		garbageValue = "-809723661"
+	)
+	static final int method2555(int var0, int var1) {
+		if (var0 == -1) {
+			return 12345678;
+		} else {
+			var1 = (var0 & 127) * var1 / 128;
+			if (var1 < 2) {
+				var1 = 2;
+			} else if (var1 > 126) {
+				var1 = 126;
 			}
 
-			VarbitComposition.VarbitDefinition_cached.put(var1, (long)var0);
-			return var1;
+			return (var0 & 65408) + var1;
 		}
 	}
 }

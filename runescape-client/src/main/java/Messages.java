@@ -1,5 +1,4 @@
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
@@ -7,35 +6,30 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ek")
+@ObfuscatedName("el")
 @Implements("Messages")
 public class Messages {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@Export("Messages_channels")
 	static final Map Messages_channels;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "Lth;"
+		descriptor = "Lum;"
 	)
 	@Export("Messages_hashTable")
 	static final IterableNodeHashTable Messages_hashTable;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lpt;"
+		descriptor = "Lpf;"
 	)
 	@Export("Messages_queue")
 	static final IterableDualNodeQueue Messages_queue;
-	@ObfuscatedName("ak")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = 108964459
+		intValue = -314072883
 	)
 	@Export("Messages_count")
 	static int Messages_count;
-	@ObfuscatedName("dp")
-	@ObfuscatedSignature(
-		descriptor = "Lvv;"
-	)
-	static IndexedSprite field1449;
 
 	static {
 		Messages_channels = new HashMap();
@@ -44,58 +38,53 @@ public class Messages {
 		Messages_count = 0;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("as")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "0"
+		descriptor = "(IZB)Ljava/lang/String;",
+		garbageValue = "86"
 	)
-	public static void method2916() {
-		class177.field1915.clear();
+	@Export("intToString")
+	public static String intToString(int var0, boolean var1) {
+		return var1 && var0 >= 0 ? FontName.method9733(var0, 10, var1) : Integer.toString(var0);
 	}
 
-	@ObfuscatedName("ab")
-	@ObfuscatedSignature(
-		descriptor = "(B)Ljava/lang/String;",
-		garbageValue = "-125"
-	)
-	static String method2917() {
-		StringBuilder var0 = new StringBuilder();
-
-		Message var2;
-		for (Iterator var1 = Messages_hashTable.iterator(); var1.hasNext(); var0.append(var2.text).append('\n')) {
-			var2 = (Message)var1.next();
-			if (var2.sender != null && !var2.sender.isEmpty()) {
-				var0.append(var2.sender).append(':');
-			}
-		}
-
-		return var0.toString();
-	}
-
-	@ObfuscatedName("og")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(Ljava/lang/String;B)V",
-		garbageValue = "32"
+		garbageValue = "0"
 	)
-	@Export("clanKickUser")
-	static final void clanKickUser(String var0) {
-		if (Decimator.friendsChat != null) {
-			PacketBufferNode var1 = class170.getPacketBufferNode(ClientPacket.CLAN_KICKUSER, Client.packetWriter.isaacCipher);
-			var1.packetBuffer.writeByte(Actor.stringCp1252NullTerminatedByteSize(var0));
-			var1.packetBuffer.writeStringCp1252NullTerminated(var0);
-			Client.packetWriter.addNode(var1);
-		}
+	static final void method3171(String var0) {
+		StringBuilder var10000 = (new StringBuilder()).append(var0);
+		Object var10001 = null;
+		String var1 = var10000.append(" is already on your friend list").toString();
+		class430.addGameMessage(30, "", var1);
 	}
 
-	@ObfuscatedName("oc")
+	@ObfuscatedName("ov")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-2136125959"
+		descriptor = "(Ljava/lang/String;ZI)Ljava/lang/String;",
+		garbageValue = "-2144662822"
 	)
-	@Export("Clan_leaveChat")
-	static final void Clan_leaveChat() {
-		PacketBufferNode var0 = class170.getPacketBufferNode(ClientPacket.field3365, Client.packetWriter.isaacCipher);
-		var0.packetBuffer.writeByte(0);
-		Client.packetWriter.addNode(var0);
+	static String method3176(String var0, boolean var1) {
+		String var2 = var1 ? "https://" : "http://";
+		if (Client.gameBuild == 1) {
+			var0 = var0 + "-wtrc";
+		} else if (Client.gameBuild == 2) {
+			var0 = var0 + "-wtqa";
+		} else if (Client.gameBuild == 3) {
+			var0 = var0 + "-wtwip";
+		} else if (Client.gameBuild == 5) {
+			var0 = var0 + "-wti";
+		} else if (Client.gameBuild == 4) {
+			var0 = "local";
+		}
+
+		String var3 = "";
+		if (class145.field1668 != null) {
+			var3 = "/p=" + class145.field1668;
+		}
+
+		String var4 = "runescape.com";
+		return var2 + var0 + "." + var4 + "/l=" + WorldMapCacheName.clientLanguage + "/a=" + BZip2State.field5507 + var3 + "/";
 	}
 }
