@@ -6,11 +6,11 @@ import net.runelite.mapping.Implements;
 public interface OAuthApi {
 	void setRefreshTokenRequester(RefreshAccessTokenRequester var1);
 
-	long getAccountHash();
+	boolean isOnLoginScreen();
 
 	void setClient(int var1);
 
-	void setOtlTokenRequester(OtlTokenRequester var1);
+	long getAccountHash();
 
-	boolean isOnLoginScreen();
+	void setOtlTokenRequester(OtlTokenRequester var1);
 }

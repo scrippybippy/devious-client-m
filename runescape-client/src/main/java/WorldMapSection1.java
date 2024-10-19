@@ -1,51 +1,52 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("kw")
+@ObfuscatedName("lt")
 @Implements("WorldMapSection1")
 public class WorldMapSection1 implements WorldMapSection {
-	@ObfuscatedName("fb")
-	@ObfuscatedSignature(
-		descriptor = "Loz;"
-	)
-	@Export("archive10")
-	static Archive archive10;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = 502415749
+		intValue = 1465133883
 	)
 	@Export("minPlane")
 	int minPlane;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedGetter(
-		intValue = 1809402251
+		intValue = -1834087449
 	)
 	@Export("planes")
 	int planes;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = 1715220047
+		intValue = 68177347
 	)
 	@Export("regionStartX")
 	int regionStartX;
-	@ObfuscatedName("ak")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = 1345453013
+		intValue = -1889382961
 	)
 	@Export("regionStartY")
 	int regionStartY;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ai")
 	@ObfuscatedGetter(
-		intValue = 407425227
+		intValue = -1646434889
 	)
 	@Export("regionEndX")
 	int regionEndX;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
-		intValue = -1317582751
+		intValue = 919669859
 	)
 	@Export("regionEndY")
 	int regionEndY;
@@ -53,10 +54,10 @@ public class WorldMapSection1 implements WorldMapSection {
 	WorldMapSection1() {
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(Ljm;I)V",
-		garbageValue = "1568670940"
+		descriptor = "(Lkp;I)V",
+		garbageValue = "-1801855578"
 	)
 	@Export("expandBounds")
 	public void expandBounds(WorldMapArea var1) {
@@ -78,10 +79,10 @@ public class WorldMapSection1 implements WorldMapSection {
 
 	}
 
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(IIIB)Z",
-		garbageValue = "115"
+		descriptor = "(IIII)Z",
+		garbageValue = "-1302944886"
 	)
 	@Export("containsCoord")
 	public boolean containsCoord(int var1, int var2, int var3) {
@@ -92,20 +93,20 @@ public class WorldMapSection1 implements WorldMapSection {
 		}
 	}
 
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(III)Z",
-		garbageValue = "-898385408"
+		descriptor = "(IIB)Z",
+		garbageValue = "-75"
 	)
 	@Export("containsPosition")
 	public boolean containsPosition(int var1, int var2) {
 		return var1 >> 6 == this.regionEndX && var2 >> 6 == this.regionEndY;
 	}
 
-	@ObfuscatedName("ak")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
 		descriptor = "(IIIB)[I",
-		garbageValue = "-35"
+		garbageValue = "114"
 	)
 	@Export("getBorderTileLengths")
 	public int[] getBorderTileLengths(int var1, int var2, int var3) {
@@ -117,10 +118,10 @@ public class WorldMapSection1 implements WorldMapSection {
 		}
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
-		descriptor = "(III)Lnl;",
-		garbageValue = "-55064754"
+		descriptor = "(III)Lnn;",
+		garbageValue = "-246633808"
 	)
 	@Export("coord")
 	public Coord coord(int var1, int var2) {
@@ -133,10 +134,10 @@ public class WorldMapSection1 implements WorldMapSection {
 		}
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ay")
 	@ObfuscatedSignature(
-		descriptor = "(Lvp;I)V",
-		garbageValue = "301668137"
+		descriptor = "(Lvl;I)V",
+		garbageValue = "2108862730"
 	)
 	@Export("read")
 	public void read(Buffer var1) {
@@ -149,146 +150,79 @@ public class WorldMapSection1 implements WorldMapSection {
 		this.postRead();
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("as")
 	@ObfuscatedSignature(
 		descriptor = "(S)V",
-		garbageValue = "26437"
+		garbageValue = "7325"
 	)
 	@Export("postRead")
 	void postRead() {
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(Lde;Lvp;IIIIIII)V",
-		garbageValue = "-1270068304"
+		descriptor = "(Lpe;Lpe;IZB)Lfr;",
+		garbageValue = "0"
 	)
-	@Export("loadTerrain")
-	static final void loadTerrain(WorldView var0, Buffer var1, int var2, int var3, int var4, int var5, int var6, int var7) {
-		int[][][] var8 = var0.tileHeights;
-		byte[][][] var9 = var0.tileSettings;
-		int var10;
-		if (var2 >= 0 && var2 < 4 && var3 >= 0 && var3 < var8[0].length - 1 && var4 >= 0 && var4 < var8[0][0].length - 1) {
-			var9[var2][var3][var4] = 0;
-
-			while (true) {
-				var10 = var1.readUnsignedShort();
-				if (var10 == 0) {
-					if (var2 == 0) {
-						var8[0][var3][var4] = -class177.method3567(var5 + 932731, 556238 + var6) * 8;
-					} else {
-						var8[var2][var3][var4] = var8[var2 - 1][var3][var4] - 240;
-					}
-					break;
-				}
-
-				if (var10 == 1) {
-					int var11 = var1.readUnsignedByte();
-					if (var11 == 1) {
-						var11 = 0;
-					}
-
-					if (var2 == 0) {
-						var8[0][var3][var4] = -var11 * 8;
-					} else {
-						var8[var2][var3][var4] = var8[var2 - 1][var3][var4] - var11 * 8;
-					}
-					break;
-				}
-
-				if (var10 <= 49) {
-					Tiles.Tiles_overlays[var2][var3][var4] = (short)var1.readShort();
-					Tiles.Tiles_shapes[var2][var3][var4] = (byte)((var10 - 2) / 4);
-					class356.field3810[var2][var3][var4] = (byte)(var10 - 2 + var7 & 3);
-				} else if (var10 <= 81) {
-					var9[var2][var3][var4] = (byte)(var10 - 49);
-				} else {
-					Tiles.Tiles_underlays[var2][var3][var4] = (short)(var10 - 81);
-				}
-			}
+	public static class145 method6334(AbstractArchive var0, AbstractArchive var1, int var2, boolean var3) {
+		boolean var4 = true;
+		byte[] var5 = var0.getFile(var2 >> 16 & 65535, var2 & 65535);
+		if (var5 == null) {
+			var4 = false;
+			return null;
 		} else {
-			while (true) {
-				var10 = var1.readUnsignedShort();
-				if (var10 == 0) {
-					break;
+			int var6 = (var5[1] & 255) << 8 | var5[2] & 255;
+			byte[] var7;
+			if (var3) {
+				var7 = var1.getFile(0, var6);
+			} else {
+				var7 = var1.getFile(var6, 0);
+			}
+
+			if (var7 == null) {
+				var4 = false;
+			}
+
+			if (!var4) {
+				return null;
+			} else {
+				if (class553.field5448 == null) {
+					class145.field1669 = Runtime.getRuntime().availableProcessors();
+					class553.field5448 = new ThreadPoolExecutor(0, class145.field1669, 0L, TimeUnit.MILLISECONDS, new ArrayBlockingQueue(class145.field1669 * 100 + 100), new class142());
 				}
 
-				if (var10 == 1) {
-					var1.readUnsignedByte();
-					break;
-				}
-
-				if (var10 <= 49) {
-					var1.readShort();
+				try {
+					return new class145(var0, var1, var2, var3);
+				} catch (Exception var9) {
+					return null;
 				}
 			}
 		}
-
 	}
 
-	@ObfuscatedName("ja")
+	@ObfuscatedName("af")
 	@ObfuscatedSignature(
-		descriptor = "(Lde;B)V",
-		garbageValue = "-9"
+		descriptor = "(I)Ljava/util/Date;",
+		garbageValue = "419822975"
 	)
-	static final void method5042(WorldView var0) {
-		for (Projectile var1 = (Projectile)var0.projectiles.last(); var1 != null; var1 = (Projectile)var0.projectiles.previous()) {
-			if (var0.plane == var1.plane && Client.cycle <= var1.cycleEnd) {
-				if (Client.cycle >= var1.cycleStart) {
-					NPC var2;
-					int var3;
-					Player var4;
-					if (!var1.isMoving && var1.field975 != 0) {
-						if (var1.field975 > 0) {
-							var2 = HttpResponse.worldView.npcs[var1.field975 - 1];
-							if (var2 != null && 0 <= var2.x && var2.x < 13312 && 0 <= var2.y && var2.y < 13312) {
-								var1.sourceX = var2.x;
-								var1.sourceY = var2.y;
-								var1.setDestination(var1.field968, var1.field985, var1.field970, Client.cycle);
-							}
-						} else {
-							var3 = -var1.field975 - 1;
-							if (var3 == Client.localPlayerIndex) {
-								var4 = SoundCache.localPlayer;
-							} else {
-								var4 = HttpResponse.worldView.players[var3];
-							}
+	static Date method6333() throws ParseException {
+		SimpleDateFormat var0 = new SimpleDateFormat("ddMMyyyyHH", Locale.ENGLISH);
+		var0.setLenient(false);
+		StringBuilder var1 = new StringBuilder();
+		String[] var2 = Login.field943;
 
-							if (var4 != null && 0 <= var4.x && var4.x < 13312 && 0 <= var4.y && var4.y < 13312) {
-								var1.sourceX = var4.x;
-								var1.sourceY = var4.y;
-								var1.setDestination(var1.field968, var1.field985, var1.field970, Client.cycle);
-							}
-						}
-					}
-
-					if (var1.targetIndex > 0) {
-						var2 = var0.npcs[var1.targetIndex - 1];
-						if (var2 != null && 0 <= var2.x && var2.x < 13312 && 0 <= var2.y && var2.y < 13312) {
-							var1.setDestination(var2.x, var2.y, class169.getTileHeight(var0, var2.x, var2.y, var1.plane) - var1.endHeight, Client.cycle);
-						}
-					}
-
-					if (var1.targetIndex < 0) {
-						var3 = -var1.targetIndex - 1;
-						if (var3 == Client.localPlayerIndex) {
-							var4 = SoundCache.localPlayer;
-						} else {
-							var4 = var0.players[var3];
-						}
-
-						if (var4 != null && 0 <= var4.x && var4.x < 13312 && 0 <= var4.y && var4.y < 13312) {
-							var1.setDestination(var4.x, var4.y, class169.getTileHeight(var0, var4.x, var4.y, var1.plane) - var1.endHeight, Client.cycle);
-						}
-					}
-
-					var1.advance(Client.graphicsCycle);
-					var0.scene.drawEntity(var0.plane, (int)var1.x, (int)var1.y, (int)var1.z, 60, var1, var1.yaw, -1L, false);
-				}
-			} else {
-				var1.remove();
+		for (int var3 = 0; var3 < var2.length; ++var3) {
+			String var4 = var2[var3];
+			if (var4 == null) {
+				class6.updateLoginIndex(7);
+				class132.setLoginResponseString("Date not valid.", "Please ensure all characters are populated.", "");
+				return null;
 			}
+
+			var1.append(var4);
 		}
 
+		var1.append("12");
+		return var0.parse(var1.toString());
 	}
 }

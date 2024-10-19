@@ -200,6 +200,16 @@ public class JSONTokener {
 		}
 	}
 
+	public boolean more() throws JSONException {
+		char var1 = this.next();
+		if (var1 == 0) {
+			return false;
+		} else {
+			this.back();
+			return true;
+		}
+	}
+
 	public char next(char var1) throws JSONException {
 		char var2 = this.next();
 		if (var2 != var1) {
@@ -263,16 +273,6 @@ public class JSONTokener {
 
 		this.back();
 		return var2;
-	}
-
-	public boolean more() throws JSONException {
-		char var1 = this.next();
-		if (var1 == 0) {
-			return false;
-		} else {
-			this.back();
-			return true;
-		}
 	}
 
 	public static int dehexchar(char var0) {

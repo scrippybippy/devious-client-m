@@ -1,20 +1,25 @@
+import java.awt.image.BufferedImage;
+import java.awt.image.PixelGrabber;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("sd")
+@ObfuscatedName("sp")
 @Implements("ClanMate")
 public class ClanMate extends Buddy {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lsv;"
+		descriptor = "Lsg;"
 	)
 	@Export("friend")
 	TriBool friend;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "Lsv;"
+		descriptor = "Lsg;"
 	)
 	@Export("ignored")
 	TriBool ignored;
@@ -24,10 +29,10 @@ public class ClanMate extends Buddy {
 		this.ignored = TriBool.TriBool_unknown;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
 		descriptor = "(B)V",
-		garbageValue = "12"
+		garbageValue = "110"
 	)
 	@Export("clearIsFriend")
 	void clearIsFriend() {
@@ -37,7 +42,7 @@ public class ClanMate extends Buddy {
 	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
 		descriptor = "(B)Z",
-		garbageValue = "1"
+		garbageValue = "-27"
 	)
 	@Export("isFriend")
 	public final boolean isFriend() {
@@ -48,30 +53,30 @@ public class ClanMate extends Buddy {
 		return this.friend == TriBool.TriBool_true;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "0"
+		descriptor = "(I)V",
+		garbageValue = "-1139223647"
 	)
 	@Export("fillIsFriend")
 	void fillIsFriend() {
-		this.friend = class135.friendSystem.friendsList.contains(super.username) ? TriBool.TriBool_true : TriBool.TriBool_false;
+		this.friend = ItemContainer.friendSystem.friendsList.contains(super.username) ? TriBool.TriBool_true : TriBool.TriBool_false;
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "299521"
+		garbageValue = "-2029625737"
 	)
 	@Export("clearIsIgnored")
 	void clearIsIgnored() {
 		this.ignored = TriBool.TriBool_unknown;
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("as")
 	@ObfuscatedSignature(
-		descriptor = "(S)Z",
-		garbageValue = "-2320"
+		descriptor = "(B)Z",
+		garbageValue = "3"
 	)
 	@Export("isIgnored")
 	public final boolean isIgnored() {
@@ -82,22 +87,66 @@ public class ClanMate extends Buddy {
 		return this.ignored == TriBool.TriBool_true;
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("au")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "197382137"
+		garbageValue = "465355241"
 	)
 	@Export("fillIsIgnored")
 	void fillIsIgnored() {
-		this.ignored = class135.friendSystem.ignoreList.contains(super.username) ? TriBool.TriBool_true : TriBool.TriBool_false;
+		this.ignored = ItemContainer.friendSystem.ignoreList.contains(super.username) ? TriBool.TriBool_true : TriBool.TriBool_false;
 	}
 
-	@ObfuscatedName("ad")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(Lok;IIB)[Lvg;",
-		garbageValue = "1"
+		descriptor = "([BB)Lvv;",
+		garbageValue = "86"
 	)
-	public static SpritePixels[] method8542(AbstractArchive var0, int var1, int var2) {
-		return !class146.method3260(var0, var1, var2) ? null : WorldMapRegion.method4809();
+	@Export("readSpritePixelsFromBytes")
+	public static final SpritePixels readSpritePixelsFromBytes(byte[] var0) {
+		BufferedImage var1 = null;
+
+		try {
+			Class var2 = ImageIO.class;
+			synchronized(ImageIO.class) {
+				var1 = ImageIO.read(new ByteArrayInputStream(var0));
+			}
+
+			if (var1 != null) {
+				int var6 = var1.getWidth();
+				int var7 = var1.getHeight();
+				int[] var4 = new int[var6 * var7];
+				PixelGrabber var5 = new PixelGrabber(var1, 0, 0, var6, var7, var4, 0, var6);
+				var5.grabPixels();
+				return new SpritePixels(var4, var6, var7);
+			}
+		} catch (IOException var9) {
+		} catch (InterruptedException var10) {
+		}
+
+		return new SpritePixels(0, 0);
+	}
+
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "([BB)[I",
+		garbageValue = "-34"
+	)
+	public static int[] method9018(byte[] var0) {
+		if (var0 != null && var0.length != 0 && var0.length <= 8) {
+			int[] var1 = new int[var0.length];
+
+			for (int var2 = 0; var2 < var0.length; ++var2) {
+				if (var0[var2] < 0 || var0[var2] >= class581.field5630.length) {
+					return null;
+				}
+
+				var1[var2] = class581.field5630[var0[var2]];
+			}
+
+			return var1;
+		} else {
+			return null;
+		}
 	}
 }

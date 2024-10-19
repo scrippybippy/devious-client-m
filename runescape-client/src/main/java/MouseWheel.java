@@ -6,10 +6,10 @@ import net.runelite.mapping.ObfuscatedSignature;
 @ObfuscatedName("iv")
 @Implements("MouseWheel")
 public interface MouseWheel {
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "-1808881319"
+		descriptor = "(B)I",
+		garbageValue = "66"
 	)
 	@Export("useRotation")
 	int useRotation();

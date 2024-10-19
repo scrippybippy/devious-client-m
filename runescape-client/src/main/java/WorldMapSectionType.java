@@ -4,51 +4,41 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jt")
+@ObfuscatedName("lg")
 @Implements("WorldMapSectionType")
 public enum WorldMapSectionType implements Enum {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Ljt;"
+		descriptor = "Llg;"
 	)
 	@Export("WORLDMAPSECTIONTYPE0")
-	WORLDMAPSECTIONTYPE0(2, (byte)0),
-	@ObfuscatedName("ad")
+	WORLDMAPSECTIONTYPE0(1, (byte)0),
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "Ljt;"
+		descriptor = "Llg;"
 	)
 	@Export("WORLDMAPSECTIONTYPE1")
-	WORLDMAPSECTIONTYPE1(1, (byte)1),
-	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "Ljt;"
-	)
-	@Export("WORLDMAPSECTIONTYPE2")
-	WORLDMAPSECTIONTYPE2(3, (byte)2),
+	WORLDMAPSECTIONTYPE1(2, (byte)1),
 	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Ljt;"
+		descriptor = "Llg;"
+	)
+	@Export("WORLDMAPSECTIONTYPE2")
+	WORLDMAPSECTIONTYPE2(0, (byte)2),
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "Llg;"
 	)
 	@Export("WORLDMAPSECTIONTYPE3")
-	WORLDMAPSECTIONTYPE3(0, (byte)3);
+	WORLDMAPSECTIONTYPE3(3, (byte)3);
 
-	@ObfuscatedName("fg")
-	@ObfuscatedSignature(
-		descriptor = "Loz;"
-	)
-	static Archive field2665;
-	@ObfuscatedName("uy")
+	@ObfuscatedName("ai")
 	@ObfuscatedGetter(
-		intValue = 561283007
-	)
-	static int field2666;
-	@ObfuscatedName("ap")
-	@ObfuscatedGetter(
-		intValue = 754386531
+		intValue = 1849201209
 	)
 	@Export("type")
 	final int type;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ay")
 	@Export("id")
 	final byte id;
 
@@ -57,74 +47,112 @@ public enum WorldMapSectionType implements Enum {
 		this.id = var4;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "2071992588"
+		garbageValue = "1837624059"
 	)
 	@Export("rsOrdinal")
 	public int rsOrdinal() {
 		return this.id;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(II)Lut;",
-		garbageValue = "-408274121"
+		descriptor = "(I)[Llg;",
+		garbageValue = "1145772023"
 	)
-	@Export("getDbRowType")
-	public static DbRowType getDbRowType(int var0) {
-		DbRowType var1 = (DbRowType)DbRowType.DBRowType_cache.get((long)var0);
-		if (var1 != null) {
-			return var1;
-		} else {
-			byte[] var2 = DbRowType.field5305.takeFile(38, var0);
-			var1 = new DbRowType();
-			if (var2 != null) {
-				var1.method9460(new Buffer(var2));
-			}
-
-			var1.method9459();
-			DbRowType.DBRowType_cache.put(var1, (long)var0);
-			return var1;
-		}
+	static WorldMapSectionType[] method6257() {
+		return new WorldMapSectionType[]{WORLDMAPSECTIONTYPE2, WORLDMAPSECTIONTYPE1, WORLDMAPSECTIONTYPE3, WORLDMAPSECTIONTYPE0};
 	}
 
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "(II)Lha;",
-		garbageValue = "1966297166"
-	)
-	public static HitSplatDefinition method4961(int var0) {
-		HitSplatDefinition var1 = (HitSplatDefinition)HitSplatDefinition.HitSplatDefinition_cached.get((long)var0);
-		if (var1 != null) {
-			return var1;
-		} else {
-			byte[] var2 = HitSplatDefinition.HitSplatDefinition_archive.takeFile(32, var0);
-			var1 = new HitSplatDefinition();
-			if (var2 != null) {
-				var1.decode(new Buffer(var2));
-			}
-
-			HitSplatDefinition.HitSplatDefinition_cached.put(var1, (long)var0);
-			return var1;
-		}
-	}
-
-	@ObfuscatedName("ia")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
 		descriptor = "(B)V",
-		garbageValue = "2"
+		garbageValue = "22"
 	)
-	static final void method4962() {
-		if (GrandExchangeEvents.field4576) {
-			for (int var0 = 0; var0 < class511.topLevelWorldView.playerUpdateManager.playerCount; ++var0) {
-				Player var1 = class511.topLevelWorldView.players[class511.topLevelWorldView.playerUpdateManager.playerIndices[var0]];
-				var1.method2412();
+	public static void method6255() {
+		class191.field2026.clear();
+	}
+
+	@ObfuscatedName("az")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-115351229"
+	)
+	static void method6251() {
+		Login.Login_username = Login.Login_username.trim();
+		if (Login.Login_username.length() == 0) {
+			class132.setLoginResponseString("Please enter your username.", "If you created your account after November", "2010, this will be the creation email address.");
+		} else {
+			long var1 = LoginScreenAnimation.method2817();
+			int var0;
+			if (0L == var1) {
+				var0 = 5;
+			} else {
+				var0 = class357.method6924(var1, Login.Login_username);
 			}
 
-			GrandExchangeEvents.field4576 = false;
+			switch(var0) {
+			case 2:
+				class132.setLoginResponseString(Strings.field4237, Strings.field4198, Strings.field4448);
+				class6.updateLoginIndex(6);
+				break;
+			case 3:
+				class132.setLoginResponseString("", "Error connecting to server.", "");
+				break;
+			case 4:
+				class132.setLoginResponseString("The part of the website you are trying", "to connect to is offline at the moment.", "Please try again later.");
+				break;
+			case 5:
+				class132.setLoginResponseString("Sorry, there was an error trying to", "log you in to this part of the website.", "Please try again later.");
+				break;
+			case 6:
+				class132.setLoginResponseString("", "Error connecting to server.", "");
+				break;
+			case 7:
+				class132.setLoginResponseString("You must enter a valid login to proceed. For accounts", "created after 24th November 2010, please use your", "email address. Otherwise please use your username.");
+			}
+
+		}
+	}
+
+	@ObfuscatedName("he")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-754771729"
+	)
+	static final void method6254() {
+		if (Client.logoutTimer > 0) {
+			class389.logOut();
+		} else {
+			Client.timer.method8791();
+			BuddyRankComparator.updateGameState(40);
+			class197.field2063 = Client.packetWriter.getSocket();
+			Client.packetWriter.removeSocket();
+		}
+	}
+
+	@ObfuscatedName("ka")
+	@ObfuscatedSignature(
+		descriptor = "(IIIIIIIIIZI)V",
+		garbageValue = "1487261076"
+	)
+	@Export("addTileItemToGroundItems")
+	static void addTileItemToGroundItems(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, boolean var9) {
+		TileItem var10 = new TileItem();
+		var10.id = var3;
+		var10.quantity = var4;
+		var10.setFlag(var5);
+		var10.visibleTime = Client.serverCycle + var6;
+		var10.despawnTime = var7 + Client.serverCycle;
+		var10.ownership = var8;
+		var10.isPrivate = var9;
+		if (class344.worldView.groundItems[var0][var1][var2] == null) {
+			class344.worldView.groundItems[var0][var1][var2] = new NodeDeque();
 		}
 
+		class344.worldView.groundItems[var0][var1][var2].addFirst(var10);
+		class397.updateItemPile(var0, var1, var2);
 	}
 }

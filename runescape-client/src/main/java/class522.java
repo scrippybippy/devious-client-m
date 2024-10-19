@@ -1,77 +1,57 @@
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("uj")
-public class class522 implements class521 {
-	@ObfuscatedName("cc")
+@ObfuscatedName("ug")
+public abstract class class522 {
+	@ObfuscatedName("ae")
 	@ObfuscatedGetter(
-		intValue = 1588295485
+		intValue = -474494705
 	)
-	static int field5244;
-	@ObfuscatedName("sl")
-	@ObfuscatedSignature(
-		descriptor = "Lvc;"
+	int field5229;
+	@ObfuscatedName("am")
+	@ObfuscatedGetter(
+		intValue = 1529757277
 	)
-	@Export("privateChatMode")
-	static PrivateChatMode privateChatMode;
-	@ObfuscatedName("aq")
-	Map field5242;
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "Lvu;"
+	int field5233;
+	@ObfuscatedName("at")
+	double field5231;
+	@ObfuscatedName("au")
+	@ObfuscatedGetter(
+		intValue = -345540663
 	)
-	final class554 field5241;
+	int field5232;
 
-	@ObfuscatedSignature(
-		descriptor = "(Lvu;)V"
-	)
-	public class522(class554 var1) {
-		this.field5241 = var1;
+	class522(int var1, int var2) {
+		this.field5229 = 0;
+		this.field5233 = 0;
+		this.field5231 = 0.0D;
+		this.field5232 = 0;
+		this.field5229 = var1;
+		this.field5233 = 0;
+		this.field5232 = var2 >= 0 && var2 <= 27 ? var2 : 0;
+		this.field5231 = class163.method3740(this.field5233, this.field5229, this.field5232);
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(IB)I",
-		garbageValue = "-113"
+		descriptor = "(I)V",
+		garbageValue = "591801956"
 	)
-	public int vmethod9300(int var1) {
-		if (this.field5242 != null) {
-			class555 var2 = (class555)this.field5242.get(var1);
-			if (var2 != null) {
-				return (Integer)var2.field5429;
-			}
-		}
-
-		return (Integer)this.field5241.vmethod9874(var1);
-	}
-
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "(ILjava/lang/Object;I)V",
-		garbageValue = "1884747483"
-	)
-	public void vmethod9294(int var1, Object var2) {
-		if (this.field5242 == null) {
-			this.field5242 = new HashMap();
-			this.field5242.put(var1, new class555(var1, var2));
-		} else {
-			class555 var3 = (class555)this.field5242.get(var1);
-			if (var3 == null) {
-				this.field5242.put(var1, new class555(var1, var2));
-			} else {
-				var3.field5429 = var2;
-			}
+	public void method9503() {
+		if (this.field5233 < this.field5229) {
+			++this.field5233;
+			this.field5231 = class163.method3740(this.field5233, this.field5229, this.field5232);
 		}
 
 	}
 
-	public Iterator iterator() {
-		return this.field5242 == null ? Collections.emptyList().iterator() : this.field5242.values().iterator();
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(I)D",
+		garbageValue = "-1373898259"
+	)
+	double method9504() {
+		return this.field5231;
 	}
 }

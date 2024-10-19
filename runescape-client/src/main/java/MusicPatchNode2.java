@@ -4,199 +4,197 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("ml")
+@ObfuscatedName("mq")
 @Implements("MusicPatchNode2")
 public class MusicPatchNode2 {
-	@ObfuscatedName("aq")
-	byte[] field3578;
-	@ObfuscatedName("ad")
-	byte[] field3574;
-	@ObfuscatedName("ag")
-	@ObfuscatedGetter(
-		intValue = 566895777
-	)
-	int field3568;
+	@ObfuscatedName("ap")
+	byte[] field3612;
+	@ObfuscatedName("aw")
+	byte[] field3613;
 	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = 308977211
+		intValue = -45274081
 	)
-	int field3572;
-	@ObfuscatedName("ap")
-	@ObfuscatedGetter(
-		intValue = 49725013
-	)
-	int field3570;
-	@ObfuscatedName("an")
-	@ObfuscatedGetter(
-		intValue = 897378551
-	)
-	int field3571;
+	int field3611;
 	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -1492885785
+		intValue = 673344057
 	)
-	int field3567;
-	@ObfuscatedName("av")
+	int field3614;
+	@ObfuscatedName("ai")
 	@ObfuscatedGetter(
-		intValue = -601731333
+		intValue = 1450993153
 	)
-	int field3573;
-	@ObfuscatedName("ab")
+	int field3615;
+	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
-		intValue = 705420839
+		intValue = -2113529759
 	)
-	int field3569;
+	int field3616;
+	@ObfuscatedName("as")
+	@ObfuscatedGetter(
+		intValue = -1464811851
+	)
+	int field3617;
+	@ObfuscatedName("ae")
+	@ObfuscatedGetter(
+		intValue = 1749128175
+	)
+	int field3618;
+	@ObfuscatedName("am")
+	@ObfuscatedGetter(
+		intValue = -2064706685
+	)
+	int field3619;
 
 	MusicPatchNode2() {
 	}
 
-	@ObfuscatedName("ax")
+	@ObfuscatedName("bq")
 	@ObfuscatedSignature(
-		descriptor = "(ILdg;ZI)I",
-		garbageValue = "386952517"
+		descriptor = "(ILda;ZI)I",
+		garbageValue = "1455682705"
 	)
-	static int method6152(int var0, Script var1, boolean var2) {
-		Widget var3 = var2 ? Interpreter.scriptDotWidget : class30.scriptActiveWidget;
-		if (var0 == ScriptOpcodes.CC_GETSCROLLX) {
-			Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var3.scrollX;
+	static int method6562(int var0, Script var1, boolean var2) {
+		int var3;
+		if (var0 == ScriptOpcodes.STOCKMARKET_GETOFFERTYPE) {
+			var3 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize];
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = Client.grandExchangeOffers[var3].type();
 			return 1;
-		} else if (var0 == ScriptOpcodes.CC_GETSCROLLY) {
-			Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var3.scrollY;
+		} else if (var0 == ScriptOpcodes.STOCKMARKET_GETOFFERITEM) {
+			var3 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize];
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = Client.grandExchangeOffers[var3].id;
+			return 1;
+		} else if (var0 == ScriptOpcodes.STOCKMARKET_GETOFFERPRICE) {
+			var3 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize];
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = Client.grandExchangeOffers[var3].unitPrice;
+			return 1;
+		} else if (var0 == ScriptOpcodes.STOCKMARKET_GETOFFERCOUNT) {
+			var3 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize];
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = Client.grandExchangeOffers[var3].totalQuantity;
+			return 1;
+		} else if (var0 == ScriptOpcodes.STOCKMARKET_GETOFFERCOMPLETEDCOUNT) {
+			var3 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize];
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = Client.grandExchangeOffers[var3].currentQuantity;
+			return 1;
+		} else if (var0 == ScriptOpcodes.STOCKMARKET_GETOFFERCOMPLETEDGOLD) {
+			var3 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize];
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = Client.grandExchangeOffers[var3].currentPrice;
 			return 1;
 		} else {
-			class356 var7;
-			if (var0 == ScriptOpcodes.CC_GETTEXT) {
-				if (var3.type == 12) {
-					var7 = var3.method6991();
-					if (var7 != null) {
-						Interpreter.Interpreter_stringStack[++class337.Interpreter_stringStackSize - 1] = var7.method6632().method7924();
-						return 1;
-					}
-				}
-
-				Interpreter.Interpreter_stringStack[++class337.Interpreter_stringStackSize - 1] = var3.text;
+			int var13;
+			if (var0 == ScriptOpcodes.STOCKMARKET_ISOFFEREMPTY) {
+				var3 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize];
+				var13 = Client.grandExchangeOffers[var3].status();
+				Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var13 == 0 ? 1 : 0;
 				return 1;
-			} else if (var0 == ScriptOpcodes.CC_GETSCROLLWIDTH) {
-				Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var3.scrollWidth;
+			} else if (var0 == ScriptOpcodes.STOCKMARKET_ISOFFERSTABLE) {
+				var3 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize];
+				var13 = Client.grandExchangeOffers[var3].status();
+				Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var13 == 2 ? 1 : 0;
 				return 1;
-			} else if (var0 == ScriptOpcodes.CC_GETSCROLLHEIGHT) {
-				Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var3.scrollHeight;
+			} else if (var0 == ScriptOpcodes.STOCKMARKET_ISOFFERFINISHED) {
+				var3 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize];
+				var13 = Client.grandExchangeOffers[var3].status();
+				Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var13 == 5 ? 1 : 0;
 				return 1;
-			} else if (var0 == ScriptOpcodes.CC_GETMODELZOOM) {
-				Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var3.modelZoom;
-				return 1;
-			} else if (var0 == ScriptOpcodes.CC_GETMODELANGLE_X) {
-				Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var3.modelAngleX;
-				return 1;
-			} else if (var0 == ScriptOpcodes.CC_GETMODELANGLE_Z) {
-				Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var3.modelAngleZ;
-				return 1;
-			} else if (var0 == ScriptOpcodes.CC_GETMODELANGLE_Y) {
-				Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var3.modelAngleY;
-				return 1;
-			} else if (var0 == ScriptOpcodes.CC_GETTRANS) {
-				Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var3.transparencyTop;
-				return 1;
-			} else if (var0 == 1610) {
-				Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var3.transparencyBot;
-				return 1;
-			} else if (var0 == ScriptOpcodes.CC_GETCOLOUR) {
-				Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var3.color;
-				return 1;
-			} else if (var0 == ScriptOpcodes.CC_GETFILLCOLOUR) {
-				Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var3.color2;
-				return 1;
-			} else if (var0 == 1613) {
-				Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var3.fillMode.rsOrdinal();
-				return 1;
-			} else if (var0 == ScriptOpcodes.CC_GETMODELTRANSPARENT) {
-				Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var3.modelTransparency ? 1 : 0;
+			} else if (var0 == ScriptOpcodes.STOCKMARKET_ISOFFERADDING) {
+				var3 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize];
+				var13 = Client.grandExchangeOffers[var3].status();
+				Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var13 == 1 ? 1 : 0;
 				return 1;
 			} else {
-				class350 var4;
-				if (var0 == 1617) {
-					var4 = var3.method6890();
-					Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var4 != null ? var4.field3752 : 0;
-				}
+				boolean var12;
+				if (var0 == ScriptOpcodes.TRADINGPOST_SORTBY_NAME) {
+					var12 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize] == 1;
+					if (MusicSong.grandExchangeEvents != null) {
+						MusicSong.grandExchangeEvents.sort(GrandExchangeEvents.GrandExchangeEvents_nameComparator, var12);
+					}
 
-				if (var0 == 1618) {
-					var4 = var3.method6890();
-					Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var4 != null ? var4.field3751 : 0;
 					return 1;
-				} else if (var0 == 1619) {
-					var7 = var3.method6991();
-					Interpreter.Interpreter_stringStack[++class337.Interpreter_stringStackSize - 1] = var7 != null ? var7.method6675().method7924() : "";
+				} else if (var0 == ScriptOpcodes.TRADINGPOST_SORTBY_PRICE) {
+					var12 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize] == 1;
+					if (MusicSong.grandExchangeEvents != null) {
+						MusicSong.grandExchangeEvents.sort(GrandExchangeEvents.GrandExchangeEvents_priceComparator, var12);
+					}
+
 					return 1;
-				} else if (var0 == 1620) {
-					var4 = var3.method6890();
-					Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var4 != null ? var4.field3750 : 0;
+				} else if (var0 == ScriptOpcodes.TRADINGPOST_SORTFILTERBY_WORLD) {
+					class96.Interpreter_intStackSize -= 2;
+					var12 = Interpreter.Interpreter_intStack[class96.Interpreter_intStackSize] == 1;
+					boolean var11 = Interpreter.Interpreter_intStack[class96.Interpreter_intStackSize + 1] == 1;
+					if (MusicSong.grandExchangeEvents != null) {
+						Client.GrandExchangeEvents_worldComparator.filterWorlds = var11;
+						MusicSong.grandExchangeEvents.sort(Client.GrandExchangeEvents_worldComparator, var12);
+					}
+
 					return 1;
-				} else if (var0 == 1621) {
-					var7 = var3.method6991();
-					Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var7 != null ? var7.method6643() : 0;
+				} else if (var0 == ScriptOpcodes.TRADINGPOST_SORTBY_AGE) {
+					var12 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize] == 1;
+					if (MusicSong.grandExchangeEvents != null) {
+						MusicSong.grandExchangeEvents.sort(GrandExchangeEvents.GrandExchangeEvents_ageComparator, var12);
+					}
+
 					return 1;
-				} else if (var0 == 1622) {
-					var7 = var3.method6991();
-					Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var7 != null ? var7.method6644() : 0;
+				} else if (var0 == ScriptOpcodes.TRADINGPOST_SORTBY_COUNT) {
+					var12 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize] == 1;
+					if (MusicSong.grandExchangeEvents != null) {
+						MusicSong.grandExchangeEvents.sort(GrandExchangeEvents.GrandExchangeEvents_quantityComparator, var12);
+					}
+
 					return 1;
-				} else if (var0 == 1623) {
-					var7 = var3.method6991();
-					Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var7 != null ? var7.method6645() : 0;
+				} else if (var0 == ScriptOpcodes.TRADINGPOST_GETTOTALOFFERS) {
+					Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = MusicSong.grandExchangeEvents == null ? 0 : MusicSong.grandExchangeEvents.events.size();
 					return 1;
-				} else if (var0 == 1624) {
-					var7 = var3.method6991();
-					Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var7 != null && var7.method6635() ? 1 : 0;
-					return 1;
-				} else if (var0 != 1625) {
-					if (var0 == 1626) {
-						var7 = var3.method6991();
-						Interpreter.Interpreter_stringStack[++class337.Interpreter_stringStackSize - 1] = var7 != null ? var7.method6797().method8195() : "";
+				} else {
+					GrandExchangeEvent var4;
+					if (var0 == ScriptOpcodes.TRADINGPOST_GETOFFERWORLD) {
+						var3 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize];
+						var4 = (GrandExchangeEvent)MusicSong.grandExchangeEvents.events.get(var3);
+						Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var4.world;
 						return 1;
-					} else if (var0 == 1627) {
-						var7 = var3.method6991();
-						int var5 = var7 != null ? var7.method6639() : 0;
-						int var6 = var7 != null ? var7.method6779() : 0;
-						Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = Math.min(var5, var6);
-						Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = Math.max(var5, var6);
+					} else if (var0 == ScriptOpcodes.TRADINGPOST_GETOFFERNAME) {
+						var3 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize];
+						var4 = (GrandExchangeEvent)MusicSong.grandExchangeEvents.events.get(var3);
+						Interpreter.Interpreter_stringStack[++class208.Interpreter_stringStackSize - 1] = var4.getOfferName();
 						return 1;
-					} else if (var0 == 1628) {
-						var7 = var3.method6991();
-						Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var7 != null ? var7.method6779() : 0;
+					} else if (var0 == ScriptOpcodes.TRADINGPOST_GETOFFERPREVIOUSNAME) {
+						var3 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize];
+						var4 = (GrandExchangeEvent)MusicSong.grandExchangeEvents.events.get(var3);
+						Interpreter.Interpreter_stringStack[++class208.Interpreter_stringStackSize - 1] = var4.getPreviousOfferName();
 						return 1;
-					} else if (var0 == 1629) {
-						var7 = var3.method6991();
-						Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var7 != null ? var7.method6647() : 0;
+					} else if (var0 == ScriptOpcodes.TRADINGPOST_GETOFFERAGE) {
+						var3 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize];
+						var4 = (GrandExchangeEvent)MusicSong.grandExchangeEvents.events.get(var3);
+						long var5 = class77.method2338() - Interpreter.field868 - var4.age;
+						int var7 = (int)(var5 / 3600000L);
+						int var8 = (int)((var5 - (long)(var7 * 3600000)) / 60000L);
+						int var9 = (int)((var5 - (long)(var7 * 3600000) - (long)(var8 * 60000)) / 1000L);
+						String var10 = var7 + ":" + var8 / 10 + var8 % 10 + ":" + var9 / 10 + var9 % 10;
+						Interpreter.Interpreter_stringStack[++class208.Interpreter_stringStackSize - 1] = var10;
 						return 1;
-					} else if (var0 == 1630) {
-						var7 = var3.method6991();
-						Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var7 != null ? var7.method6784() : 0;
+					} else if (var0 == ScriptOpcodes.TRADINGPOST_GETOFFERCOUNT) {
+						var3 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize];
+						var4 = (GrandExchangeEvent)MusicSong.grandExchangeEvents.events.get(var3);
+						Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var4.grandExchangeOffer.totalQuantity;
 						return 1;
-					} else if (var0 == 1631) {
-						var7 = var3.method6991();
-						Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var7 != null ? var7.method6648() : 0;
+					} else if (var0 == ScriptOpcodes.TRADINGPOST_GETOFFERPRICE) {
+						var3 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize];
+						var4 = (GrandExchangeEvent)MusicSong.grandExchangeEvents.events.get(var3);
+						Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var4.grandExchangeOffer.unitPrice;
 						return 1;
-					} else if (var0 == 1632) {
-						var7 = var3.method6991();
-						Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var7 != null ? var7.method6830() : 0;
+					} else if (var0 == ScriptOpcodes.TRADINGPOST_GETOFFERITEM) {
+						var3 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize];
+						var4 = (GrandExchangeEvent)MusicSong.grandExchangeEvents.events.get(var3);
+						Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var4.grandExchangeOffer.id;
+						return 1;
+					} else if (var0 == 3939) {
+						var3 = Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize];
+						Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = Bounds.ItemDefinition_get(var3).isTradable ? 1 : 0;
 						return 1;
 					} else {
-						class27 var8;
-						if (var0 == 1633) {
-							var8 = var3.method6940();
-							Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize - 1] = var8 != null ? var8.method404(Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize - 1]) : 0;
-							return 1;
-						} else if (var0 == 1634) {
-							var8 = var3.method6940();
-							Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize - 1] = var8 != null ? var8.method395((char)Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize - 1]) : 0;
-							return 1;
-						} else {
-							return 2;
-						}
+						return 2;
 					}
-				} else {
-					var7 = var3.method6991();
-					Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var7 != null && var7.method6636() ? 1 : 0;
-					return 1;
 				}
 			}
 		}

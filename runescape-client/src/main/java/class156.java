@@ -3,45 +3,75 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gs")
-public class class156 extends class147 {
-	@ObfuscatedName("aj")
-	@ObfuscatedGetter(
-		intValue = -1095420729
+@ObfuscatedName("gp")
+public class class156 extends class166 {
+	@ObfuscatedName("fj")
+	@ObfuscatedSignature(
+		descriptor = "Lor;"
 	)
-	@Export("gameCyclesToDo")
-	static int gameCyclesToDo;
-	@ObfuscatedName("aq")
-	String field1750;
+	static Archive field1737;
+	@ObfuscatedName("gl")
+	@Export("worldHost")
+	static String worldHost;
+	@ObfuscatedName("ap")
+	@ObfuscatedGetter(
+		intValue = 1461970157
+	)
+	int field1733;
+	@ObfuscatedName("aw")
+	byte field1732;
+	@ObfuscatedName("ak")
+	@ObfuscatedGetter(
+		intValue = -1533555405
+	)
+	int field1739;
+	@ObfuscatedName("aj")
+	String field1734;
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lfn;"
+		descriptor = "Lgg;"
 	)
-	final class150 this$0;
+	final class167 this$0;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lfn;)V"
+		descriptor = "(Lgg;)V"
 	)
-	class156(class150 var1) {
+	class156(class167 var1) {
 		this.this$0 = var1;
+		this.field1733 = -1;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(Lvp;B)V",
-		garbageValue = "118"
+		descriptor = "(Lvl;I)V",
+		garbageValue = "-303680000"
 	)
-	void vmethod3528(Buffer var1) {
-		this.field1750 = var1.readStringCp1252NullTerminated();
-		var1.readInt();
+	void vmethod3816(Buffer var1) {
+		this.field1733 = var1.readUnsignedShort();
+		this.field1732 = var1.readByte();
+		this.field1739 = var1.readUnsignedShort();
+		var1.readLong();
+		this.field1734 = var1.readStringCp1252NullTerminated();
 	}
 
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(Lgk;B)V",
-		garbageValue = "3"
+		descriptor = "(Lgw;I)V",
+		garbageValue = "-152326479"
 	)
-	void vmethod3530(ClanSettings var1) {
-		var1.name = this.field1750;
+	void vmethod3817(ClanChannel var1) {
+		ClanChannelMember var2 = (ClanChannelMember)var1.members.get(this.field1733);
+		var2.rank = this.field1732;
+		var2.world = this.field1739;
+		var2.username = new Username(this.field1734);
+	}
+
+	@ObfuscatedName("hg")
+	@ObfuscatedSignature(
+		descriptor = "(IB)I",
+		garbageValue = "19"
+	)
+	static final int method3622(int var0) {
+		return Math.abs(var0 - class390.cameraYaw) > 1024 ? var0 + 2048 * (var0 < class390.cameraYaw ? 1 : -1) : var0;
 	}
 }

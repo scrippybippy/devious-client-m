@@ -3,34 +3,37 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 
-@ObfuscatedName("vh")
+@ObfuscatedName("wk")
 @Implements("SpriteBufferProperties")
 public class SpriteBufferProperties {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = -1853843341
+		intValue = 1934102439
 	)
 	@Export("SpriteBuffer_spriteCount")
 	public static int SpriteBuffer_spriteCount;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedGetter(
-		intValue = 432701269
+		intValue = -1147402861
 	)
 	@Export("SpriteBuffer_spriteWidth")
 	public static int SpriteBuffer_spriteWidth;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = 596356767
+		intValue = -201283629
 	)
 	@Export("SpriteBuffer_spriteHeight")
 	public static int SpriteBuffer_spriteHeight;
-	@ObfuscatedName("an")
-	@Export("SpriteBuffer_spriteWidths")
-	public static int[] SpriteBuffer_spriteWidths;
-	@ObfuscatedName("av")
+	@ObfuscatedName("aj")
+	@Export("SpriteBuffer_xOffsets")
+	public static int[] SpriteBuffer_xOffsets;
+	@ObfuscatedName("as")
+	@Export("SpriteBuffer_spriteHeights")
+	public static int[] SpriteBuffer_spriteHeights;
+	@ObfuscatedName("ae")
 	@Export("SpriteBuffer_spritePalette")
 	public static int[] SpriteBuffer_spritePalette;
-	@ObfuscatedName("ab")
-	@Export("SpriteBuffer_pixels")
-	public static byte[][] SpriteBuffer_pixels;
+	@ObfuscatedName("at")
+	@Export("Tiles_lightness")
+	static int[] Tiles_lightness;
 }

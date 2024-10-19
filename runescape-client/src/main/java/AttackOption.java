@@ -4,41 +4,41 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ei")
+@ObfuscatedName("ey")
 @Implements("AttackOption")
 public enum AttackOption implements Enum {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lei;"
+		descriptor = "Ley;"
 	)
 	@Export("AttackOption_dependsOnCombatLevels")
 	AttackOption_dependsOnCombatLevels(0),
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "Lei;"
+		descriptor = "Ley;"
 	)
 	@Export("AttackOption_alwaysRightClick")
 	AttackOption_alwaysRightClick(1),
-	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "Lei;"
-	)
-	field1385(2),
 	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lei;"
+		descriptor = "Ley;"
+	)
+	field1396(2),
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "Ley;"
 	)
 	@Export("AttackOption_hidden")
 	AttackOption_hidden(3),
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
-		descriptor = "Lei;"
+		descriptor = "Ley;"
 	)
-	field1384(4);
+	field1395(4);
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
-		intValue = 1126248633
+		intValue = -517768429
 	)
 	@Export("id")
 	final int id;
@@ -47,68 +47,36 @@ public enum AttackOption implements Enum {
 		this.id = var3;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "2071992588"
+		garbageValue = "1837624059"
 	)
 	@Export("rsOrdinal")
 	public int rsOrdinal() {
 		return this.id;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
-		descriptor = "(Lvp;Lth;I)Lth;",
-		garbageValue = "1072922823"
+		descriptor = "(Lpe;Ljava/lang/String;Ljava/lang/String;I)Lvc;",
+		garbageValue = "-1770095722"
 	)
-	@Export("readStringIntParameters")
-	static final IterableNodeHashTable readStringIntParameters(Buffer var0, IterableNodeHashTable var1) {
-		int var2 = var0.readUnsignedByte();
-		int var3;
-		if (var1 == null) {
-			var3 = ModeWhere.method7432(var2);
-			var1 = new IterableNodeHashTable(var3);
-		}
-
-		for (var3 = 0; var3 < var2; ++var3) {
-			boolean var4 = var0.readUnsignedByte() == 1;
-			int var5 = var0.readMedium();
-			Object var6;
-			if (var4) {
-				var6 = new ObjectNode(var0.readStringCp1252NullTerminated());
+	@Export("SpriteBuffer_getIndexedSpriteByName")
+	public static IndexedSprite SpriteBuffer_getIndexedSpriteByName(AbstractArchive var0, String var1, String var2) {
+		if (!var0.isValidFileName(var1, var2)) {
+			return null;
+		} else {
+			int var3 = var0.getGroupId(var1);
+			int var4 = var0.getFileId(var3, var2);
+			IndexedSprite var5;
+			if (!class53.method1110(var0, var3, var4)) {
+				var5 = null;
 			} else {
-				var6 = new IntegerNode(var0.readInt());
+				var5 = Client.method1956();
 			}
 
-			var1.put((Node)var6, (long)var5);
+			return var5;
 		}
-
-		return var1;
-	}
-
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "(II)Lue;",
-		garbageValue = "-646650341"
-	)
-	public static class534 method2792(int var0) {
-		int var1 = class532.field5282[var0];
-		if (var1 == 1) {
-			return class534.field5290;
-		} else if (var1 == 2) {
-			return class534.field5286;
-		} else {
-			return var1 == 3 ? class534.field5284 : null;
-		}
-	}
-
-	@ObfuscatedName("lb")
-	@ObfuscatedSignature(
-		descriptor = "(B)Z",
-		garbageValue = "73"
-	)
-	static final boolean method2786() {
-		return Client.isMenuOpen;
 	}
 }

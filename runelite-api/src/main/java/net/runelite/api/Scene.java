@@ -137,7 +137,9 @@ public interface Scene extends Renderable
 	 */
 	void removeGroundObject(int plane, int x, int y);
 
-	void generateHouses();
+	void buildRoofs();
+
+	int[][][] getRoofs();
 
 	void setRoofRemovalMode(int flags);
 
@@ -221,4 +223,11 @@ public interface Scene extends Renderable
 	 * @see InstanceTemplates
 	 */
 	int[][][] getInstanceTemplateChunks();
+
+	/**
+	 * Gets an array of map region IDs that are currently loaded.
+	 *
+	 * @return the map regions
+	 */
+	int[] getMapRegions();
 }

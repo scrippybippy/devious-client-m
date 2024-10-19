@@ -3,18 +3,18 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("lf")
+@ObfuscatedName("ja")
 @Implements("Frames")
 public class Frames extends DualNode {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "[Lkv;"
+		descriptor = "[Ljg;"
 	)
 	@Export("frames")
 	Animation[] frames;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lok;Lok;IZ)V"
+		descriptor = "(Lpe;Lpe;IZ)V"
 	)
 	Frames(AbstractArchive var1, AbstractArchive var2, int var3, boolean var4) {
 		NodeDeque var5 = new NodeDeque();
@@ -51,23 +51,27 @@ public class Frames extends DualNode {
 
 	}
 
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
 		descriptor = "(II)Z",
-		garbageValue = "2002337777"
+		garbageValue = "-366797285"
 	)
 	@Export("hasAlphaTransform")
 	public boolean hasAlphaTransform(int var1) {
 		return this.frames[var1].hasAlphaTransform;
 	}
 
-	@ObfuscatedName("ak")
+	@ObfuscatedName("as")
 	@ObfuscatedSignature(
-		descriptor = "(II)Lck;",
-		garbageValue = "-481292712"
+		descriptor = "(II)Z",
+		garbageValue = "-1967620124"
 	)
-	@Export("Messages_getMessage")
-	static Message Messages_getMessage(int var0) {
-		return (Message)Messages.Messages_hashTable.get((long)var0);
+	public static boolean method5267(int var0) {
+		if (class333.field3628.isEmpty()) {
+			return false;
+		} else {
+			MusicSong var1 = (MusicSong)class333.field3628.get(0);
+			return var1 != null && var0 == var1.musicTrackGroupId;
+		}
 	}
 }

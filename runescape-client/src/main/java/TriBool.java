@@ -3,27 +3,39 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("sv")
+@ObfuscatedName("sg")
 @Implements("TriBool")
 public class TriBool {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lsv;"
+		descriptor = "Lsg;"
 	)
 	@Export("TriBool_unknown")
 	public static final TriBool TriBool_unknown;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "Lsv;"
+		descriptor = "Lsg;"
 	)
 	@Export("TriBool_true")
 	public static final TriBool TriBool_true;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lsv;"
+		descriptor = "Lsg;"
 	)
 	@Export("TriBool_false")
 	public static final TriBool TriBool_false;
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "Lvc;"
+	)
+	@Export("logoSprite")
+	static IndexedSprite logoSprite;
+	@ObfuscatedName("dh")
+	@ObfuscatedSignature(
+		descriptor = "[Lvv;"
+	)
+	@Export("worldSelectBackSprites")
+	static SpritePixels[] worldSelectBackSprites;
 
 	static {
 		TriBool_unknown = new TriBool();
@@ -34,15 +46,14 @@ public class TriBool {
 	TriBool() {
 	}
 
-	@ObfuscatedName("nu")
+	@ObfuscatedName("il")
 	@ObfuscatedSignature(
-		descriptor = "(Lnx;I)V",
-		garbageValue = "-1273536850"
+		descriptor = "(Ldn;B)V",
+		garbageValue = "45"
 	)
-	@Export("invalidateWidget")
-	public static void invalidateWidget(Widget var0) {
-		if (var0 != null && var0.cycle == Client.field720) {
-			Client.validRootWidgets[var0.rootIndex] = true;
+	static void method9141(WorldView var0) {
+		if (Client.renderSelf) {
+			Friend.addPlayerToScene(var0, Client.localPlayerIndex, false);
 		}
 
 	}

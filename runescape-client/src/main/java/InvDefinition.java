@@ -4,18 +4,24 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gx")
+@ObfuscatedName("gq")
 @Implements("InvDefinition")
 public class InvDefinition extends DualNode {
-	@ObfuscatedName("ad")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lmo;"
+		descriptor = "Lpe;"
+	)
+	@Export("InvDefinition_archive")
+	public static AbstractArchive InvDefinition_archive;
+	@ObfuscatedName("aw")
+	@ObfuscatedSignature(
+		descriptor = "Lmi;"
 	)
 	@Export("InvDefinition_cached")
-	static EvictingDualNodeHashTable InvDefinition_cached;
-	@ObfuscatedName("ag")
+	public static EvictingDualNodeHashTable InvDefinition_cached;
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = 142521319
+		intValue = 1714929155
 	)
 	@Export("size")
 	public int size;
@@ -28,10 +34,10 @@ public class InvDefinition extends DualNode {
 		this.size = 0;
 	}
 
-	@ObfuscatedName("ag")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(Lvp;B)V",
-		garbageValue = "0"
+		descriptor = "(Lvl;S)V",
+		garbageValue = "3855"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
@@ -47,8 +53,8 @@ public class InvDefinition extends DualNode {
 
 	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Lvp;IS)V",
-		garbageValue = "-28230"
+		descriptor = "(Lvl;II)V",
+		garbageValue = "1864467148"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
@@ -58,29 +64,23 @@ public class InvDefinition extends DualNode {
 
 	}
 
-	@ObfuscatedName("ns")
-	static final void method3555(double var0) {
-		Rasterizer3D.method5248(var0);
-		((TextureProvider)Rasterizer3D.clips.Rasterizer3D_textureLoader).setBrightness(var0);
-		if (VertexNormal.worldMap != null) {
-			VertexNormal.worldMap.method9066();
-		}
-
-		ItemComposition.ItemDefinition_cachedSprites.clear();
-		class105.clientPreferences.updateBrightness(var0);
+	@ObfuscatedName("ay")
+	@ObfuscatedSignature(
+		descriptor = "(II)I",
+		garbageValue = "609989432"
+	)
+	@Export("Messages_getHistorySize")
+	static int Messages_getHistorySize(int var0) {
+		ChatChannel var1 = (ChatChannel)Messages.Messages_channels.get(var0);
+		return var1 == null ? 0 : var1.size();
 	}
 
-	@ObfuscatedName("pl")
+	@ObfuscatedName("bi")
 	@ObfuscatedSignature(
-		descriptor = "(IB)Luh;",
-		garbageValue = "-82"
+		descriptor = "(ILda;ZB)I",
+		garbageValue = "22"
 	)
-	static DbTable method3556(int var0) {
-		DbTable var1 = (DbTable)Client.archive11.get((long)var0);
-		if (var1 == null) {
-			var1 = new DbTable(AbstractWorldMapData.field2675, var0);
-		}
-
-		return var1;
+	static int method3840(int var0, Script var1, boolean var2) {
+		return 2;
 	}
 }

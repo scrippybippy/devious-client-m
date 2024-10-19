@@ -1,46 +1,67 @@
 import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gb")
+@ObfuscatedName("gu")
 public class class177 extends DualNode {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lmo;"
+		descriptor = "Lmi;"
 	)
-	@Export("field1915")
-	static EvictingDualNodeHashTable field1915;
+	@Export("field1842")
+	public static EvictingDualNodeHashTable field1842;
 	@ObfuscatedName("an")
-	@ObfuscatedSignature(
-		descriptor = "Lok;"
+	@ObfuscatedGetter(
+		intValue = -1792887659
 	)
-	@Export("SequenceDefinition_animationsArchive")
-	static AbstractArchive SequenceDefinition_animationsArchive;
-	@ObfuscatedName("uk")
-	@ObfuscatedSignature(
-		descriptor = "Lcu;"
-	)
-	@Export("decimator")
-	static Decimator decimator;
+	static int field1883;
 
 	static {
-		field1915 = new EvictingDualNodeHashTable(64);
+		field1842 = new EvictingDualNodeHashTable(64);
 	}
 
-	@ObfuscatedName("ah")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(IIB)I",
-		garbageValue = "13"
+		descriptor = "([Lph;II)Lph;",
+		garbageValue = "-1875781163"
 	)
-	static final int method3567(int var0, int var1) {
-		int var2 = class353.method6535(45365 + var0, var1 + 91923, 4) - 128 + (class353.method6535(var0 + 10294, 37821 + var1, 2) - 128 >> 1) + (class353.method6535(var0, var1, 1) - 128 >> 2);
-		var2 = (int)((double)var2 * 0.3D) + 35;
-		if (var2 < 10) {
-			var2 = 10;
-		} else if (var2 > 60) {
-			var2 = 60;
+	@Export("findEnumerated")
+	public static Enum findEnumerated(Enum[] var0, int var1) {
+		Enum[] var2 = var0;
+
+		for (int var3 = 0; var3 < var2.length; ++var3) {
+			Enum var4 = var2[var3];
+			if (var1 == var4.rsOrdinal()) {
+				return var4;
+			}
 		}
 
-		return var2;
+		return null;
+	}
+
+	@ObfuscatedName("aw")
+	@ObfuscatedSignature(
+		descriptor = "(I)Lqs;",
+		garbageValue = "1422702121"
+	)
+	public static TransformationMatrix method3843() {
+		synchronized(TransformationMatrix.field4781) {
+			if (SecureRandomCallable.field1053 == 0) {
+				return new TransformationMatrix();
+			} else {
+				TransformationMatrix.field4781[--SecureRandomCallable.field1053].method8271();
+				return TransformationMatrix.field4781[SecureRandomCallable.field1053];
+			}
+		}
+	}
+
+	@ObfuscatedName("op")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "1357372195"
+	)
+	static void method3844() {
+		TaskHandler.clientPreferences.updateEULA(Client.field537);
 	}
 }

@@ -3,16 +3,22 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hr")
+@ObfuscatedName("hq")
 @Implements("VarcInt")
 public class VarcInt extends DualNode {
-	@ObfuscatedName("ad")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lmo;"
+		descriptor = "Lpe;"
+	)
+	@Export("VarcInt_archive")
+	public static AbstractArchive VarcInt_archive;
+	@ObfuscatedName("aw")
+	@ObfuscatedSignature(
+		descriptor = "Lmi;"
 	)
 	@Export("VarcInt_cached")
 	public static EvictingDualNodeHashTable VarcInt_cached;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ak")
 	@Export("persist")
 	public boolean persist;
 
@@ -24,40 +30,31 @@ public class VarcInt extends DualNode {
 		this.persist = false;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(Lvp;I)V",
-		garbageValue = "1896636736"
+		descriptor = "(Lvl;B)V",
+		garbageValue = "-5"
 	)
-	public void method3611(Buffer var1) {
+	public void method3909(Buffer var1) {
 		while (true) {
 			int var2 = var1.readUnsignedByte();
 			if (var2 == 0) {
 				return;
 			}
 
-			this.method3612(var1, var2);
+			this.method3903(var1, var2);
 		}
 	}
 
-	@ObfuscatedName("ad")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Lvp;IB)V",
-		garbageValue = "-49"
+		descriptor = "(Lvl;II)V",
+		garbageValue = "-2144361758"
 	)
-	void method3612(Buffer var1, int var2) {
+	void method3903(Buffer var1, int var2) {
 		if (var2 == 2) {
 			this.persist = true;
 		}
 
-	}
-
-	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "([Ljava/lang/String;[II)V",
-		garbageValue = "1905252321"
-	)
-	public static void method3622(String[] var0, int[] var1) {
-		ClientPreferences.quicksortStringsWithCorrespondingIntegers(var0, var1, 0, var0.length - 1);
 	}
 }

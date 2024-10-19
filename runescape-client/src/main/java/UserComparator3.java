@@ -3,12 +3,10 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ec")
+@ObfuscatedName("es")
 @Implements("UserComparator3")
 public class UserComparator3 extends AbstractUserComparator {
-	@ObfuscatedName("du")
-	static boolean field1501;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@Export("reversed")
 	final boolean reversed;
 
@@ -16,10 +14,10 @@ public class UserComparator3 extends AbstractUserComparator {
 		this.reversed = var1;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(Lsh;Lsh;I)I",
-		garbageValue = "-1804105350"
+		descriptor = "(Lsv;Lsv;I)I",
+		garbageValue = "2088667477"
 	)
 	@Export("compareBuddy")
 	int compareBuddy(Buddy var1, Buddy var2) {
@@ -32,5 +30,32 @@ public class UserComparator3 extends AbstractUserComparator {
 
 	public int compare(Object var1, Object var2) {
 		return this.compareBuddy((Buddy)var1, (Buddy)var2);
+	}
+
+	@ObfuscatedName("aw")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "242662164"
+	)
+	public static void method3311() {
+		class201.field2136.clear();
+	}
+
+	@ObfuscatedName("jr")
+	@ObfuscatedSignature(
+		descriptor = "(IIIIII)V",
+		garbageValue = "2040296208"
+	)
+	static void method3312(int var0, int var1, int var2, int var3, int var4) {
+		NodeDeque var5 = class344.worldView.groundItems[var0][var1][var2];
+		if (var5 != null) {
+			for (TileItem var6 = (TileItem)var5.last(); var6 != null; var6 = (TileItem)var5.previous()) {
+				if ((var3 & 32767) == var6.id) {
+					var6.setFlag(var4);
+					break;
+				}
+			}
+		}
+
 	}
 }

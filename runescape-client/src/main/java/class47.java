@@ -1,154 +1,173 @@
-import java.awt.Component;
-import java.util.ArrayList;
 import java.util.concurrent.locks.ReentrantLock;
-import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("bd")
+@ObfuscatedName("bi")
 public class class47 {
-	@ObfuscatedName("kn")
-	@ObfuscatedGetter(
-		intValue = -1951368845
-	)
-	@Export("cameraX")
-	static int cameraX;
-	@ObfuscatedName("me")
-	@ObfuscatedGetter(
-		intValue = 1043320483
-	)
-	static int field314;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lcl;"
+		descriptor = "Lcd;"
 	)
-	VorbisSample field310;
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "Lbl;"
-	)
-	RawSound field311;
-	@ObfuscatedName("ag")
-	ReentrantLock field313;
-
-	@ObfuscatedSignature(
-		descriptor = "(Lcl;Lbl;)V"
-	)
-	class47(VorbisSample var1, RawSound var2) {
-		this.field310 = var1;
-		this.field311 = var2;
-		this.field313 = new ReentrantLock();
-	}
-
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/awt/Component;B)V",
-		garbageValue = "0"
-	)
-	static void method899(Component var0) {
-		var0.removeMouseListener(MouseHandler.MouseHandler_instance);
-		var0.removeMouseMotionListener(MouseHandler.MouseHandler_instance);
-		var0.removeFocusListener(MouseHandler.MouseHandler_instance);
-		MouseHandler.MouseHandler_currentButtonVolatile = 0;
-	}
-
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "(IIIIIIII)Z",
-		garbageValue = "690538178"
-	)
-	static final boolean method902(int var0, int var1, int var2, int var3, int var4, int var5, int var6) {
-		int var7 = ViewportMouse.ViewportMouse_y + var6;
-		if (var7 < var0 && var7 < var1 && var7 < var2) {
-			return false;
-		} else {
-			var7 = ViewportMouse.ViewportMouse_y - var6;
-			if (var7 > var0 && var7 > var1 && var7 > var2) {
-				return false;
-			} else {
-				var7 = ViewportMouse.ViewportMouse_x + var6;
-				if (var7 < var3 && var7 < var4 && var7 < var5) {
-					return false;
-				} else {
-					var7 = ViewportMouse.ViewportMouse_x - var6;
-					return var7 <= var3 || var7 <= var4 || var7 <= var5;
-				}
-			}
-		}
-	}
-
-	@ObfuscatedName("ao")
-	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "-62"
-	)
-	static void method901() {
-		class163.updateLoginIndex(24);
-		VerticalAlignment.setLoginResponseString("", "You were disconnected from the server.", "");
-	}
-
+	VorbisSample field309;
 	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1935757196"
+		descriptor = "Lbt;"
 	)
-	static void method900() {
-		if (!class105.clientPreferences.isTitleMusicDisabled()) {
-			ArrayList var0 = new ArrayList();
-			var0.add(new MusicSong(class199.archive6, "scape main", "", 255, false));
-			FontName.method9220(var0, 0, 0, 0, 100, false);
-		} else {
-			class137.method3187(0, 0);
-		}
+	RawSound field303;
+	@ObfuscatedName("ak")
+	ReentrantLock field304;
 
+	@ObfuscatedSignature(
+		descriptor = "(Lcd;Lbt;)V"
+	)
+	class47(VorbisSample var1, RawSound var2) {
+		this.field309 = var1;
+		this.field303 = var2;
+		this.field304 = new ReentrantLock();
 	}
 
-	@ObfuscatedName("lx")
+	@ObfuscatedName("ax")
 	@ObfuscatedSignature(
-		descriptor = "(ILjava/lang/String;I)V",
-		garbageValue = "1933764384"
+		descriptor = "(ILda;ZB)I",
+		garbageValue = "43"
 	)
-	static void method903(int var0, String var1) {
-		int var2 = SoundCache.localPlayer.worldView.playerUpdateManager.playerCount;
-		int[] var3 = SoundCache.localPlayer.worldView.playerUpdateManager.playerIndices;
-		boolean var4 = false;
-		Username var5 = new Username(var1, Projectile.loginType);
+	static int method896(int var0, Script var1, boolean var2) {
+		Widget var3 = class416.widgetDefinition.method6911(Interpreter.Interpreter_intStack[--class96.Interpreter_intStackSize]);
+		if (var0 == ScriptOpcodes.IF_GETSCROLLX) {
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var3.scrollX;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETSCROLLY) {
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var3.scrollY;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETTEXT) {
+			Interpreter.Interpreter_stringStack[++class208.Interpreter_stringStackSize - 1] = var3.text;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETSCROLLWIDTH) {
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var3.scrollWidth;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETSCROLLHEIGHT) {
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var3.scrollHeight;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETMODELZOOM) {
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var3.modelZoom;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETMODELANGLE_X) {
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var3.modelAngleX;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETMODELANGLE_Z) {
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var3.modelAngleZ;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETMODELANGLE_Y) {
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var3.modelAngleY;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETTRANS) {
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var3.transparencyTop;
+			return 1;
+		} else if (var0 == 2610) {
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var3.transparencyBot;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETCOLOUR) {
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var3.color;
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETFILLCOLOUR) {
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var3.color2;
+			return 1;
+		} else if (var0 == 2613) {
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var3.fillMode.rsOrdinal();
+			return 1;
+		} else if (var0 == ScriptOpcodes.IF_GETMODELTRANSPARENT) {
+			Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var3.modelTransparency ? 1 : 0;
+			return 1;
+		} else {
+			class353 var4;
+			if (var0 == 2617) {
+				var4 = var3.method7325();
+				Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var4 != null ? var4.field3794 : 0;
+			}
 
-		for (int var6 = 0; var6 < var2; ++var6) {
-			Player var7 = SoundCache.localPlayer.worldView.players[var3[var6]];
-			if (var7 != null && var7 != SoundCache.localPlayer && var7.username != null && var7.username.equals(var5)) {
-				PacketBufferNode var8;
-				if (var0 == 1) {
-					var8 = class170.getPacketBufferNode(ClientPacket.OPPLAYER1, Client.packetWriter.isaacCipher);
-					var8.packetBuffer.writeByteSub(0);
-					var8.packetBuffer.writeShortAdd(var3[var6]);
-					Client.packetWriter.addNode(var8);
-				} else if (var0 == 4) {
-					var8 = class170.getPacketBufferNode(ClientPacket.OPPLAYER4, Client.packetWriter.isaacCipher);
-					var8.packetBuffer.writeByteSub(0);
-					var8.packetBuffer.writeShort(var3[var6]);
-					Client.packetWriter.addNode(var8);
-				} else if (var0 == 6) {
-					var8 = class170.getPacketBufferNode(ClientPacket.OPPLAYER6, Client.packetWriter.isaacCipher);
-					var8.packetBuffer.writeShortAddLE(var3[var6]);
-					var8.packetBuffer.writeByteAdd(0);
-					Client.packetWriter.addNode(var8);
-				} else if (var0 == 7) {
-					var8 = class170.getPacketBufferNode(ClientPacket.OPPLAYER7, Client.packetWriter.isaacCipher);
-					var8.packetBuffer.writeShortAddLE(var3[var6]);
-					var8.packetBuffer.writeByteAdd(0);
-					Client.packetWriter.addNode(var8);
+			if (var0 == 2618) {
+				var4 = var3.method7325();
+				Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var4 != null ? var4.field3793 : 0;
+				return 1;
+			} else {
+				class359 var7;
+				if (var0 == 2619) {
+					var7 = var3.method7304();
+					Interpreter.Interpreter_stringStack[++class208.Interpreter_stringStackSize - 1] = var7 != null ? var7.method7111().method8415() : "";
+					return 1;
+				} else if (var0 == 2620) {
+					var4 = var3.method7325();
+					Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var4 != null ? var4.field3795 : 0;
+					return 1;
+				} else if (var0 == 2621) {
+					var7 = var3.method7304();
+					Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var7 != null ? var7.method7069() : 0;
+					return 1;
+				} else if (var0 == 2622) {
+					var7 = var3.method7304();
+					Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var7 != null ? var7.method7167() : 0;
+					return 1;
+				} else if (var0 == 2623) {
+					var7 = var3.method7304();
+					Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var7 != null ? var7.method7070() : 0;
+					return 1;
+				} else if (var0 == 2624) {
+					var7 = var3.method7304();
+					Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var7 != null && var7.method7060() ? 1 : 0;
+					return 1;
+				} else if (var0 != 2625) {
+					if (var0 == 2626) {
+						var7 = var3.method7304();
+						Interpreter.Interpreter_stringStack[++class208.Interpreter_stringStackSize - 1] = var7 != null ? var7.method7054().method8665() : "";
+						return 1;
+					} else if (var0 == 2627) {
+						var7 = var3.method7304();
+						int var5 = var7 != null ? var7.method7064() : 0;
+						int var6 = var7 != null ? var7.method7063() : 0;
+						Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = Math.min(var5, var6);
+						Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = Math.max(var5, var6);
+						return 1;
+					} else if (var0 == 2628) {
+						var7 = var3.method7304();
+						Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var7 != null ? var7.method7063() : 0;
+						return 1;
+					} else if (var0 == 2629) {
+						var7 = var3.method7304();
+						Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var7 != null ? var7.method7072() : 0;
+						return 1;
+					} else if (var0 == 2630) {
+						var7 = var3.method7304();
+						Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var7 != null ? var7.method7071() : 0;
+						return 1;
+					} else if (var0 == 2631) {
+						var7 = var3.method7304();
+						Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var7 != null ? var7.method7077() : 0;
+						return 1;
+					} else if (var0 == 2632) {
+						var7 = var3.method7304();
+						Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var7 != null ? var7.method7170() : 0;
+						return 1;
+					} else {
+						class27 var8;
+						if (var0 == 2633) {
+							var8 = var3.method7326();
+							Interpreter.Interpreter_intStack[class96.Interpreter_intStackSize - 1] = var8 != null ? var8.method395(Interpreter.Interpreter_intStack[class96.Interpreter_intStackSize - 1]) : 0;
+							return 1;
+						} else if (var0 == 2634) {
+							var8 = var3.method7326();
+							Interpreter.Interpreter_intStack[class96.Interpreter_intStackSize - 1] = var8 != null ? var8.method433((char)Interpreter.Interpreter_intStack[class96.Interpreter_intStackSize - 1]) : 0;
+							return 1;
+						} else {
+							return 2;
+						}
+					}
+				} else {
+					var7 = var3.method7304();
+					Interpreter.Interpreter_intStack[++class96.Interpreter_intStackSize - 1] = var7 != null && var7.method7061() ? 1 : 0;
+					return 1;
 				}
-
-				var4 = true;
-				break;
 			}
 		}
-
-		if (!var4) {
-			VarbitComposition.addGameMessage(4, "", "Unable to find " + var1);
-		}
-
 	}
 }

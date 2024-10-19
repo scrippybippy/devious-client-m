@@ -1,393 +1,168 @@
-import java.util.ArrayList;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("cq")
+@ObfuscatedName("cg")
 @Implements("ApproximateRouteStrategy")
 public class ApproximateRouteStrategy extends RouteStrategy {
-	@ObfuscatedName("el")
-	@ObfuscatedSignature(
-		descriptor = "Loz;"
-	)
-	@Export("archive2")
-	static Archive archive2;
-	@ObfuscatedName("jx")
-	static int[][] field460;
-
 	ApproximateRouteStrategy() {
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(IIILip;I)Z",
-		garbageValue = "950007468"
+		descriptor = "(IIILko;I)Z",
+		garbageValue = "1947951630"
 	)
 	@Export("hasArrived")
 	protected boolean hasArrived(int var1, int var2, int var3, CollisionMap var4) {
 		return var2 == super.approxDestinationX && var3 == super.approxDestinationY;
 	}
 
-	@ObfuscatedName("ad")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(II)Lhd;",
-		garbageValue = "331513751"
+		descriptor = "(Lpe;I)V",
+		garbageValue = "258656331"
 	)
-	@Export("getParamDefinition")
-	public static ParamComposition getParamDefinition(int var0) {
-		ParamComposition var1 = (ParamComposition)ParamComposition.ParamDefinition_cached.get((long)var0);
-		if (var1 != null) {
-			return var1;
-		} else {
-			byte[] var2 = class421.ParamDefinition_archive.takeFile(11, var0);
-			var1 = new ParamComposition();
-			if (var2 != null) {
-				var1.decode(new Buffer(var2));
+	public static void method1262(AbstractArchive var0) {
+		FloorUnderlayDefinition.FloorUnderlayDefinition_archive = var0;
+	}
+
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "(IIIII)V",
+		garbageValue = "290577893"
+	)
+	@Export("itemContainerSetItem")
+	static void itemContainerSetItem(int var0, int var1, int var2, int var3) {
+		ItemContainer var4 = (ItemContainer)ItemContainer.itemContainers.get((long)var0);
+		if (var4 == null) {
+			var4 = new ItemContainer();
+			ItemContainer.itemContainers.put(var4, (long)var0);
+		}
+
+		if (var4.ids.length <= var1) {
+			int[] var5 = new int[var1 + 1];
+			int[] var6 = new int[var1 + 1];
+
+			int var7;
+			for (var7 = 0; var7 < var4.ids.length; ++var7) {
+				var5[var7] = var4.ids[var7];
+				var6[var7] = var4.quantities[var7];
 			}
 
-			var1.postDecode();
-			ParamComposition.ParamDefinition_cached.put(var1, (long)var0);
-			return var1;
+			for (var7 = var4.ids.length; var7 < var1; ++var7) {
+				var5[var7] = -1;
+				var6[var7] = 0;
+			}
+
+			var4.ids = var5;
+			var4.quantities = var6;
+		}
+
+		var4.ids[var1] = var2;
+		var4.quantities[var1] = var3;
+	}
+
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "(Lpe;Lpe;Ljava/lang/String;Ljava/lang/String;I)Lqi;",
+		garbageValue = "-685706408"
+	)
+	public static Font method1264(AbstractArchive var0, AbstractArchive var1, String var2, String var3) {
+		if (!var0.isValidFileName(var2, var3)) {
+			return null;
+		} else {
+			int var4 = var0.getGroupId(var2);
+			int var5 = var0.getFileId(var4, var3);
+			return SecureRandomFuture.method2435(var0, var1, var4, var5);
 		}
 	}
 
-	@ObfuscatedName("ar")
+	@ObfuscatedName("as")
 	@ObfuscatedSignature(
-		descriptor = "(ILdg;ZB)I",
-		garbageValue = "122"
+		descriptor = "(II)I",
+		garbageValue = "1670529351"
 	)
-	static int method1223(int var0, Script var1, boolean var2) {
-		if (var0 == ScriptOpcodes.SOUND_SYNTH) {
-			class130.Interpreter_intStackSize -= 3;
-			SoundCache.queueSoundEffect(Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize], Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize + 1], Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize + 2]);
-			return 1;
+	@Export("iLog")
+	public static int iLog(int var0) {
+		int var1 = 0;
+		if (var0 < 0 || var0 >= 65536) {
+			var0 >>>= 16;
+			var1 += 16;
+		}
+
+		if (var0 >= 256) {
+			var0 >>>= 8;
+			var1 += 8;
+		}
+
+		if (var0 >= 16) {
+			var0 >>>= 4;
+			var1 += 4;
+		}
+
+		if (var0 >= 4) {
+			var0 >>>= 2;
+			var1 += 2;
+		}
+
+		if (var0 >= 1) {
+			var0 >>>= 1;
+			++var1;
+		}
+
+		return var0 + var1;
+	}
+
+	@ObfuscatedName("lm")
+	@ObfuscatedSignature(
+		descriptor = "(Lcr;III)V",
+		garbageValue = "-2048475485"
+	)
+	static final void method1258(MenuAction var0, int var1, int var2) {
+		if (var0 != null) {
+			class276.menuAction(var0.param0, var0.param1, var0.opcode, var0.identifier, var0.itemId, var0.worldViewId, var0.action, var0.target, var1, var2);
+		}
+
+	}
+
+	@ObfuscatedName("lj")
+	@ObfuscatedSignature(
+		descriptor = "(IIIIIIIII)V",
+		garbageValue = "68273016"
+	)
+	@Export("drawWidgets")
+	static final void drawWidgets(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
+		if (class416.widgetDefinition.loadInterface(var0)) {
+			HttpRequest.field40 = null;
+			class166.drawInterface(class416.widgetDefinition.Widget_interfaceComponents[var0], -1, var1, var2, var3, var4, var5, var6, var7);
+			if (HttpRequest.field40 != null) {
+				class166.drawInterface(HttpRequest.field40, -1412584499, var1, var2, var3, var4, FriendLoginUpdate.field5002, class230.field2465, var7);
+				HttpRequest.field40 = null;
+			}
+
 		} else {
-			int var3;
-			int var4;
-			int var5;
-			int var6;
-			int var7;
-			if (var0 == ScriptOpcodes.SOUND_SONG) {
-				class130.Interpreter_intStackSize -= 5;
-				var3 = Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize];
-				var4 = Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize + 1];
-				var5 = Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize + 2];
-				var6 = Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize + 3];
-				var7 = Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize + 4];
-				ArrayList var15 = new ArrayList();
-				var15.add(var3);
-				class498.method8899(var15, var4, var5, var6, var7);
-				return 1;
-			} else if (var0 == ScriptOpcodes.SOUND_JINGLE) {
-				class130.Interpreter_intStackSize -= 2;
-				LoginScreenAnimation.method2551(Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize], Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize + 1]);
-				return 1;
+			if (var7 != -1) {
+				Client.validRootWidgets[var7] = true;
 			} else {
-				class92 var10;
-				class91 var11;
-				String var14;
-				if (var0 != 3212 && var0 != 3213 && var0 != 3209 && var0 != 3181 && var0 != 3203 && var0 != 3205 && var0 != 3207) {
-					boolean var16;
-					if (var0 != 3214 && var0 != 3215 && var0 != 3210 && var0 != 3182 && var0 != 3204 && var0 != 3206 && var0 != 3208) {
-						if (var0 == 3211) {
-							return 1;
-						} else if (var0 == 3216) {
-							var3 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize];
-							var4 = 0;
-							class92 var19 = (class92)class210.findEnumerated(class6.method37(), var3);
-							if (var19 != null) {
-								var4 = var19 != class92.field1116 ? 1 : 0;
-							}
-
-							Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var4;
-							return 1;
-						} else if (var0 == 3218) {
-							var3 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize];
-							var4 = 0;
-							class91 var13 = (class91)class210.findEnumerated(Interpreter.method2144(), var3);
-							if (var13 != null) {
-								var4 = var13 != class91.field1102 ? 1 : 0;
-							}
-
-							Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var4;
-							return 1;
-						} else if (var0 != 3217 && var0 != 3219) {
-							if (var0 == 3220) {
-								class130.Interpreter_intStackSize -= 2;
-								var3 = Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize];
-								var4 = Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize + 1];
-								class137.method3187(var3, var4);
-								return 1;
-							} else if (var0 == 3221) {
-								class130.Interpreter_intStackSize -= 6;
-								var3 = Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize];
-								var4 = Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize + 1];
-								var5 = Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize + 2];
-								var6 = Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize + 3];
-								var7 = Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize + 4];
-								int var8 = Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize + 5];
-								ArrayList var9 = new ArrayList();
-								var9.add(var3);
-								var9.add(var4);
-								class498.method8899(var9, var5, var6, var7, var8);
-								return 1;
-							} else if (var0 == 3222) {
-								class130.Interpreter_intStackSize -= 4;
-								var3 = Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize];
-								var4 = Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize + 1];
-								var5 = Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize + 2];
-								var6 = Interpreter.Interpreter_intStack[class130.Interpreter_intStackSize + 3];
-								class108.method2812(var3, var4, var5, var6);
-								return 1;
-							} else {
-								return 2;
-							}
-						} else {
-							var10 = class92.field1116;
-							var11 = class91.field1102;
-							var16 = true;
-							boolean var17 = true;
-							if (var0 == 3217) {
-								var7 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize];
-								var10 = (class92)class210.findEnumerated(class6.method37(), var7);
-								if (var10 == null) {
-									throw new RuntimeException(String.format("Unrecognized device option %d", var7));
-								}
-							}
-
-							if (var0 == 3219) {
-								var7 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize];
-								var11 = (class91)class210.findEnumerated(Interpreter.method2144(), var7);
-								if (var11 == null) {
-									throw new RuntimeException(String.format("Unrecognized game option %d", var7));
-								}
-							}
-
-							String var12;
-							byte var18;
-							if (var11 == class91.field1102) {
-								switch(var10.field1108) {
-								case 1:
-								case 2:
-								case 3:
-									var18 = 0;
-									var6 = 1;
-									break;
-								case 4:
-									var18 = 0;
-									var6 = Integer.MAX_VALUE;
-									break;
-								case 5:
-									var18 = 0;
-									var6 = 100;
-									break;
-								default:
-									var12 = String.format("Unkown device option: %s.", var10.toString());
-									throw new RuntimeException(var12);
-								}
-							} else {
-								switch(var11.field1104) {
-								case 1:
-									var18 = 0;
-									var6 = 1;
-									break;
-								case 2:
-								case 3:
-								case 4:
-									var18 = 0;
-									var6 = 100;
-									break;
-								default:
-									var12 = String.format("Unkown game option: %s.", var11.toString());
-									throw new RuntimeException(var12);
-								}
-							}
-
-							Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var18;
-							Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var6;
-							return 1;
-						}
-					} else {
-						var10 = class92.field1116;
-						var11 = class91.field1102;
-						var16 = false;
-						if (var0 == 3214) {
-							var6 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize];
-							var10 = (class92)class210.findEnumerated(class6.method37(), var6);
-							if (var10 == null) {
-								throw new RuntimeException(String.format("Unrecognized device option %d", var6));
-							}
-						}
-
-						if (var0 == 3215) {
-							var6 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize];
-							var11 = (class91)class210.findEnumerated(Interpreter.method2144(), var6);
-							if (var11 == null) {
-								throw new RuntimeException(String.format("Unrecognized game option %d", var6));
-							}
-						}
-
-						if (var0 == 3210) {
-							var6 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize];
-							var10 = (class92)class210.findEnumerated(class6.method37(), var6);
-							if (var10 == null) {
-								var11 = (class91)class210.findEnumerated(Interpreter.method2144(), var6);
-								if (var11 == null) {
-									throw new RuntimeException(String.format("Unrecognized client option %d", var6));
-								}
-							}
-						} else if (var0 == 3182) {
-							var10 = class92.field1113;
-						} else if (var0 == 3204) {
-							var11 = class91.field1101;
-						} else if (var0 == 3206) {
-							var11 = class91.field1099;
-						} else if (var0 == 3208) {
-							var11 = class91.field1103;
-						}
-
-						if (var11 == class91.field1102) {
-							switch(var10.field1108) {
-							case 1:
-								var5 = class105.clientPreferences.isUsernameHidden() ? 1 : 0;
-								break;
-							case 2:
-								var5 = class105.clientPreferences.isTitleMusicDisabled() ? 1 : 0;
-								break;
-							case 3:
-								var5 = class105.clientPreferences.isDisplayingFps() ? 1 : 0;
-								break;
-							case 4:
-								var5 = class105.clientPreferences.method2581();
-								break;
-							case 5:
-								var5 = WorldMapArea.method4653();
-								break;
-							default:
-								var14 = String.format("Unkown device option: %s.", var10.toString());
-								throw new RuntimeException(var14);
-							}
-						} else {
-							switch(var11.field1104) {
-							case 1:
-								var5 = class105.clientPreferences.isRoofsHidden() ? 1 : 0;
-								break;
-							case 2:
-								var6 = class105.clientPreferences.getMusicVolume();
-								var5 = Math.round((float)(var6 * 100) / 255.0F);
-								break;
-							case 3:
-								var6 = class105.clientPreferences.getSoundEffectsVolume();
-								var5 = Math.round((float)(var6 * 100) / 127.0F);
-								break;
-							case 4:
-								var6 = class105.clientPreferences.getAreaSoundEffectsVolume();
-								var5 = Math.round((float)(var6 * 100) / 127.0F);
-								break;
-							default:
-								var14 = String.format("Unkown game option: %s.", var11.toString());
-								throw new RuntimeException(var14);
-							}
-						}
-
-						Interpreter.Interpreter_intStack[++class130.Interpreter_intStackSize - 1] = var5;
-						return 1;
-					}
-				} else {
-					var10 = class92.field1116;
-					var11 = class91.field1102;
-					var5 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize];
-					if (var0 == 3212) {
-						var6 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize];
-						var10 = (class92)class210.findEnumerated(class6.method37(), var6);
-						if (var10 == null) {
-							throw new RuntimeException(String.format("Unrecognized device option %d", var6));
-						}
-					}
-
-					if (var0 == 3213) {
-						var6 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize];
-						var11 = (class91)class210.findEnumerated(Interpreter.method2144(), var6);
-						if (var11 == null) {
-							throw new RuntimeException(String.format("Unrecognized game option %d", var6));
-						}
-					}
-
-					if (var0 == 3209) {
-						var6 = Interpreter.Interpreter_intStack[--class130.Interpreter_intStackSize];
-						var10 = (class92)class210.findEnumerated(class6.method37(), var6);
-						if (var10 == null) {
-							var11 = (class91)class210.findEnumerated(Interpreter.method2144(), var6);
-							if (var11 == null) {
-								throw new RuntimeException(String.format("Unrecognized client option %d", var6));
-							}
-						}
-					} else if (var0 == 3181) {
-						var10 = class92.field1113;
-					} else if (var0 == 3203) {
-						var11 = class91.field1101;
-					} else if (var0 == 3205) {
-						var11 = class91.field1099;
-					} else if (var0 == 3207) {
-						var11 = class91.field1103;
-					}
-
-					if (var11 == class91.field1102) {
-						switch(var10.field1108) {
-						case 1:
-							class105.clientPreferences.updateHideUsername(var5 == 1);
-							break;
-						case 2:
-							class105.clientPreferences.updateTitleMusicDisabled(var5 == 1);
-							break;
-						case 3:
-							class105.clientPreferences.updateDisplayFps(var5 == 1);
-							break;
-						case 4:
-							if (var5 < 0) {
-								var5 = 0;
-							}
-
-							class105.clientPreferences.method2657(var5);
-							break;
-						case 5:
-							class166.method3476(var5);
-							break;
-						default:
-							var14 = String.format("Unkown device option: %s.", var10.toString());
-							throw new RuntimeException(var14);
-						}
-					} else {
-						switch(var11.field1104) {
-						case 1:
-							class105.clientPreferences.updateRoofsHidden(var5 == 1);
-							break;
-						case 2:
-							var5 = Math.min(Math.max(var5, 0), 100);
-							var6 = Math.round((float)(var5 * 255) / 100.0F);
-							Script.setMusicVolume(var6);
-							break;
-						case 3:
-							var5 = Math.min(Math.max(var5, 0), 100);
-							var6 = Math.round((float)(var5 * 127) / 100.0F);
-							class105.method2785(var6);
-							break;
-						case 4:
-							var5 = Math.min(Math.max(var5, 0), 100);
-							var6 = Math.round((float)(var5 * 127) / 100.0F);
-							class148.method3278(var6);
-							break;
-						default:
-							var14 = String.format("Unkown game option: %s.", var11.toString());
-							throw new RuntimeException(var14);
-						}
-					}
-
-					return 1;
+				for (int var8 = 0; var8 < 100; ++var8) {
+					Client.validRootWidgets[var8] = true;
 				}
 			}
+
 		}
+	}
+
+	@ObfuscatedName("nu")
+	@ObfuscatedSignature(
+		descriptor = "(S)V",
+		garbageValue = "256"
+	)
+	@Export("Clan_leaveChat")
+	static final void Clan_leaveChat() {
+		PacketBufferNode var0 = class113.getPacketBufferNode(ClientPacket.field3409, Client.packetWriter.isaacCipher);
+		var0.packetBuffer.writeByte(0);
+		Client.packetWriter.addNode(var0);
 	}
 }

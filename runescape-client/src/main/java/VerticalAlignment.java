@@ -4,35 +4,35 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hx")
+@ObfuscatedName("hm")
 @Implements("VerticalAlignment")
 public enum VerticalAlignment implements Enum {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lhx;"
+		descriptor = "Lhm;"
 	)
-	field2044(0, 0),
-	@ObfuscatedName("ad")
+	field2058(0, 0),
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "Lhx;"
+		descriptor = "Lhm;"
 	)
 	@Export("VerticalAlignment_centered")
-	VerticalAlignment_centered(2, 1),
-	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "Lhx;"
-	)
-	field2043(1, 2);
-
+	VerticalAlignment_centered(1, 1),
 	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "Lhm;"
+	)
+	field2060(2, 2);
+
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = 1881852725
+		intValue = -375458665
 	)
 	@Export("value")
 	public final int value;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ai")
 	@ObfuscatedGetter(
-		intValue = 1807067017
+		intValue = -774760143
 	)
 	@Export("id")
 	final int id;
@@ -42,25 +42,13 @@ public enum VerticalAlignment implements Enum {
 		this.id = var4;
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "2071992588"
+		garbageValue = "1837624059"
 	)
 	@Export("rsOrdinal")
 	public int rsOrdinal() {
 		return this.id;
-	}
-
-	@ObfuscatedName("az")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V",
-		garbageValue = "-1478826917"
-	)
-	@Export("setLoginResponseString")
-	static void setLoginResponseString(String var0, String var1, String var2) {
-		Login.Login_response1 = var0;
-		Login.Login_response2 = var1;
-		Login.Login_response3 = var2;
 	}
 }

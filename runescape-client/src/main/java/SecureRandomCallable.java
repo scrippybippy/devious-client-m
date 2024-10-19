@@ -1,53 +1,60 @@
 import java.util.concurrent.Callable;
-import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("do")
+@ObfuscatedName("df")
 @Implements("SecureRandomCallable")
 public class SecureRandomCallable implements Callable {
+	@ObfuscatedName("aj")
+	@ObfuscatedGetter(
+		intValue = -883666811
+	)
+	static int field1053;
+
 	SecureRandomCallable() {
 	}
 
 	public Object call() {
-		return class401.method7407();
+		return class326.method6528();
 	}
 
-	@ObfuscatedName("me")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(Lnx;III)V",
-		garbageValue = "-2064856444"
+		descriptor = "(III)I",
+		garbageValue = "-593584825"
 	)
-	@Export("alignWidgetPosition")
-	static void alignWidgetPosition(Widget var0, int var1, int var2) {
-		if (var0.xAlignment == 0) {
-			var0.x = var0.rawX;
-		} else if (var0.xAlignment == 1) {
-			var0.x = var0.rawX + (var1 - var0.width) / 2;
-		} else if (var0.xAlignment == 2) {
-			var0.x = var1 - var0.width - var0.rawX;
-		} else if (var0.xAlignment == 3) {
-			var0.x = var0.rawX * var1 >> 14;
-		} else if (var0.xAlignment == 4) {
-			var0.x = (var0.rawX * var1 >> 14) + (var1 - var0.width) / 2;
-		} else {
-			var0.x = var1 - var0.width - (var0.rawX * var1 >> 14);
+	public static int method2529(int var0, int var1) {
+		int var2;
+		for (var2 = 1; var1 > 1; var1 >>= 1) {
+			if ((var1 & 1) != 0) {
+				var2 = var0 * var2;
+			}
+
+			var0 *= var0;
 		}
 
-		if (var0.yAlignment == 0) {
-			var0.y = var0.rawY;
-		} else if (var0.yAlignment == 1) {
-			var0.y = (var2 - var0.height) / 2 + var0.rawY;
-		} else if (var0.yAlignment == 2) {
-			var0.y = var2 - var0.height - var0.rawY;
-		} else if (var0.yAlignment == 3) {
-			var0.y = var2 * var0.rawY >> 14;
-		} else if (var0.yAlignment == 4) {
-			var0.y = (var2 * var0.rawY >> 14) + (var2 - var0.height) / 2;
+		if (var1 == 1) {
+			return var0 * var2;
 		} else {
-			var0.y = var2 - var0.height - (var2 * var0.rawY >> 14);
+			return var2;
 		}
+	}
 
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "(Lng;I)I",
+		garbageValue = "1943486547"
+	)
+	static int method2521(Widget var0) {
+		if (var0.type != 11) {
+			Interpreter.Interpreter_stringStack[class208.Interpreter_stringStackSize - 1] = "";
+			return 1;
+		} else {
+			String var1 = Interpreter.Interpreter_stringStack[--class208.Interpreter_stringStackSize];
+			Interpreter.Interpreter_stringStack[++class208.Interpreter_stringStackSize - 1] = var0.method7435(var1);
+			return 1;
+		}
 	}
 }

@@ -1,58 +1,56 @@
-import java.util.ArrayList;
-import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dg")
+@ObfuscatedName("da")
 @Implements("Script")
 public class Script extends DualNode {
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lmo;"
+		descriptor = "Lmi;"
 	)
 	@Export("Script_cached")
 	static EvictingDualNodeHashTable Script_cached;
-	@ObfuscatedName("ad")
-	String field1011;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("aw")
+	String field1002;
+	@ObfuscatedName("ak")
 	@Export("opcodes")
 	int[] opcodes;
-	@ObfuscatedName("ak")
+	@ObfuscatedName("aj")
 	@Export("intOperands")
 	int[] intOperands;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ai")
 	@Export("stringOperands")
 	String[] stringOperands;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
-		intValue = -1746577925
+		intValue = -1180786261
 	)
 	@Export("localIntCount")
 	int localIntCount;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("as")
 	@ObfuscatedGetter(
-		intValue = -1287810367
+		intValue = 184594585
 	)
 	@Export("localStringCount")
 	int localStringCount;
-	@ObfuscatedName("av")
+	@ObfuscatedName("ae")
 	@ObfuscatedGetter(
-		intValue = 63573081
+		intValue = 256793603
 	)
 	@Export("intArgumentCount")
 	int intArgumentCount;
-	@ObfuscatedName("ab")
+	@ObfuscatedName("am")
 	@ObfuscatedGetter(
-		intValue = -1982128447
+		intValue = 9671493
 	)
 	@Export("stringArgumentCount")
 	int stringArgumentCount;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "[Lth;"
+		descriptor = "[Lum;"
 	)
 	@Export("switches")
 	IterableNodeHashTable[] switches;
@@ -64,56 +62,57 @@ public class Script extends DualNode {
 	Script() {
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
-		descriptor = "(II)[Lth;",
-		garbageValue = "978095262"
+		descriptor = "(IS)[Lum;",
+		garbageValue = "17760"
 	)
 	@Export("newIterableNodeHashTable")
 	IterableNodeHashTable[] newIterableNodeHashTable(int var1) {
 		return new IterableNodeHashTable[var1];
 	}
 
-	@ObfuscatedName("nx")
-	@ObfuscatedSignature(
-		descriptor = "(IB)V",
-		garbageValue = "-8"
-	)
-	@Export("setMusicVolume")
-	static final void setMusicVolume(int var0) {
-		var0 = Math.min(Math.max(var0, 0), 255);
-		if (var0 != class105.clientPreferences.getMusicVolume()) {
-			if (class105.clientPreferences.getMusicVolume() == 0 && class243.method4563()) {
-				Archive var1 = class199.archive6;
-				if (!class330.field3585.isEmpty()) {
-					ArrayList var2 = new ArrayList();
-					Iterator var3 = class330.field3585.iterator();
+	@ObfuscatedName("ak")
+	@Export("base37DecodeLong")
+	public static String base37DecodeLong(long var0) {
+		if (var0 > 0L && var0 < 6582952005840035281L) {
+			if (var0 % 37L == 0L) {
+				return null;
+			} else {
+				int var2 = 0;
 
-					while (var3.hasNext()) {
-						MusicSong var4 = (MusicSong)var3.next();
-						var4.field3710 = false;
-						var4.field3709 = false;
-						var4.field3715 = false;
-						var4.field3712 = false;
-						var4.musicTrackArchive = var1;
-						var4.musicTrackVolume = var0;
-						var4.field3704 = 0.0F;
-						var2.add(var4);
-					}
-
-					FontName.method9220(var2, class330.musicPlayerStatus, class330.field3589, class330.field3590, class330.field3586, false);
+				for (long var3 = var0; 0L != var3; var3 /= 37L) {
+					++var2;
 				}
 
-				Client.playingJingle = false;
-			} else if (var0 == 0) {
-				class137.method3187(0, 0);
-				Client.playingJingle = false;
-			} else {
-				HttpResponse.method300(var0);
+				StringBuilder var5;
+				char var8;
+				for (var5 = new StringBuilder(var2); var0 != 0L; var5.append(var8)) {
+					long var6 = var0;
+					var0 /= 37L;
+					var8 = class421.base37Table[(int)(var6 - var0 * 37L)];
+					if (var8 == '_') {
+						int var9 = var5.length() - 1;
+						var5.setCharAt(var9, Character.toUpperCase(var5.charAt(var9)));
+						var8 = 160;
+					}
+				}
+
+				var5.reverse();
+				var5.setCharAt(0, Character.toUpperCase(var5.charAt(0)));
+				return var5.toString();
 			}
-
-			class105.clientPreferences.updateMusicVolume(var0);
+		} else {
+			return null;
 		}
+	}
 
+	@ObfuscatedName("or")
+	@ObfuscatedSignature(
+		descriptor = "(ZI)V",
+		garbageValue = "1984554171"
+	)
+	static void method2454(boolean var0) {
+		Client.leftClickOpensMenu = var0;
 	}
 }

@@ -1,78 +1,111 @@
+import java.security.SecureRandom;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
+import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("mq")
-public final class class326 {
-	@ObfuscatedName("aq")
-	@ObfuscatedGetter(
-		longValue = -2691792936480656095L
+@ObfuscatedName("mv")
+public class class326 implements class321 {
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "Lmv;"
 	)
-	static long field3556;
-	@ObfuscatedName("ad")
-	@ObfuscatedGetter(
-		longValue = -5719883573189299259L
+	public static final class326 field3587;
+	@ObfuscatedName("aw")
+	@ObfuscatedSignature(
+		descriptor = "Lmv;"
 	)
-	static long field3555;
+	public static final class326 field3584;
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "Lmv;"
+	)
+	public static final class326 field3588;
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "Lmv;"
+	)
+	public static final class326 field3585;
+	@ObfuscatedName("ai")
+	@ObfuscatedSignature(
+		descriptor = "Lmv;"
+	)
+	public static final class326 field3590;
+	@ObfuscatedName("ay")
+	@ObfuscatedSignature(
+		descriptor = "Lmv;"
+	)
+	public static final class326 field3586;
+	@ObfuscatedName("as")
+	@ObfuscatedSignature(
+		descriptor = "Lmv;"
+	)
+	public static final class326 field3589;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Lmv;"
+	)
+	static final class326 field3583;
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "[Lmv;"
+	)
+	static final class326[] field3593;
+	@ObfuscatedName("am")
+	@ObfuscatedGetter(
+		intValue = 1270591485
+	)
+	public final int field3591;
+	@ObfuscatedName("at")
+	@ObfuscatedGetter(
+		intValue = -1874243187
+	)
+	public final int field3592;
 
-	@ObfuscatedName("aq")
-	public static final int method6124(double var0, double var2, double var4) {
-		double var6 = var4;
-		double var8 = var4;
-		double var10 = var4;
-		if (var2 != 0.0D) {
-			double var12;
-			if (var4 < 0.5D) {
-				var12 = (var2 + 1.0D) * var4;
-			} else {
-				var12 = var2 + var4 - var2 * var4;
-			}
+	static {
+		field3587 = new class326(14, 0);
+		field3584 = new class326(15, 20);
+		field3588 = new class326(16, -2);
+		field3585 = new class326(18, -2);
+		field3590 = new class326(19, -2);
+		field3586 = new class326(20, 58);
+		field3589 = new class326(21, 37);
+		field3583 = new class326(27, 0);
+		field3593 = new class326[32];
+		class326[] var0 = new class326[]{field3590, field3584, field3585, field3587, field3588, field3589, field3583, field3586};
+		class326[] var1 = var0;
 
-			double var14 = 2.0D * var4 - var12;
-			double var16 = var0 + 0.3333333333333333D;
-			if (var16 > 1.0D) {
-				--var16;
-			}
-
-			double var20 = var0 - 0.3333333333333333D;
-			if (var20 < 0.0D) {
-				++var20;
-			}
-
-			if (var16 * 6.0D < 1.0D) {
-				var6 = var16 * (var12 - var14) * 6.0D + var14;
-			} else if (2.0D * var16 < 1.0D) {
-				var6 = var12;
-			} else if (3.0D * var16 < 2.0D) {
-				var6 = var14 + 6.0D * (var12 - var14) * (0.6666666666666666D - var16);
-			} else {
-				var6 = var14;
-			}
-
-			if (6.0D * var0 < 1.0D) {
-				var8 = var14 + var0 * 6.0D * (var12 - var14);
-			} else if (2.0D * var0 < 1.0D) {
-				var8 = var12;
-			} else if (3.0D * var0 < 2.0D) {
-				var8 = var14 + 6.0D * (var12 - var14) * (0.6666666666666666D - var0);
-			} else {
-				var8 = var14;
-			}
-
-			if (var20 * 6.0D < 1.0D) {
-				var10 = var14 + 6.0D * (var12 - var14) * var20;
-			} else if (2.0D * var20 < 1.0D) {
-				var10 = var12;
-			} else if (var20 * 3.0D < 2.0D) {
-				var10 = var14 + 6.0D * (var12 - var14) * (0.6666666666666666D - var20);
-			} else {
-				var10 = var14;
-			}
+		for (int var2 = 0; var2 < var1.length; ++var2) {
+			field3593[var1[var2].field3591] = var1[var2];
 		}
 
-		int var22 = (int)(256.0D * var6);
-		int var13 = (int)(var8 * 256.0D);
-		int var23 = (int)(256.0D * var10);
-		int var15 = var23 + (var13 << 8) + (var22 << 16);
-		return var15;
+	}
+
+	class326(int var1, int var2) {
+		this.field3591 = var1;
+		this.field3592 = var2;
+	}
+
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "946889204"
+	)
+	public static void method6529() {
+		ByteArrayPool.field4902.clear();
+		ByteArrayPool.field4902.add(100);
+		ByteArrayPool.field4902.add(5000);
+		ByteArrayPool.field4902.add(10000);
+		ByteArrayPool.field4902.add(30000);
+	}
+
+	@ObfuscatedName("ai")
+	@ObfuscatedSignature(
+		descriptor = "(I)Ljava/security/SecureRandom;",
+		garbageValue = "600868912"
+	)
+	static SecureRandom method6528() {
+		SecureRandom var0 = new SecureRandom();
+		var0.nextInt();
+		return var0;
 	}
 }
