@@ -30,8 +30,8 @@ buildscript {
         mavenLocal()
         mavenCentral()
         maven(url = "https://repo.runelite.net")
-        maven(url = "https://raw.githubusercontent.com/jbx5/hosting/master")
-        maven(url = "https://raw.githubusercontent.com/jbx5/devious-hosting/master")
+        maven(url = "https://raw.githubusercontent.com/melxin/devious-artifacts/master")
+        maven(url = "https://raw.githubusercontent.com/melxin/devious-hosting/master")
     }
     dependencies {
         classpath("org.ajoberstar.grgit:grgit-core:5.2.2")
@@ -93,7 +93,7 @@ subprojects {
         exclusiveContent {
             forRepository {
                 maven {
-                    url = uri("https://raw.githubusercontent.com/jbx5/hosting/master")
+                    url = uri("https://raw.githubusercontent.com/melxin/devious-artifacts/master")
                 }
             }
             filter {
