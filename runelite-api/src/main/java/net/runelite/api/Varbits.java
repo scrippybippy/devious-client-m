@@ -959,6 +959,15 @@ public final class Varbits
 	 */
 	public static final int COLOSSAL_WYRM_COURSE_ADVANCED = 11293;
 
+	public static final int WINTERTODT_WARMTH = 11434;
+
+	public static final int COMBAT_TASK_EASY = 12885;
+	public static final int COMBAT_TASK_MEDIUM = 12886;
+	public static final int COMBAT_TASK_HARD = 12887;
+	public static final int COMBAT_TASK_ELITE = 12888;
+	public static final int COMBAT_TASK_MASTER = 12889;
+	public static final int COMBAT_TASK_GRANDMASTER = 12890;
+
 	/**
 	 * See <a href="https://oldschool.runescape.wiki/w/File:Ernest_the_Chicken_-_Oil_can_map.png">Draynor manor basement</a>
 	 */

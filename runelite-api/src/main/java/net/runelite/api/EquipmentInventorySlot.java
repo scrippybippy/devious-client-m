@@ -45,9 +45,12 @@ public enum EquipmentInventorySlot
 	WEAPON(3, WidgetInfo.EQUIPMENT_WEAPON),
 	BODY(4, WidgetInfo.EQUIPMENT_BODY),
 	SHIELD(5, WidgetInfo.EQUIPMENT_SHIELD),
+	ARMS(6, null),
 	LEGS(7, WidgetInfo.EQUIPMENT_LEGS),
+	HAIR(8, null),
 	GLOVES(9, WidgetInfo.EQUIPMENT_GLOVES),
 	BOOTS(10, WidgetInfo.EQUIPMENT_BOOTS),
+	JAW(11, null),
 	RING(12, WidgetInfo.EQUIPMENT_RING),
 	AMMO(13, WidgetInfo.EQUIPMENT_AMMO);
 
