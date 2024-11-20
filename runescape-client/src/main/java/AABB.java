@@ -1,144 +1,90 @@
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jb")
+@ObfuscatedName("jk")
 @Implements("AABB")
 public class AABB {
-	@ObfuscatedName("as")
-	@ObfuscatedGetter(
-		intValue = -435318551
+	@ObfuscatedName("vq")
+	@ObfuscatedSignature(
+		descriptor = "Lpf;"
 	)
-	@Export("gameCyclesToDo")
-	static int gameCyclesToDo;
-	@ObfuscatedName("ap")
+	@Export("grandExchangeEvents")
+	static GrandExchangeEvents grandExchangeEvents;
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = -957884077
+		intValue = 1764701235
+	)
+	@Export("orientation")
+	final int orientation;
+	@ObfuscatedName("aw")
+	@ObfuscatedGetter(
+		intValue = 1457712909
 	)
 	@Export("xMid")
 	int xMid;
-	@ObfuscatedName("aw")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 54225735
+		intValue = 565410795
 	)
 	@Export("yMid")
 	int yMid;
-	@ObfuscatedName("ak")
+	@ObfuscatedName("ae")
 	@ObfuscatedGetter(
-		intValue = 423339171
+		intValue = -841799799
 	)
 	@Export("zMid")
 	int zMid;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("ao")
 	@ObfuscatedGetter(
-		intValue = -449342943
+		intValue = -252446047
 	)
 	@Export("xMidOffset")
 	int xMidOffset;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("ac")
 	@ObfuscatedGetter(
-		intValue = 1050702601
+		intValue = -297231209
 	)
 	@Export("yMidOffset")
 	int yMidOffset;
-	@ObfuscatedName("ay")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -2056503993
+		intValue = -1584322801
 	)
 	@Export("zMidOffset")
 	int zMidOffset;
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "Ljk;"
+	)
+	@Export("aabb")
+	AABB aabb;
 
-	AABB(int var1, int var2, int var3, int var4, int var5, int var6) {
-		this.xMid = var1;
-		this.yMid = var2;
-		this.zMid = var3;
-		this.xMidOffset = var4;
-		this.yMidOffset = var5;
-		this.zMidOffset = var6;
+	AABB(int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
+		this.orientation = var1;
+		this.xMid = var2;
+		this.yMid = var3;
+		this.zMid = var4;
+		this.xMidOffset = var5;
+		this.yMidOffset = var6;
+		this.zMidOffset = var7;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "4"
+		descriptor = "(Lvj;BIS)I",
+		garbageValue = "23401"
 	)
-	public static void method5246() {
-		class190.field2023.clear();
-	}
-
-	@ObfuscatedName("aw")
-	@ObfuscatedSignature(
-		descriptor = "(B)Lqp;",
-		garbageValue = "-21"
-	)
-	public static class427 method5244() {
-		synchronized(class427.field4776) {
-			if (class427.field4775 == 0) {
-				return new class427();
-			} else {
-				class427.field4776[--class427.field4775].method8223();
-				return class427.field4776[class427.field4775];
-			}
-		}
-	}
-
-	@ObfuscatedName("ai")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-2048730036"
-	)
-	public static void method5245() {
-		VarpDefinition.VarpDefinition_cached.clear();
-	}
-
-	@ObfuscatedName("ax")
-	@ObfuscatedSignature(
-		descriptor = "(Lio;III)Lbm;",
-		garbageValue = "1978096240"
-	)
-	public static final PcmPlayer method5243(TaskHandler var0, int var1, int var2) {
-		if (ArchiveLoader.field1059 * -336955471 == 0) {
-			throw new IllegalStateException();
-		} else if (var1 >= 0 && var1 < 2) {
-			if (var2 < 256) {
-				var2 = 256;
-			}
-
-			try {
-				PcmPlayer var3 = PcmPlayer.pcmPlayerProvider.player();
-				var3.samples = new int[(class550.PcmPlayer_stereo ? 2 : 1) * 256];
-				var3.field263 = var2;
-				var3.init();
-				var3.capacity = (var2 & -1024) + 1024;
-				if (var3.capacity > 16384) {
-					var3.capacity = 16384;
-				}
-
-				var3.open(var3.capacity);
-				if (ConcurrentMidiTask.field4886 > 0 && AccessFile.soundSystem == null) {
-					AccessFile.soundSystem = new SoundSystem();
-					class6.soundSystemExecutor = Executors.newScheduledThreadPool(1);
-					class6.soundSystemExecutor.scheduleAtFixedRate(AccessFile.soundSystem, 0L, 10L, TimeUnit.MILLISECONDS);
-				}
-
-				if (AccessFile.soundSystem != null) {
-					if (AccessFile.soundSystem.players[var1] != null) {
-						throw new IllegalArgumentException();
-					}
-
-					AccessFile.soundSystem.players[var1] = var3;
-				}
-
-				return var3;
-			} catch (Throwable var4) {
-				return new PcmPlayer();
-			}
+	public static int method5139(Buffer var0, byte var1, int var2) {
+		int var3 = var1 >> var2 & 3;
+		if (var3 == 3) {
+			return var0.readInt();
+		} else if (var3 == 2) {
+			return var0.readShort();
 		} else {
-			throw new IllegalArgumentException();
+			return var3 == 1 ? var0.readByte() : 0;
 		}
 	}
 }

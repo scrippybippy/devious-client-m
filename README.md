@@ -3,7 +3,7 @@ This is an open source fork of OpenOSRS and Unethicalite that I'm looking to act
 
 Come join my discord if you're looking to share knowledge and learn together!
 
-https://discord.gg/5sh52G36GF
+https://discord.gg/Xt56Hhnu2M
 
 You can also support this project through Patreon:
 
