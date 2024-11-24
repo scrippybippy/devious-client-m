@@ -23,7 +23,8 @@ public class DeathEvent extends BlockingEvent
 	@Override
 	public int loop()
 	{
-		if (Players.getLocal().isMoving())
+		return 60_000;
+	/*	if (Players.getLocal().isMoving())
 		{
 			return 1000;
 		}
@@ -61,6 +62,6 @@ public class DeathEvent extends BlockingEvent
 					.findFirst().ifPresent(incompleteDialog -> Dialog.chooseOption(Dialog.getOptions().indexOf(incompleteDialog) + 1));
 		}
 
-		return 1000;
+		return 1000;*/
 	}
 }

@@ -2,6 +2,7 @@ package net.unethicalite.api.script.blocking_events;
 
 import net.runelite.api.MenuAction;
 import net.runelite.api.widgets.Widget;
+import net.unethicalite.api.game.Game;
 import net.unethicalite.api.widgets.Widgets;
 import net.unethicalite.client.Static;
 
@@ -10,7 +11,7 @@ public class WelcomeScreenEvent extends BlockingEvent
 	@Override
 	public boolean validate()
 	{
-		return isWelcomeScreenOpen();
+		return Game.isLoggedIn() && isWelcomeScreenOpen();
 	}
 
 	@Override

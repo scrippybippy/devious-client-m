@@ -181,10 +181,10 @@ public abstract class HInteractionMixin extends RSClientMixin implements RSClien
 			tmpEntry.setWorldViewId(-1);
 			event = new MenuOptionClicked(tmpEntry);
 
-			if (canvasX != -1 || canvasY != -1)
+			/*if (canvasX != -1 || canvasY != -1)
 			{
 				client.getLogger().warn("Unable to find clicked menu op {} targ {} action {} id {} p0 {} p1 {} item {}", option, target, opcode, id, param0, param1, itemId);
-			}
+			}*/
 		}
 		else
 		{
